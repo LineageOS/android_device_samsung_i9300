@@ -71,6 +71,9 @@ BOARD_USES_HWCOMPOSER := true
 BOARD_USE_SECTVOUT := true
 BOARD_USES_FIMGAPI := true
 
+TARGET_HAL_PATH := hardware/samsung/exynos/hal/exynos4
+TARGET_OMX_PATH := hardware/samsung/exynos/multimedia/openmax
+
 # OMX
 BOARD_HAVE_CODEC_SUPPORT := SAMSUNG_CODEC_SUPPORT
 COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CODEC_SUPPORT
