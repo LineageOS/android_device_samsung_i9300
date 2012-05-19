@@ -1,0 +1,264 @@
+import init.smdk4x12.usb.rc
+
+on early-init
+    export EXTERNAL_STORAGE /mnt/sdcard
+    export SECONDARY_STORAGE /mnt/extSdCard
+    
+    mkdir /mnt/sdcard 0000 system system
+    mkdir /mnt/extSdCard 0000 system system
+    mkdir /mnt/usbdisk 0000 system system
+
+    # for backwards compatibility
+    symlink /mnt/sdcard /sdcard
+    symlink /mnt/extSdCard /extSdCard
+    symlink /efs /factory
+
+    mkdir /efs
+
+# ko files for exfat
+    insmod /system/lib/modules/exfat_core.ko
+    insmod /system/lib/modules/exfat_fs.ko
+
+# ko files for FM Radio
+    insmod /system/lib/modules/Si4709_driver.ko
+
+# for bluetooth
+	insmod /system/lib/modules/btlock.ko
+	chmod 664 /dev/btlock
+	chown bluetooth system /dev/btlock
+
+on fs
+    mount ext4 /dev/block/mmcblk0p9 /system ro wait noatime
+    mount ext4 /dev/block/mmcblk0p12 /data wait nosuid nodev noatime discard,noauto_da_alloc,journal_async_commit
+    mount ext4 /dev/block/mmcblk0p8 /cache nosuid nodev noatime journal_async_commit
+    mount ext4 /dev/block/mmcblk0p3 /efs nosuid nodev noatime wait journal_async_commit
+    chown radio system /efs
+    chmod 0771 /efs
+
+on post-fs-data
+     # we will remap this as /mnt/sdcard with the sdcard fuse tool
+     mkdir /data/media 0775 media_rw media_rw
+     chown media_rw media_rw /data/media
+
+    # create data/gps for GPS demon
+    chown root system /dev/ttySAC1
+    chmod 0660 /dev/ttySAC1
+    chown root system /sys/class/sec/gps/GPS_PWR_EN/value
+    chmod 0664 /sys/class/sec/gps/GPS_PWR_EN/value
+    chown root system /sys/class/sec/gps/GPS_nRST/value
+    chmod 0664 /sys/class/sec/gps/GPS_nRST/value
+    mkdir /data/gps 771 system system
+    chown system system /data/gps
+
+# icd
+    exec icd_check
+    chown system system /dev/icd
+    chmod 0644 /dev/icd
+    write /dev/icdr 0
+    chown system system /dev/icdr
+    chmod 0644 /dev/icdr
+    chown system system /dev/tzic
+
+# HDCP 2.x
+    mkdir /data/system/hdcp2 0775 system system
+
+# h2k permission
+    chmod 0644 /efs/redata.bin
+    chmod 0644 /efs/h2k.dat
+
+# Camera
+	mkdir /data/cfw 0775 system system
+
+# Permissions for bluetooth
+    setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
+    chown bluetooth bluetooth ro.bt.bdaddr_path
+    chown bluetooth bluetooth /dev/ttySAC0
+    chmod 0600 /dev/ttySAC0
+    chmod 0660 /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+
+# NFC
+    setprop ro.nfc.port "I2C"
+    chmod 0600 /dev/pn544
+    chown nfc nfc /dev/pn544
+    
+# Vibetonz
+    chmod 0660 /dev/tspdrv
+    chown root shell /dev/tspdrv
+    
+# Permissions for LCD
+    chown system radio /sys/class/lcd/panel/lcd_power
+    chown system radio /sys/class/lcd/panel/lcd_type
+    chown system radio /sys/class/lcd/panel/device/hs_toggle
+    chown system media_rw /sys/class/lcd/panel/power_reduce
+    chown system system /sys/class/backlight/panel/auto_brightness
+    chown system system /sys/class/graphics/fb0/lcdfreq/level
+
+# Permissions for mDNIe
+    chown system media_rw /sys/class/mdnie/mdnie/mode
+    chown system media_rw /sys/class/mdnie/mdnie/outdoor
+    chown system media_rw /sys/class/mdnie/mdnie/scenario
+    chown system system /sys/class/mdnie/mdnie/negative
+
+# Switch Device
+    chown system system /sys/class/sec/switch/uart_sel
+    chown system system /sys/class/sec/switch/usb_sel
+    chown system system /sys/class/sec/switch/otg_test
+    chown system radio /sys/class/sec/switch/adc
+
+# SVC LED
+	chown system system /sys/class/sec/led/led_r
+	chown system system /sys/class/sec/led/led_g
+	chown system system /sys/class/sec/led/led_b
+
+	chown system system /sys/class/leds/led_r/brightness
+	chown system system /sys/class/leds/led_g/brightness
+	chown system system /sys/class/leds/led_b/brightness
+	chown system system /sys/class/leds/led_r/delay_on
+	chown system system /sys/class/leds/led_g/delay_on
+	chown system system /sys/class/leds/led_b/delay_on
+	chown system system /sys/class/leds/led_r/delay_off
+	chown system system /sys/class/leds/led_g/delay_off
+	chown system system /sys/class/leds/led_b/delay_off
+	chown system system /sys/class/leds/led_r/blink
+	chown system system /sys/class/leds/led_g/blink
+	chown system system /sys/class/leds/led_b/blink
+
+	chown system system /sys/class/sec/led/led_pattern
+	chown system system /sys/class/sec/led/led_blink
+	chown system system /sys/class/sec/led/led_br_lev
+
+# for datarouter
+    chown system system /dev/dun
+    chown system system /dev/ttyGS0
+    chown system system /dev/ttyGS1
+    chown system system /dev/ttyGS2
+    chown system system /dev/ttyGS3
+
+     # Set indication (checked by vold) that we have finished this action
+     setprop vold.post_fs_data_done 1
+
+on boot
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
+
+    setprop ro.build.product smdk4x12
+    setprop ro.product.device smdk4x12
+    setprop ro.radio.noril yes
+
+# fake some battery state
+    setprop status.battery.state Slow
+    setprop status.battery.level 5
+    setprop status.battery.level_raw  50
+    setprop status.battery.level_scale 9
+
+    # Set permission for Widevine DRM temporarily
+    chmod 0777 /dev/s5p-smem
+    rm /data/app/tlcd_sock
+
+    # make param block device link for SysScope
+    symlink /dev/block/mmcblk0p4 /dev/block/param
+
+# serial keyboard port
+	chown root system /dev/ttySAC2
+	chmod 0660 /dev/ttySAC2
+
+# touchscreen
+    chown radio system /sys/class/sec/tsp/cmd
+    chown media_rw media_rw /sys/class/sec/tsp/set_jitter    
+
+# epen
+    chown radio system /sys/class/sec/sec_epen/epen_firm_update
+    chown radio system /sys/class/sec/sec_epen/epen_checksum
+    chown radio system /sys/class/sec/sec_epen/epen_checksum_result
+    chown radio system /sys/class/sec/sec_epen/epen_reset
+    
+# wakeup keys
+    chown radio system /sys/class/sec/sec_key/wakeup_keys
+    write /sys/class/sec/sec_key/wakeup_keys 116,172
+
+# serial keyboard daemon
+service sec_keyboard /system/bin/sec_keyboard /dev/ttySAC2
+	class late_start
+	disabled
+	group system
+
+on property:ro.uart_debug=0
+	start sec_keyboard
+
+# create virtual SD card at /mnt/sdcard, based on the /data/media directory
+# daemon will drop to user/group system/media_rw after initializing
+# underlying files in /data/media wil be created with user and group media_rw (1023)
+service sdcard /system/bin/sdcard /data/media 1023 1023
+    class late_start
+
+# icd
+service icd /system/bin/icd
+    class main
+    user system
+    group system log
+    onrestart exec icd_check
+
+service cpboot-daemon /sbin/cbd -d
+    class main
+    user root
+    group radio cache inet misc audio sdcard_rw log
+
+service wpa_supplicant /system/bin/wpa_supplicant \
+    -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -e/data/misc/wifi/entropy.bin
+    #   we will start as root and wpa_supplicant will switch to user wifi
+    #   after setting up the capabilities required for WEXT
+    #   user wifi
+    #   group wifi inet keystore
+    class main
+    socket wpa_wlan0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
+service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_p2p /system/bin/dhcpcd -aABKL
+    class main
+    disabled
+    oneshot
+
+service iprenew_wlan0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service iprenew_p2p /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --no2bytes --tosleep 50000 \
+	--baudrate 4000000 --use_baudrate_for_download --patchram /system/bin/bcm4334.hcd \
+	--i2s=1,0,0,0  /dev/ttySAC0
+    class main
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+# for bluetooth pan
+service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
+	class main
+	disabled
+	oneshot
+
+service gpsd /system/bin/gpsd -c /system/etc/gps.xml
+    class main
+    socket gps seqpacket 0660 gps system
+    user gps
+    group system inet sdcard_rw
+
+# TVout
+service TvoutService_C /system/bin/bintvoutservice
+     class main
+     user system
+     group graphics
+
