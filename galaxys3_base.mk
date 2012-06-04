@@ -75,16 +75,16 @@ PRODUCT_PACKAGES := \
 # HAL
 PRODUCT_PACKAGES += \
 	libgralloc_ump \
-	libhdmi \
-	libfimc \
-	libhwcomposer \
 	libhwconverter \
 	libhwjpeg \
 	libfimg \
-	libtinyalsa \
-	libcec \
-	libddc \
-	libedid
+	libtinyalsa
+	#libhdmi \
+	#libfimc \
+	#libhwcomposer \
+	#libcec \
+	#libddc \
+	#libedid \
 	#libhdmiclient \
 	#libTVOut \
 
