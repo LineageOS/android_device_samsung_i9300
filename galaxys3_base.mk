@@ -118,7 +118,7 @@ PRODUCT_PACKAGES += \
 
 # MFC API
 PRODUCT_PACKAGES += \
-    libsecmfcapi
+	libsecmfcapi
 
 # OMX
 PRODUCT_PACKAGES += \
