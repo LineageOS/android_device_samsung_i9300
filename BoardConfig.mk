@@ -117,7 +117,7 @@ BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # assert
-TARGET_OTA_ASSERT_DEVICE := i9300,GT-I9300
+TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
 
 # inherit from the proprietary version
 -include vendor/samsung/i9300/BoardConfigVendor.mk
