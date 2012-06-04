@@ -67,6 +67,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_EGL_CFG := device/samsung/i9300/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 
+# Audio
+BOARD_USE_SAMSUNG_SEPARATEDSTREAM := true
+
 # HWComposer
 BOARD_USES_HWCOMPOSER := true
 BOARD_USE_SECTVOUT := true
