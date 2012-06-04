@@ -17,5 +17,6 @@
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),i9300)
+include $(BUILD_SYSTEM)/base_rules.mk
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
