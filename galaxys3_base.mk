@@ -82,8 +82,13 @@ PRODUCT_PACKAGES += \
 	libhwcomposer \
 	libhwconverter \
 	libhwjpeg \
-	libfimg4x \
-	libtinyalsa
+	libfimg \
+	libtinyalsa \
+	libhdmiclient \
+	libTVOut \
+	libcec \
+	libddc \
+	libedid
 
 # MFC API
 PRODUCT_PACKAGES += \
