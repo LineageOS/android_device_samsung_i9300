@@ -78,15 +78,43 @@ PRODUCT_PACKAGES += \
 	libhwconverter \
 	libhwjpeg \
 	libfimg \
-	libtinyalsa
-	#libhdmi \
-	#libfimc \
-	#libhwcomposer \
-	#libcec \
-	#libddc \
-	#libedid \
-	#libhdmiclient \
-	#libTVOut \
+	libtinyalsa \
+	nfc.exynos4
+
+#libhdmi \
+#libfimc \
+#libhwcomposer \
+#libcec \
+#libddc \
+#libedid \
+#libhdmiclient \
+#libTVOut \
+
+# NFC
+PRODUCT_PACKAGES += \
+	libnfc \
+	libnfc_jni \
+	Nfc \
+	Tag
+
+PRODUCT_COPY_FILES += \
+	packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
+	device/sample/nxp/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
+	frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+	frameworks/base/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
+
+# NFCEE access control
+ifeq ($(TARGET_BUILD_VARIANT),user)
+	NFCEE_ACCESS_PATH := device/samsung/i9300/nfcee_access.xml
+else
+	NFCEE_ACCESS_PATH := device/samsung/i9300/nfcee_access_debug.xml
+endif
+
+PRODUCT_COPY_FILES += \
+	$(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+
+PRODUCT_PACKAGES += \
+	com.android.nfc_extras
 
 # MFC API
 PRODUCT_PACKAGES += \
@@ -183,3 +211,4 @@ $(call inherit-product, frameworks/base/build/phone-xhdpi-1024-dalvik-heap.mk)
 TARGET_HAL_PATH := hardware/samsung/exynos4/hal
 TARGET_OMX_PATH := hardware/samsung/exynos/multimedia/openmax
 $(call inherit-product, hardware/samsung/exynos4x12.mk)
+$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
