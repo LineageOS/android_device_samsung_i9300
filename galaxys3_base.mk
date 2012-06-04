@@ -82,11 +82,11 @@ PRODUCT_PACKAGES += \
 	libhwjpeg \
 	libfimg \
 	libtinyalsa \
-	libhdmiclient \
-	libTVOut \
 	libcec \
 	libddc \
 	libedid
+	#libhdmiclient \
+	#libTVOut \
 
 # MFC API
 PRODUCT_PACKAGES += \
