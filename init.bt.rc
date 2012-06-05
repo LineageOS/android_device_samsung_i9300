@@ -1,0 +1,155 @@
+on boot
+
+# for bluetooth
+	insmod /lib/modules/btlock.ko
+	chmod 664 /dev/btlock
+	chown bluetooth system /dev/btlock
+
+service poke_helper /system/bin/brcm_poke_helper /dev/ttySAC0
+    class main
+    group bluetooth net_bt_admin
+
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --no2bytes --tosleep 50000 \
+	--baudrate 4000000 --use_baudrate_for_download --patchram /system/bin/bcm4334.hcd \
+	--i2s=1,0,0,0  /dev/ttySAC0
+    class main
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service hciattach_le /system/bin/brcm_patchram_plus --enable_hci --no2bytes --tosleep 50000 \
+	--baudrate 115200 --use_baudrate_for_download --patchram /system/bin/bcm4334.hcd \
+	--i2s=1,0,0,0  /dev/ttySAC0
+    class main
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service LE_dut_cmd /system/bin/LE_dut
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+## LE Tx Ouput Power
+service LE_tx_low  /system/bin/LE_dut --tx_low
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service LE_tx_mid /system/bin/LE_dut --tx_mid
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service LE_tx_max /system/bin/LE_dut --tx_max
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+## LE Tx Modulation Characteristics
+# Payload 0x0F
+service LE_tx_M_low  /system/bin/LE_dut --tx_m_low
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service LE_tx_M_mid /system/bin/LE_dut --tx_m_mid
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service LE_tx_M_max /system/bin/LE_dut --tx_m_max
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+# Payload 0xAA
+service LE_tx_M_1_low  /system/bin/LE_dut --tx_m_1_low
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service LE_tx_M_1_mid /system/bin/LE_dut --tx_m_1_mid
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service LE_tx_M_1_max /system/bin/LE_dut --tx_m_1_max
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+## Carrier Frequency
+service LE_tx_C_low  /system/bin/LE_dut --tx_c_low
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service LE_tx_C_mid /system/bin/LE_dut --tx_c_mid
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+    
+service LE_tx_C_max /system/bin/LE_dut --tx_c_max
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+## In-band Emissions
+service LE_tx_I_low  /system/bin/LE_dut --tx_i_low
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+    
+service LE_tx_I_max /system/bin/LE_dut --tx_i_max
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+## Rx Test
+service LE_rx_ready_low /system/bin/LE_dut --rx_low
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service LE_rx_ready_mid /system/bin/LE_dut --rx_mid
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service LE_rx_ready_max /system/bin/LE_dut --rx_max
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service LE_test_end /system/bin/LE_dut --test_end
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+# for bluetooth rf test.
+service bt_dut_cmd /system/bin/bcm_dut
+    class main
+    group bluetooth net_bt_admin
+    disabled
+    oneshot

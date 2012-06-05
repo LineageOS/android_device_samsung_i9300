@@ -30,10 +30,13 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Init files
 PRODUCT_COPY_FILES := \
-	device/samsung/i9300/lpm.rc:root/lpm.rc \
-	device/samsung/i9300/init.smdk4x12.usb.rc:root/init.smdk4x12.usb.rc \
+	device/samsung/i9300/cbd:root/cbd \
+	device/samsung/i9300/init.bt.rc:root/init.bt.rc \
 	device/samsung/i9300/init.smdk4x12.rc:root/init.smdk4x12.rc \
+	device/samsung/i9300/init.smdk4x12.usb.rc:root/init.smdk4x12.usb.rc \
+	device/samsung/i9300/lpm.rc:root/lpm.rc \
 	device/samsung/i9300/ueventd.smdk4x12.rc:root/ueventd.smdk4x12.rc
+	device/samsung/i9300/ueventd.smdk4x12.rc:recovery/root/ueventd.smdk4x12.rc
 
 # Audio
 PRODUCT_COPY_FILES += \

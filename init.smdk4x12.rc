@@ -1,4 +1,5 @@
 import init.smdk4x12.usb.rc
+import init.bt.rc
 
 on early-init
     export EXTERNAL_STORAGE /mnt/sdcard
@@ -22,11 +23,6 @@ on early-init
 # ko files for FM Radio
     insmod /system/lib/modules/Si4709_driver.ko
 
-# for bluetooth
-	insmod /system/lib/modules/btlock.ko
-	chmod 664 /dev/btlock
-	chown bluetooth system /dev/btlock
-
 on fs
     mount ext4 /dev/block/mmcblk0p9 /system ro wait noatime
     mount ext4 /dev/block/mmcblk0p12 /data wait nosuid nodev noatime discard,noauto_da_alloc,journal_async_commit
@@ -39,6 +35,12 @@ on post-fs-data
      # we will remap this as /mnt/sdcard with the sdcard fuse tool
      mkdir /data/media 0775 media_rw media_rw
      chown media_rw media_rw /data/media
+
+# data/log
+    mkdir /data/log 0775 system log
+    chown system log /data/log
+    chmod 0775 /data/log
+    chmod 0775 /data/anr
 
     # create data/gps for GPS demon
     chown root system /dev/ttySAC1
@@ -68,6 +70,13 @@ on post-fs-data
 
 # Camera
 	mkdir /data/cfw 0775 system system
+    chown system radio /sys/class/camera/rear/rear_camfw
+    chown system radio /sys/class/camera/rear/rear_camtype
+    chown system radio /sys/class/camera/rear/rear_flash
+    chown system radio /sys/class/camera/rear/isp_core
+    chown system radio /sys/class/camera/front/front_camfw
+    chown system radio /sys/class/camera/front/front_camtype
+    chown system radio /sys/class/flash/flash/flash_power
 
 # Permissions for bluetooth
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
@@ -101,6 +110,114 @@ on post-fs-data
     chown system media_rw /sys/class/mdnie/mdnie/scenario
     chown system system /sys/class/mdnie/mdnie/negative
 
+# Permissions for System Server and daemons.
+    chown radio system /sys/android_power/state
+    chown radio system /sys/android_power/request_state
+    chown radio system /sys/android_power/acquire_full_wake_lock
+    chown radio system /sys/android_power/acquire_partial_wake_lock
+    chown radio system /sys/android_power/release_wake_lock
+    chown radio system /sys/power/state
+    chown radio system /sys/power/wake_lock
+    chown radio system /sys/power/wake_unlock
+    chown radio system /sys/power/cpufreq_table
+    chown radio system /sys/power/cpufreq_max_limit
+    chown radio system /sys/power/cpufreq_min_limit
+    chown radio system /sys/power/mali_lock
+    chown radio system /sys/class/power_supply/battery/siop_activated
+    chown radio system /sys/devices/system/cpu/cpufreq/pegasusq/max_cpu_lock
+    chown radio system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_lock
+    chown radio system /sys/devices/system/cpu/busfreq/curr_freq
+    chown radio system /sys/module/mali/parameters/mali_dvfs_control
+    chown system radio /sys/bus/platform/devices/s5p-tmu/lot_id
+    chmod 0660 /sys/power/state
+    chmod 0660 /sys/power/wake_lock
+    chmod 0660 /sys/power/wake_unlock
+    chmod 0660 /sys/power/cpufreq_table
+    chmod 0660 /sys/power/cpufreq_max_limit
+    chmod 0660 /sys/power/cpufreq_min_limit
+    chmod 0660 /sys/power/mali_lock
+    chmod 0660 /sys/class/power_supply/battery/siop_activated
+    chmod 0660 /sys/devices/system/cpu/cpufreq/pegasusq/max_cpu_lock
+    chmod 0660 /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_lock
+    chmod 0660 /sys/devices/system/cpu/busfreq/curr_freq
+    chmod 0660 /sys/module/mali/parameters/mali_dvfs_control
+    chmod 0664 /sys/bus/platform/devices/s5p-tmu/lot_id
+    chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/leds/keyboard-backlight/brightness
+    chown system system /sys/class/leds/lcd-backlight/brightness
+    chown system system /sys/class/backlight/panel/brightness
+    chown system system /sys/class/leds/button-backlight/brightness
+    chown system system /sys/class/sec/sec_touchkey/brightness
+    chown system system /sys/class/leds/jogball-backlight/brightness
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/red/device/grpfreq
+    chown system system /sys/class/leds/red/device/grppwm
+    chown system system /sys/class/leds/red/device/blink
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/red/device/grpfreq
+    chown system system /sys/class/leds/red/device/grppwm
+    chown system system /sys/class/leds/red/device/blink
+    chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/module/sco/parameters/disable_esco
+    chown system system /sys/kernel/ipv4/tcp_wmem_min
+    chown system system /sys/kernel/ipv4/tcp_wmem_def
+    chown system system /sys/kernel/ipv4/tcp_wmem_max
+    chown system system /sys/kernel/ipv4/tcp_rmem_min
+    chown system system /sys/kernel/ipv4/tcp_rmem_def
+    chown system system /sys/kernel/ipv4/tcp_rmem_max
+    chown root radio /proc/cmdline
+
+# Audio (Earjack)
+    chown system radio /sys/class/audio/earjack/select_jack
+    chown system radio /sys/class/audio/earjack/key_state
+    chown system radio /sys/class/audio/earjack/state
+    chown media system /sys/class/audio/earjack/reselect_jack
+
+# Battery node
+    chown system radio /sys/class/power_supply/battery/batt_reset_soc
+    chown system radio /sys/class/power_supply/battery/batt_read_raw_soc
+    chown system radio /sys/class/power_supply/battery/batt_read_adj_soc
+    chown system radio /sys/class/power_supply/battery/batt_type
+    chown system radio /sys/class/power_supply/battery/batt_temp_adc
+    chown system radio /sys/class/power_supply/battery/batt_temp_aver
+    chown system radio /sys/class/power_supply/battery/batt_temp_adc_aver
+    chown system radio /sys/class/power_supply/battery/batt_vfocv
+    chown system radio /sys/class/power_supply/battery/batt_lp_charging
+    chown system radio /sys/class/power_supply/battery/batt_charging_source
+    chown system radio /sys/class/power_supply/battery/test_mode
+    chown system radio /sys/class/power_supply/battery/wc_status
+    chown system radio /sys/class/power_supply/battery/wpc_pin_state
+
+# Thermistor node
+    chown radio system /sys/devices/platform/sec-thermistor/temp_adc
+    chown radio system /sys/devices/platform/sec-thermistor/temperature
+
+# Permissions for touch
+    chown system radio /sys/class/sec/tsp/cmd
+
+# Permissions for Touchkey
+  	chown system radio /sys/class/sec/sec_touchkey/enable_disable 
+	chown system radio /sys/class/sec/sec_touchkey/touchkey_brightness
+	chown system radio /sys/class/sec/sec_touchkey/touchkey_menu
+	chown system radio /sys/class/sec/sec_touchkey/touchkey_back
+	chown system radio /sys/class/sec/sec_touchkey/touch_update
+	chown system radio /sys/class/sec/sec_touchkey/touch_version
+	chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_version_panel
+	chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_version_phone
+	chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_update_status
+	chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_update
+	chown system radio /sys/class/sec/sec_touchkey/touch_sensitivity
+	chown system radio /sys/class/sec/sec_touchkey/touchkey_threshold
+	chown system system /sys/devices/virtual/sec/sec_touchkey/brightness
+
+# Permissions for gpio_keys
+    chown radio system /sys/class/sec/sec_key/wakeup_keys 
+    write /sys/class/sec/sec_key/wakeup_keys 116,172
+
 # Switch Device
     chown system system /sys/class/sec/switch/uart_sel
     chown system system /sys/class/sec/switch/usb_sel
@@ -129,6 +246,72 @@ on post-fs-data
 	chown system system /sys/class/sec/led/led_blink
 	chown system system /sys/class/sec/led/led_br_lev
 
+# <Sensors & NFC>
+# Input Events
+    chown system radio /sys/class/input/input2/enable
+    chown system radio /sys/class/input/input2/poll_delay
+    chown system radio /sys/class/input/input3/enable
+    chown system radio /sys/class/input/input3/poll_delay
+    chown system radio /sys/class/input/input4/enable
+    chown system radio /sys/class/input/input4/poll_delay
+    chown system radio /sys/class/input/input5/enable
+    chown system radio /sys/class/input/input5/poll_delay
+    chown system radio /sys/class/input/input6/enable
+    chown system radio /sys/class/input/input6/poll_delay
+    chown system radio /sys/class/input/input7/enable
+    chown system radio /sys/class/input/input7/poll_delay
+    chown system radio /sys/class/input/input8/enable
+    chown system radio /sys/class/input/input8/poll_delay
+    chown system radio /sys/class/input/input9/enable
+    chown system radio /sys/class/input/input9/poll_delay
+# Accelerometer_sensor
+    chown system radio /dev/accelerometer
+    chown system radio /sys/class/sensors/accelerometer_sensor
+    chown system radio /sys/class/sensors/accelerometer_sensor/raw_data
+    chown system radio /sys/class/sensors/accelerometer_sensor/calibration
+    chown system radio /sys/class/sensors/accelerometer_sensor/reactive_alert
+    chown system radio /sys/class/sensors/accelerometer_sensor/vendor
+    chown system radio /sys/class/sensors/accelerometer_sensor/name
+# Proximity_sensor
+    chown system radio /sys/class/sensors/proximity_sensor/state
+    chown system radio /sys/class/sensors/proximity_sensor/prox_avg
+    chown system radio /sys/class/sensors/proximity_sensor/prox_cal
+    chown system radio /sys/class/sensors/proximity_sensor/vendor
+    chown system radio /sys/class/sensors/proximity_sensor/name
+    chown system radio /sys/class/sensors/proximity_sensor/prox_thresh
+# Light_sensor
+    chown system radio /sys/class/input/input7/enable
+    chown system radio /sys/class/input/input7/poll_delay
+    chown system radio /sys/class/sensors/light_sensor/lux
+    chown system radio /sys/class/sensors/light_sensor/raw_data
+    chown system radio /sys/class/sensors/light_sensor/vendor
+    chown system radio /sys/class/sensors/light_sensor/name
+# Gyro_sensor
+    chown system radio /dev/lsm330dlc_gyro_misc
+    chown system radio /sys/class/sensors/gyro_sensor/power_on
+    chown system radio /sys/class/sensors/gyro_sensor/power_off
+    chown system radio /sys/class/sensors/gyro_sensor/temperature
+    chown system radio /sys/class/sensors/gyro_sensor/selftest
+    chown system radio /sys/class/sensors/gyro_sensor/selftest_dps
+    chown system radio /sys/class/sensors/gyro_sensor/vendor
+    chown system radio /sys/class/sensors/gyro_sensor/name
+# Barometer_sensor
+    chown system radio /sys/class/input/input5/pressure_reference_level
+    chown system radio /sys/class/input/input5/temperature_reference_level
+    chown system radio /sys/class/input/input5/enable_autozero
+    chown system radio /sys/class/input/input5/compensation_param
+    chown system radio /sys/class/input/input5/reg_value
+    chown system radio /sys/class/input/input5/reg_addr
+    chown system radio /sys/class/sensors/barometer_sensor/sea_level_pressure
+    chown system radio /sys/class/sensors/barometer_sensor/vendor
+    chown system radio /sys/class/sensors/barometer_sensor/name 
+    chown system radio /sys/class/sensors/barometer_sensor/calibration 
+# Magnetic_sensor
+    chown system radio /dev/akm8975
+    chown system radio /sys/class/sensors/magnetic_sensor/raw_data
+    chown system radio /sys/class/sensors/magnetic_sensor/vendor
+    chown system radio /sys/class/sensors/magnetic_sensor/name
+
 # for datarouter
     chown system system /dev/dun
     chown system system /dev/ttyGS0
@@ -145,12 +328,16 @@ on boot
     setprop ro.build.product smdk4x12
     setprop ro.product.device smdk4x12
     setprop ro.radio.noril yes
+    setprop wifi.interface wlan0
 
 # fake some battery state
     setprop status.battery.state Slow
     setprop status.battery.level 5
     setprop status.battery.level_raw  50
     setprop status.battery.level_scale 9
+
+# wifi display
+    write /proc/sys/net/core/wmem_max   262144
 
     # Set permission for Widevine DRM temporarily
     chmod 0777 /dev/s5p-smem
@@ -225,6 +412,12 @@ service dhcpcd_p2p /system/bin/dhcpcd -aABKL
     disabled
     oneshot
 
+# for bluetooth pan
+service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
+	class main
+	disabled
+	oneshot
+
 service iprenew_wlan0 /system/bin/dhcpcd -n
     class main
     disabled
@@ -235,26 +428,17 @@ service iprenew_p2p /system/bin/dhcpcd -n
     disabled
     oneshot
 
-service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --no2bytes --tosleep 50000 \
-	--baudrate 4000000 --use_baudrate_for_download --patchram /system/bin/bcm4334.hcd \
-	--i2s=1,0,0,0  /dev/ttySAC0
-    class main
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-
-# for bluetooth pan
-service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
-	class main
-	disabled
-	oneshot
-
+# GPS
 service gpsd /system/bin/gpsd -c /system/etc/gps.xml
     class main
     socket gps seqpacket 0660 gps system
     user gps
     group system inet sdcard_rw
+
+service dmb /system/bin/dmbserver
+    class main
+    user system
+    group radio inet misc audio camera graphics net_bt net_bt_admin sdcard_rw
 
 # TVout
 service TvoutService_C /system/bin/bintvoutservice
