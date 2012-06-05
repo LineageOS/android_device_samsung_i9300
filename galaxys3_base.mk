@@ -46,12 +46,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/samsung/i9300/configs/vold.fstab:system/etc/vold.fstab
 
-PRODUCT_PROPERTY_OVERRIDES := \
-	ro.vold.switchablepair=/mnt/extSdCard,/mnt/sdcard
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.sys.vold.switchexternal=1
-
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
 	system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf
