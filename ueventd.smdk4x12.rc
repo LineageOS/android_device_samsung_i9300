@@ -33,3 +33,6 @@
 /dev/ttySAC*	          0660	 root	 system
 
 /dev/input/*              0666   root       input
+
+# for wifi
+/dev/rfkill               0666   system     system
