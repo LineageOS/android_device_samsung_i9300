@@ -5,9 +5,10 @@ on early-init
     export EXTERNAL_STORAGE /mnt/sdcard
     export SECONDARY_STORAGE /mnt/extSdCard
     
-    mkdir /mnt/sdcard 0000 system system
-    mkdir /mnt/extSdCard 0000 system system
-    mkdir /mnt/usbdisk 0000 system system
+    mkdir /mnt 0775 system system
+    mkdir /mnt/sdcard 0775 system system
+    mkdir /mnt/extSdCard 0775 system system
+    mkdir /mnt/usbdisk 0775 system system
 
     # for backwards compatibility
     symlink /mnt/sdcard /sdcard
