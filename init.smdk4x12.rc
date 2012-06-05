@@ -323,8 +323,13 @@ on post-fs-data
     chown system system /dev/ttyGS2
     chown system system /dev/ttyGS3
 
-     # Set indication (checked by vold) that we have finished this action
-     setprop vold.post_fs_data_done 1
+# for wifi
+    mkdir /data/misc/wifi 0770 wifi system
+    chmod 0660 /data/misc/wifi/wpa_supplicant.conf
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+
+    # Set indication (checked by vold) that we have finished this action
+    setprop vold.post_fs_data_done 1
 
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
