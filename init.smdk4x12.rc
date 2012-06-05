@@ -102,6 +102,7 @@ on post-fs-data
     chown system radio /sys/class/lcd/panel/device/hs_toggle
     chown system media_rw /sys/class/lcd/panel/power_reduce
     chown system system /sys/class/backlight/panel/auto_brightness
+    chown system system /sys/class/backlight/panel/brightness
     chown system system /sys/class/graphics/fb0/lcdfreq/level
 
 # Permissions for mDNIe
