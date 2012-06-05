@@ -81,9 +81,9 @@ PRODUCT_PACKAGES += \
 	libhwconverter \
 	libhwjpeg \
 	libfimg \
-	libtinyalsa \
 	nfc.exynos4
 
+#libtinyalsa \
 #libhdmi \
 #libfimc \
 #libhwcomposer \
