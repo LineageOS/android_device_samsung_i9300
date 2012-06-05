@@ -35,7 +35,7 @@ PRODUCT_COPY_FILES := \
 	device/samsung/i9300/init.smdk4x12.rc:root/init.smdk4x12.rc \
 	device/samsung/i9300/init.smdk4x12.usb.rc:root/init.smdk4x12.usb.rc \
 	device/samsung/i9300/lpm.rc:root/lpm.rc \
-	device/samsung/i9300/ueventd.smdk4x12.rc:root/ueventd.smdk4x12.rc
+	device/samsung/i9300/ueventd.smdk4x12.rc:root/ueventd.smdk4x12.rc \
 	device/samsung/i9300/ueventd.smdk4x12.rc:recovery/root/ueventd.smdk4x12.rc
 
 # Audio
