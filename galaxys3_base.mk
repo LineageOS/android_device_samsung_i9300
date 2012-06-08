@@ -76,14 +76,15 @@ PRODUCT_PACKAGES += \
 	libhwjpeg \
 	libfimg \
 	nfc.exynos4 \
-	hwcomposer.exynos4 \
-	libhdmi \
-	libfimc \
-	libcec \
-	libddc \
-	libedid \
-	libhdmiclient \
-	libTVOut
+	hwcomposer.exynos4
+
+#	libhdmi \
+#	libfimc \
+#	libcec \
+#	libddc \
+#	libedid \
+#	libhdmiclient \
+#	libTVOut
 
 #libtinyalsa \
 
