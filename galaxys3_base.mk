@@ -74,9 +74,9 @@ PRODUCT_PACKAGES += \
 	libgralloc_ump \
 	libhwconverter \
 	libfimg \
-	nfc.exynos4 \
-	hwcomposer.exynos4
+	nfc.exynos4
 
+#	hwcomposer.exynos4
 #	libhwjpeg \
 #	libhdmi \
 #	libfimc \
@@ -114,27 +114,27 @@ PRODUCT_PACKAGES += \
 	com.android.nfc_extras
 
 # MFC API
-PRODUCT_PACKAGES += \
-	libsecmfcdecapi
+#PRODUCT_PACKAGES += \
+#	libsecmfcdecapi
 
 # OMX
-PRODUCT_PACKAGES += \
-    libstagefrighthw \
-    libseccscapi \
-    libsecbasecomponent \
-    libsecosal \
-    libSEC_OMX_Resourcemanager \
-    libSEC_OMX_Core \
-    libSEC_OMX_Vdec \
-    libOMX.SEC.AVC.Decoder \
-    libOMX.SEC.M4V.Decoder \
-    libOMX.SEC.WMV.Decoder \
-    libOMX.SEC.VP8.Decoder \
-    libSEC_OMX_Venc \
-    libOMX.SEC.AVC.Encoder \
-    libOMX.SEC.M4V.Encoder \
-    libSEC_OMX_Adec \
-    libOMX.SEC.MP3.Decoder
+#PRODUCT_PACKAGES += \
+#    libstagefrighthw \
+#    libseccscapi \
+#    libsecbasecomponent \
+#    libsecosal \
+#    libSEC_OMX_Resourcemanager \
+#    libSEC_OMX_Core \
+#    libSEC_OMX_Vdec \
+#    libOMX.SEC.AVC.Decoder \
+#    libOMX.SEC.M4V.Decoder \
+#    libOMX.SEC.WMV.Decoder \
+#    libOMX.SEC.VP8.Decoder \
+#    libSEC_OMX_Venc \
+#    libOMX.SEC.AVC.Encoder \
+#    libOMX.SEC.M4V.Encoder \
+#    libSEC_OMX_Adec \
+#    libOMX.SEC.MP3.Decoder
 
 PRODUCT_COPY_FILES += \
 	device/samsung/i9300/configs/media_profiles.xml:system/etc/media_profiles.xml
@@ -142,7 +142,8 @@ PRODUCT_COPY_FILES += \
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.ril_class=Smdk4210RIL \
-	mobiledata.interfaces=pdp0,wlan0,gprs,ppp0
+	mobiledata.interfaces=pdp0,wlan0,gprs,ppp0 \
+	ro.telephony.samsung.realcall=true
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
