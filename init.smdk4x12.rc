@@ -325,12 +325,13 @@ on post-fs-data
     chown system system /dev/ttyGS3
 
 # for wifi
-    mkdir /data/misc/wifi 0770 wifi system
-    chmod 0660 /data/misc/wifi/wpa_supplicant.conf
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/dhcp 0775 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
 
-    # who writes this normally?
     write /data/.cid.info murata
+    chown system wifi /data/.cid.info
+    chmod 0660 /data/.cid.info
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
