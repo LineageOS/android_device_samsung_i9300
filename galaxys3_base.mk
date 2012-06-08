@@ -73,11 +73,11 @@ PRODUCT_PACKAGES := \
 PRODUCT_PACKAGES += \
 	libgralloc_ump \
 	libhwconverter \
-	libhwjpeg \
 	libfimg \
 	nfc.exynos4 \
 	hwcomposer.exynos4
 
+#	libhwjpeg \
 #	libhdmi \
 #	libfimc \
 #	libcec \
@@ -85,8 +85,7 @@ PRODUCT_PACKAGES += \
 #	libedid \
 #	libhdmiclient \
 #	libTVOut
-
-#libtinyalsa \
+#   libtinyalsa \
 
 # NFC
 PRODUCT_PACKAGES += \
