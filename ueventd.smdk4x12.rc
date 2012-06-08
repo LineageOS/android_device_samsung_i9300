@@ -2,6 +2,7 @@
 /dev/ump                  0666   system     graphics
 /dev/exynos-mem           0666   system     graphics
 /dev/ion                  0666   system     system
+/dev/s3c-mem              0666   system     graphics
 /dev/s3c-mfc              0666   system     graphics
 /dev/s5p-mfc              0666   system     graphics
 /dev/video0               0666   system     m2m
