@@ -75,17 +75,17 @@ PRODUCT_PACKAGES += \
 	libhwconverter \
 	libhwjpeg \
 	libfimg \
-	nfc.exynos4
+	nfc.exynos4 \
+	hwcomposer.exynos4 \
+	libhdmi \
+	libfimc \
+	libcec \
+	libddc \
+	libedid \
+	libhdmiclient \
+	libTVOut
 
 #libtinyalsa \
-#libhdmi \
-#libfimc \
-#libhwcomposer \
-#libcec \
-#libddc \
-#libedid \
-#libhdmiclient \
-#libTVOut \
 
 # NFC
 PRODUCT_PACKAGES += \
