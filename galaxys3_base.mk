@@ -142,8 +142,7 @@ PRODUCT_COPY_FILES += \
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.ril_class=Smdk4210RIL \
-	mobiledata.interfaces=pdp0,wlan0,gprs,ppp0 \
-	ro.telephony.samsung.realcall=true
+	mobiledata.interfaces=pdp0,wlan0,gprs,ppp0
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
