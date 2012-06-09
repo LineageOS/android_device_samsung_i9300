@@ -71,11 +71,11 @@ PRODUCT_PACKAGES := \
 
 # HAL
 PRODUCT_PACKAGES += \
-	libgralloc_ump \
-	libhwconverter \
-	libfimg \
 	nfc.exynos4
 
+#	libgralloc_ump \
+#	libhwconverter \
+#	libfimg \
 #	hwcomposer.exynos4
 #	libhwjpeg \
 #	libhdmi \
