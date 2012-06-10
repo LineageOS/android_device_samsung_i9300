@@ -4,7 +4,7 @@
 /recovery		emmc		/dev/block/mmcblk0p6
 /cache			ext4		/dev/block/mmcblk0p8
 /system			ext4		/dev/block/mmcblk0p9
-/data			ext4		/dev/block/mmcblk0p12
+/data			ext4		/dev/block/mmcblk0p12 length=-16384
 /preload		ext4		/dev/block/mmcblk0p10
 /modem			emmc		/dev/block/mmcblk0p7
 
