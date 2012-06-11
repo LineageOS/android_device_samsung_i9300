@@ -64,6 +64,7 @@ PRODUCT_COPY_FILES += \
 
 # Packages
 PRODUCT_PACKAGES := \
+	camera.exynos4 \
     Camera \
     com.android.future.usb.accessory \
     SamsungServiceMode \
