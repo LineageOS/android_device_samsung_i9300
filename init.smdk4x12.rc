@@ -112,6 +112,10 @@ on post-fs-data
     chmod 0660 /sys/class/sec/sec_touchkey/force_disable
     chown system system /sys/class/sec/sec_touchkey/force_disable
 
+# Camera Flash
+    chmod 0666 /sys/devices/virtual/flash/flash/flash_power
+    chown system radio /sys/devices/virtual/flash/flash/flash_power
+
 # Permissions for LCD
     chown system radio /sys/class/lcd/panel/lcd_power
     chown system radio /sys/class/lcd/panel/lcd_type
