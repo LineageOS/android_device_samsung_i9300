@@ -37,6 +37,10 @@ public class DeviceSettings extends FragmentActivity {
     public static final String ACTION_UPDATE_PREFERENCES = "com.cyanogenmod.settings.device.UPDATE";
     public static final String KEY_HSPA = "hspa";
     public static final String KEY_VIBRATOR_INTENSITY = "vibrator_intensity";
+    public static final String KEY_MDNIE_SCENARIO = "mdnie_scenario";
+    public static final String KEY_MDNIE_MODE = "mdnie_mode";
+    public static final String KEY_MDNIE_NEGATIVE = "mdnie_negative";
+    public static final String KEY_LED_FADE = "led_fade";
 
     ViewPager mViewPager;
     TabsAdapter mTabsAdapter;
@@ -59,6 +63,8 @@ public class DeviceSettings extends FragmentActivity {
                 RadioFragmentActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_haptic_title),
                 HapticFragmentActivity.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_mdnie_title),
+                mDNIeFragmentActivity.class, null);
 
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));

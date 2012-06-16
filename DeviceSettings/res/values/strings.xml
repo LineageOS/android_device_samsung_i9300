@@ -10,4 +10,18 @@
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">Enable HSDPA/HSUPA</string>
+
+    <string name="screen_colors_title">Colors</string>
+    <string name="category_mdnie_title">Screen</string>
+    <string name="mdnie_scenario_title_head">Scenario</string>
+    <string name="mdnie_scenario_summary_head">Set the mDNIe Scenario</string>
+    <string name="mdnie_mode_title_head">Mode</string>
+    <string name="mdnie_mode_summary_head">Set the mDNIe Mode</string>
+    <string name="mdnie_negative_title_head">Negative Mode</string>
+    <string name="mdnie_negative_summary_head">Enable/Disable inverted colors</string>
+
+    <string name="led_settings_title">Notification LED</string>
+    <string name="led_fade_title_head">LED Fading</string>
+    <string name="led_fade_summary_head">Enable LED smooth fading instead of sharp blinking.</string>
+
 </resources>
