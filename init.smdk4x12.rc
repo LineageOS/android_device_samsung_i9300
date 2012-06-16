@@ -96,9 +96,11 @@ on post-fs-data
     chmod 0600 /dev/pn544
     chown nfc nfc /dev/pn544
     
-# Vibetonz
+# Vibrator
     chmod 0660 /dev/tspdrv
     chown root shell /dev/tspdrv
+    chmod 0660 /sys/vibrator/pwm_val
+    chown system system /sys/vibrator/pwm_val
     
 # Permissions for LCD
     chown system radio /sys/class/lcd/panel/lcd_power

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Galaxy S III Settings</string>
+
+    <string name="category_haptic_title">Haptic</string>
+    <string name="vibrator_subcat_title">Vibrator</string>
+    <string name="vibrator_intensity_title_head">Vibrator Intensity</string>
+    <string name="vibrator_intensity_summary_head">Set vibrator intensity</string>
+
+    <string name="category_radio_title">Radio</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Enable HSDPA/HSUPA</string>
+</resources>

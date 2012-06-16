@@ -66,6 +66,7 @@ PRODUCT_PACKAGES := \
 	camera.exynos4 \
     Camera \
     com.android.future.usb.accessory \
+    GalaxyS3Settings \
     SamsungServiceMode \
     Torch
 
