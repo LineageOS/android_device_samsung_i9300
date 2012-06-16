@@ -41,6 +41,8 @@ public class DeviceSettings extends FragmentActivity {
     public static final String KEY_MDNIE_MODE = "mdnie_mode";
     public static final String KEY_MDNIE_NEGATIVE = "mdnie_negative";
     public static final String KEY_LED_FADE = "led_fade";
+    public static final String KEY_TOUCHKEY_LIGHT = "touchkey_light";
+    public static final String KEY_TOUCHKEY_TIMEOUT = "touchkey_timeout";
 
     ViewPager mViewPager;
     TabsAdapter mTabsAdapter;
@@ -61,10 +63,11 @@ public class DeviceSettings extends FragmentActivity {
         mTabsAdapter = new TabsAdapter(this, mViewPager);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_radio_title),
                 RadioFragmentActivity.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_screen_title),
+                ScreenFragmentActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_haptic_title),
                 HapticFragmentActivity.class, null);
-        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_mdnie_title),
-                mDNIeFragmentActivity.class, null);
+
 
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/app_name">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-                android:title="@string/screen_colors_title">
-    
+                android:title="@string/mdnie_subcat_title">
     <!-- mDNIe Scenario modes -->
     <com.cyanogenmod.settings.device.mDNIeScenario
 	        android:key="mdnie_scenario"
@@ -32,9 +30,9 @@
   			android:entryValues="@array/mdnie_negative_entries_values"
   			android:defaultValue="0" />
     </PreferenceCategory>
-    <PreferenceCategory
-                android:title="@string/led_settings_title">
 
+    <PreferenceCategory
+                android:title="@string/led_subcat_title">
     <!-- LED fading mode -->
     <com.cyanogenmod.settings.device.LedFade
                 android:key="led_fade"
@@ -44,4 +42,24 @@
                         android:entryValues="@array/led_fade_entries_values"
                         android:defaultValue="1" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+                android:title="@string/touchkey_subcat_title">
+    <!-- Touchkey backlight -->
+    <CheckBoxPreference
+                android:key="touchkey_light"
+                android:title="@string/touchkey_light_title_head"
+                android:summaryOff="@string/touchkey_light_summary_off"
+                android:summaryOn="@string/touchkey_light_summary_on"
+                android:defaultValue="true"
+                />
+    <com.cyanogenmod.settings.device.TouchkeyTimeout
+                android:key="touchkey_timeout"
+                android:title="@string/touchkey_timeout_title_head"
+                android:summary="@string/touchkey_timeout_summary_head"
+                android:entries="@array/touchkey_timeout_entries"
+                android:entryValues="@array/touchkey_timeout_entries_values"
+                android:defaultValue="3" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

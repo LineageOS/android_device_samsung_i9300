@@ -28,5 +28,6 @@ public class Startup extends BroadcastReceiver {
         Hspa.restore(context);
         RadioFragmentActivity.restore(context);
         VibratorIntensity.restore(context);
+        TouchkeyTimeout.restore(context);
     }
 }
