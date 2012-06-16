@@ -70,8 +70,8 @@ public class ScreenFragmentActivity extends PreferenceFragment {
         Log.w(TAG, "key: " + key);
 
         if (key.compareTo(DeviceSettings.KEY_TOUCHKEY_LIGHT) == 0) {
-            Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, ((CheckBoxPreference)preference).isChecked() ? "1" : "2");
             Utils.writeValue(FILE_TOUCHKEY_DISABLE, ((CheckBoxPreference)preference).isChecked() ? "0" : "1");
+            Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, ((CheckBoxPreference)preference).isChecked() ? "1" : "2");
         }
         return true;
     }
@@ -82,7 +82,7 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
     public static void restore(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, sharedPrefs.getString(DeviceSettings.KEY_TOUCHKEY_LIGHT, "1"));
         Utils.writeValue(FILE_TOUCHKEY_DISABLE, sharedPrefs.getString(DeviceSettings.KEY_TOUCHKEY_LIGHT, "0"));
+        Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, sharedPrefs.getString(DeviceSettings.KEY_TOUCHKEY_LIGHT, "1"));
     }
 }

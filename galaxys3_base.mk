@@ -37,6 +37,10 @@ PRODUCT_COPY_FILES := \
 	device/samsung/i9300/ueventd.smdk4x12.rc:root/ueventd.smdk4x12.rc \
 	device/samsung/i9300/ueventd.smdk4x12.rc:recovery/root/ueventd.smdk4x12.rc
 
+# Camera FW
+PRODUCT_COPY_FILES += \
+	device/samsung/i9300/80cfw:system/etc/init.d/80cfw
+
 # Audio
 PRODUCT_COPY_FILES += \
 	device/samsung/i9300/configs/tinyucm.conf:system/etc/tinyucm.conf
