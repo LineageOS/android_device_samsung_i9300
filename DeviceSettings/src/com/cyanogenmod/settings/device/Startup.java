@@ -27,6 +27,11 @@ public class Startup extends BroadcastReceiver {
         HapticFragmentActivity.restore(context);
         Hspa.restore(context);
         RadioFragmentActivity.restore(context);
+        ScreenFragmentActivity.restore(context);
+        mDNIeScenario.restore(context);
+        mDNIeMode.restore(context);
+        mDNIeNegative.restore(context);
+        LedFade.restore(context);
         VibratorIntensity.restore(context);
         TouchkeyTimeout.restore(context);
     }
