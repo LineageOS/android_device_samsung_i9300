@@ -298,8 +298,11 @@ int camera_cancel_auto_focus(struct camera_device * device)
     if(!device)
         return -EINVAL;
 
-
-    return VENDOR_CALL(device, cancel_auto_focus);
+    // Samsung camera HAL restarts focus (CAF_RESTART) when we cancel auto focus.
+    // Cancel auto focus is called just before pic is taken in autofocus mode, thus
+    // the HAL crashes.
+    return 0;
+    //return VENDOR_CALL(device, cancel_auto_focus);
 }
 
 int camera_take_picture(struct camera_device * device)
