@@ -33,7 +33,7 @@ import com.cyanogenmod.settings.device.R;
 public class ScreenFragmentActivity extends PreferenceFragment {
 
     private static final String PREF_ENABLED = "1";
-    private static final String TAG = "GalaxyS3Parts_General";
+    private static final String TAG = "GalaxyS3Settings_General";
     private mDNIeScenario mmDNIeScenario;
     private mDNIeMode mmDNIeMode;
     private mDNIeNegative mmDNIeNegative;
@@ -82,7 +82,20 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
     public static void restore(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE_TOUCHKEY_DISABLE, sharedPrefs.getString(DeviceSettings.KEY_TOUCHKEY_LIGHT, "0"));
-        Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, sharedPrefs.getString(DeviceSettings.KEY_TOUCHKEY_LIGHT, "1"));
+
+        Boolean light = sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true);
+        String disabled;
+        String brightness;
+        
+        if (light == true) {
+            disabled = "0";
+            brightness = "1";
+        } else {
+            disabled = "1";
+            brightness = "2";
+        }
+
+        Utils.writeValue(FILE_TOUCHKEY_DISABLE, disabled);
+        Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, brightness);
     }
 }

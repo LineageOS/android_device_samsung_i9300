@@ -33,7 +33,7 @@ import com.cyanogenmod.settings.device.R;
 public class HapticFragmentActivity extends PreferenceFragment {
 
     private static final String PREF_ENABLED = "1";
-    private static final String TAG = "GalaxyS3Parts_General";
+    private static final String TAG = "GalaxyS3Settings_General";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -22,9 +22,10 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-      
-        <activity android:name=".mDNIeFragmentActivity" />
+
+        <activity android:name=".HapticFragmentActivity" />
         <activity android:name=".RadioFragmentActivity" />
+        <activity android:name=".ScreenFragmentActivity" />
         
     </application>
 </manifest>
