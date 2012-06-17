@@ -2,7 +2,6 @@ on early-init
     start ueventd
 
 on init
-
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
     export LD_LIBRARY_PATH /vendor/lib:/system/lib
     export ANDROID_ROOT /system
@@ -23,14 +22,10 @@ on init
     #mount /tmp /tmp tmpfs   
 
 on early-fs
-	insmod /lib/modules/vibrator.ko
- 
     mount ext4 /dev/block/mmcblk0p9 /system ro wait noatime
-    exec sfsck /dev/block/mmcblk0p12 ext4
     mount ext4 /dev/block/mmcblk0p12 /data wait nosuid nodev noatime discard,noauto_da_alloc,journal_async_commit
 
 	mkdir /data/log 0777
-
 	chmod 0666 /dev/log/radio
 	chmod 0666 /dev/log/main
 	chmod 0666 /dev/log/event    
@@ -52,8 +47,8 @@ on boot
 
 service debuggerd /system/bin/debuggerd
 
-	service ueventd /sbin/ueventd
-    	critical
+service ueventd /sbin/ueventd
+    critical
 
 service console /system/bin/sh
     console
