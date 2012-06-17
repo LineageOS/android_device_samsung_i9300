@@ -347,10 +347,6 @@ on post-fs-data
     mkdir /data/misc/dhcp 0775 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
-    write /data/.cid.info murata
-    chown system wifi /data/.cid.info
-    chmod 0660 /data/.cid.info
-
 # for TRP/TIS
     write /data/.psm.info 1
     chown system root /data/.psm.info
@@ -468,6 +464,10 @@ service iprenew_bnep0 /system/bin/dhcpcd -n
 	class main
 	disabled
 	oneshot
+
+service macloader /system/bin/macloader
+    class main
+    oneshot
 
 # GPS
 service gpsd /system/bin/gpsd -c /system/etc/gps.xml

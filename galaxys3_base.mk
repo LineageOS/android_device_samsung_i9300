@@ -71,6 +71,7 @@ PRODUCT_PACKAGES := \
 	audio.a2dp.default \
 	camera.exynos4 \
     Camera \
+    macloader \
     com.android.future.usb.accessory \
     GalaxyS3Settings \
     SamsungServiceMode \
