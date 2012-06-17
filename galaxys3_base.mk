@@ -63,6 +63,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Gps
 PRODUCT_COPY_FILES += \
+	device/samsung/i9300/configs/gps.conf:system/etc/gps.conf \
 	device/samsung/i9300/configs/gps.xml:system/etc/gps.xml
 
 # Packages
