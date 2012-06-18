@@ -104,7 +104,7 @@ on post-fs-data
 
 # LED
     chmod 0660 /sys/class/sec/led/led_fade
-    chown system system 
+    chown system system /sys/class/sec/led/led_fade
 
 # Touchkey
     chmod 0660 /sys/class/sec/sec_touchkey/timeout
