@@ -207,6 +207,7 @@
     <!-- Examples: <item>realcall</item> <item>dualmic_enabled</item> <item>mic_boost</item> -->
     <string-array name="config_telephony_set_audioparameters" translatable="false">
         <item>realcall</item>
+        <item>dualmic_enabled</item>
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
