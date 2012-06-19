@@ -43,6 +43,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
+	device/samsung/i9300/configs/default_gain.conf:system/etc/default_gain.conf \
 	device/samsung/i9300/configs/tinyucm.conf:system/etc/tinyucm.conf
 
 # Vold and Storage
