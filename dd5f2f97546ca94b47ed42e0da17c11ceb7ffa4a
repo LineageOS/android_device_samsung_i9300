@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAUH//9DY\u003d",
+        "filename": "DeviceSettings/res/values-pt-rBR/arrays.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2759
+      },
+      "writtenOn": "2012-06-22T02:19:04Z",
+      "side": 1,
+      "message": "Missing translation",
+      "revId": "dd5f2f97546ca94b47ed42e0da17c11ceb7ffa4a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAUH//9DU\u003d",
+        "filename": "DeviceSettings/res/values-pt-rBR/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2759
+      },
+      "writtenOn": "2012-06-22T02:19:04Z",
+      "side": 1,
+      "message": "\"Cors\" ?",
+      "revId": "dd5f2f97546ca94b47ed42e0da17c11ceb7ffa4a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
