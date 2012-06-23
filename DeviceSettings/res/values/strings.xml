@@ -11,6 +11,12 @@
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">Enable HSDPA/HSUPA</string>
 
+    <string name="hdvoice_title_head">High Definition Voice</string>
+    <string name="hdvoice_summary_off">Enable HD Voice</string>
+    <string name="hdvoice_summary_on">Disable HD Voice</string>
+    <string name="hdvoice_warning_title">Warning</string>
+    <string name="hdvoice_warning">Enabling HD Voice will result in bad call quality if your provider doesn\'t support it. Enable?</string>
+
     <string name="category_screen_title">Screen</string>
     <string name="mdnie_subcat_title">Colors</string>
     <string name="mdnie_scenario_title_head">Scenario</string>
