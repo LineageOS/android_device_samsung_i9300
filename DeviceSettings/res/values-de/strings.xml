@@ -11,6 +11,12 @@
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">Aktiviere HSDPA/HSUPA</string>
 
+    <string name="hdvoice_title_head">HD-Voice</string>
+    <string name="hdvoice_summary_off">Aktiviere HD-Sprache</string>
+    <string name="hdvoice_summary_on">Deaktiviere HD-Sprache</string>
+    <string name="hdvoice_warning_title">Warnung</string>
+    <string name="hdvoice_warning">Aktivieren von HD-Sprache kann zu schlechter Sprachqualität führen wenn es vom Mobilfunkanbieter nicht unterstützt wird. Wirklich aktivieren?</string>
+
     <string name="category_screen_title">Display</string>
     <string name="mdnie_subcat_title">Farben</string>
     <string name="mdnie_scenario_title_head">Szenario</string>
