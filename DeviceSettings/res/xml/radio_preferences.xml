@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
     <!-- Hspa modes -->
     <com.cyanogenmod.settings.device.Hspa
                 android:key="hspa"
@@ -8,5 +9,14 @@
                 android:entries="@array/hspa_entries"
                         android:entryValues="@array/hspa_entries_values"
                         android:defaultValue="23" />
+
+    <!-- HD-Voice -->
+    <CheckBoxPreference
+                android:key="hdvoice"
+                android:title="@string/hdvoice_title_head"
+                android:summaryOff="@string/hdvoice_summary_off"
+                android:summaryOn="@string/hdvoice_summary_on"
+                android:defaultValue="false"
+                />
 
 </PreferenceScreen>
