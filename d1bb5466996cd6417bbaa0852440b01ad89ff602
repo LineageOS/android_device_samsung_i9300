@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAUH//8u4\u003d",
+        "filename": "DeviceSettings/res/values/strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2012-06-23T18:39:51Z",
+      "side": 1,
+      "message": "How about \"Enable High Definition Voice\"",
+      "revId": "d1bb5466996cd6417bbaa0852440b01ad89ff602",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
