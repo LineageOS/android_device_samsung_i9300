@@ -85,7 +85,7 @@ int main() {
         
         /* set permissions on cid file */
         LOGD("Setting permissions on %s\n", CID_PATH);
-        amode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP;
+        amode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
         ret = chmod(CID_PATH, amode);
 
         char* chown_cmd = (char*) malloc(strlen("chown system ") + strlen(CID_PATH));
