@@ -87,8 +87,12 @@ adb pull /system/etc/wifi/bcmdhd_sta.bin_b1 ../../../vendor/$MANUFACTURER/$DEVIC
 adb pull /system/etc/wifi/bcmdhd_sta.bin_b2 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/bcmdhd_sta.bin_b2
 adb pull /system/etc/wifi/nvram_mfg.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/nvram_mfg.txt
 adb pull /system/etc/wifi/nvram_mfg.txt_murata ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/nvram_mfg.txt_murata
+adb pull /system/etc/wifi/nvram_mfg.txt_murata_b2 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/nvram_mfg.txt_murata_b2
+adb pull /system/etc/wifi/nvram_mfg.txt_semcosh ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/nvram_mfg.txt_semcosh
 adb pull /system/etc/wifi/nvram_net.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/nvram_net.txt
 adb pull /system/etc/wifi/nvram_net.txt_murata ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/nvram_net.txt_murata
+adb pull /system/etc/wifi/nvram_net.txt_murata_b2 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/nvram_net.txt_murata_b2
+adb pull /system/etc/wifi/nvram_net.txt_semcosh ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/nvram_net.txt_semcosh
 
 adb pull /system/etc/srm.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/srm.bin
 adb pull /system/etc/Volume.db ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/Volume.db
@@ -148,6 +152,31 @@ adb pull /system/lib/libTVOut.so ../../../vendor/$MANUFACTURER/$DEVICE/proprieta
 adb pull /system/lib/libtvoutinterface.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libtvoutinterface.so
 adb pull /system/lib/libtvout_jni.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libtvout_jni.so
 adb pull /system/lib/libtvoutservice.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libtvoutservice.so
+
+adb pull /system/media/battery_batteryerror.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_batteryerror.qmg
+adb pull /system/media/battery_charging_5.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_5.qmg
+adb pull /system/media/battery_charging_10.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_10.qmg
+adb pull /system/media/battery_charging_15.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_15.qmg
+adb pull /system/media/battery_charging_20.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_20.qmg
+adb pull /system/media/battery_charging_25.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_25.qmg
+adb pull /system/media/battery_charging_30.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_30.qmg
+adb pull /system/media/battery_charging_35.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_35.qmg
+adb pull /system/media/battery_charging_40.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_40.qmg
+adb pull /system/media/battery_charging_45.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_45.qmg
+adb pull /system/media/battery_charging_50.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_50.qmg
+adb pull /system/media/battery_charging_55.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_55.qmg
+adb pull /system/media/battery_charging_60.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_60.qmg
+adb pull /system/media/battery_charging_65.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_65.qmg
+adb pull /system/media/battery_charging_70.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_70.qmg
+adb pull /system/media/battery_charging_75.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_75.qmg
+adb pull /system/media/battery_charging_80.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_80.qmg
+adb pull /system/media/battery_charging_85.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_85.qmg
+adb pull /system/media/battery_charging_90.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_90.qmg
+adb pull /system/media/battery_charging_95.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_95.qmg
+adb pull /system/media/battery_charging_100.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_charging_100.qmg
+adb pull /system/media/battery_error.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/battery_error.qmg
+adb pull /system/media/chargingwarning.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/chargingwarning.qmg
+adb pull /system/media/Disconnected.qmg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/media/Disconnected.qmg
 
 adb pull /system/usr/idc/melfas_ts.idc ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/usr/idc/melfas_ts.idc
 adb pull /system/usr/idc/qwerty.idc ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/usr/idc/qwerty.idc
@@ -279,8 +308,12 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/etc/wifi/bcmdhd_sta.bin_b2:system/etc/wifi/bcmdhd_sta.bin_b2 \\
     \$(LOCAL_PATH)/proprietary/system/etc/wifi/nvram_mfg.txt:system/etc/wifi/nvram_mfg.txt \\
     \$(LOCAL_PATH)/proprietary/system/etc/wifi/nvram_mfg.txt_murata:system/etc/wifi/nvram_mfg.txt_murata \\
+    \$(LOCAL_PATH)/proprietary/system/etc/wifi/nvram_mfg.txt_murata_b2:system/etc/wifi/nvram_mfg.txt_murata_b2 \\
+    \$(LOCAL_PATH)/proprietary/system/etc/wifi/nvram_mfg.txt_semcosh:system/etc/wifi/nvram_mfg.txt_semcosh \\
     \$(LOCAL_PATH)/proprietary/system/etc/wifi/nvram_net.txt:system/etc/wifi/nvram_net.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/wifi/nvram_net.txt_murata:system/etc/wifi/nvram_net.txt_murata
+    \$(LOCAL_PATH)/proprietary/system/etc/wifi/nvram_net.txt_murata:system/etc/wifi/nvram_net.txt_murata \\
+    \$(LOCAL_PATH)/proprietary/system/etc/wifi/nvram_net.txt_murata_b2:system/etc/wifi/nvram_net.txt_murata_b2 \\
+    \$(LOCAL_PATH)/proprietary/system/etc/wifi/nvram_net.txt_semcosh:system/etc/wifi/nvram_net.txt_semcosh
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/etc/srm.bin:system/etc/srm.bin \\
@@ -344,6 +377,32 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/lib/libtvoutinterface.so:system/lib/libtvoutinterface.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libtvout_jni.so:system/lib/libtvout_jni.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libtvoutservice.so:system/lib/libtvoutservice.so
+
+PRODUCT_COPY_FILES += \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_batteryerror.qmg:system/media/battery_batteryerror.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_5.qmg:system/media/battery_charging_5.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_10.qmg:system/media/battery_charging_10.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_15.qmg:system/media/battery_charging_15.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_20.qmg:system/media/battery_charging_20.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_25.qmg:system/media/battery_charging_25.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_30.qmg:system/media/battery_charging_30.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_35.qmg:system/media/battery_charging_35.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_40.qmg:system/media/battery_charging_40.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_45.qmg:system/media/battery_charging_45.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_50.qmg:system/media/battery_charging_50.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_55.qmg:system/media/battery_charging_55.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_60.qmg:system/media/battery_charging_60.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_65.qmg:system/media/battery_charging_65.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_70.qmg:system/media/battery_charging_70.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_75.qmg:system/media/battery_charging_75.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_80.qmg:system/media/battery_charging_80.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_85.qmg:system/media/battery_charging_85.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_90.qmg:system/media/battery_charging_90.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_95.qmg:system/media/battery_charging_95.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_charging_100.qmg:system/media/battery_charging_100.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/battery_error.qmg:system/media/battery_error.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/chargingwarning.qmg:system/media/chargingwarning.qmg \\
+    \$(LOCAL_PATH)/proprietary/system/media/Disconnected.qmg:system/media/Disconnected.qmg
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/usr/idc/melfas_ts.idc:system/usr/idc/melfas_ts.idc \\
