@@ -140,6 +140,9 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_BATTERY_DEVICE_NAME := "battery"
 
+# Enable WEBGL in WebKit
+ENABLE_WEBGL := true
+
 # assert
 TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
 
