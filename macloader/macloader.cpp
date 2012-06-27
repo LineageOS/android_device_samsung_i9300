@@ -29,13 +29,21 @@
 #define MACADDR_PATH "/efs/wifi/.mac.info"
 #define CID_PATH "/data/.cid.info"
 
+enum Type {
+    NONE,
+    MURATA,
+    SEMCOSH,
+    SEMCOVE
+};
+
 /*
  * murata:
  * 00:37:6d
  * 88:30:8a
  * 
- * semcove:
- * 
+ * semcosh:
+ * 5c:0a:5b
+ *
  */
 
 int main() {
@@ -45,6 +53,7 @@ int main() {
     char mac_addr_half[9];
     int ret = -1;
     int amode;
+    enum Type type = NONE;
     
     /* open mac addr file */
     file = fopen(MACADDR_PATH, "r");
@@ -64,7 +73,15 @@ int main() {
     
     /* murata */
     if(strncmp(mac_addr_half, "00:37:6d", 9) == 0 || strncmp(mac_addr_half, "88:30:8a", 9) == 0) {
+        type = MURATA;
+    }
 
+    /* semcosh */
+    if(strncmp(mac_addr_half, "5c:0a:5b", 9) == 0) {
+        type = SEMCOSH;
+    }
+
+    if (type != NONE) {
         /* open cid file */
         cidfile = fopen(CID_PATH, "w");
         if(cidfile == 0) {
@@ -72,10 +89,28 @@ int main() {
             LOGE("Can't open %s\n", CID_PATH);
             return -1;
         }
+        
+        switch(type) {
+            case NONE:
+                return -1;
+            break;
+            case MURATA:
+                /* write murata to cid file */
+                LOGI("Writing murata to %s\n", CID_PATH);
+                ret = fputs("murata", cidfile);
+            break;
+            case SEMCOSH:
+                /* write semcosh to cid file */
+                LOGI("Writing semcosh to %s\n", CID_PATH);
+                ret = fputs("semcosh", cidfile);
+            break;
+            case SEMCOVE:
+                /* write semcove to cid file */
+                LOGI("Writing semcove to %s\n", CID_PATH);
+                ret = fputs("semcove", cidfile);
+            break;
+         }
 
-        /* write murata to cid file */
-        LOGD("Writing murata to %s\n", CID_PATH);
-        ret = fputs("murata", cidfile);
         if(ret != 0) {
             fprintf(stderr, "fputs() to file %s failed\n", CID_PATH);
             LOGE("Can't write to %s\n", CID_PATH);
@@ -102,7 +137,7 @@ int main() {
         }
 
     } else {
-        /* delete cid file if not murata or semcove */
+        /* delete cid file if no specific type */
         LOGD("Deleting file %s\n", CID_PATH);
         remove(CID_PATH);
     }
