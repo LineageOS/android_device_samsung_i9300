@@ -29,37 +29,37 @@
     </string-array>
 
     <string-array name="mdnie_scenario_entries">
-        <item>Camera (Default)</item>
+        <item>UI (Default)</item>
         <item>Video</item>
         <item>Video Warm</item>
         <item>Video Cold</item>
-        <item>UI</item>
+        <item>Camera</item>
         <item>Navigation</item>
         <item>Gallery</item>
         <item>VT</item>
     </string-array>
 
     <string-array name="mdnie_scenario_entries_values" translatable="false">
-        <item>4</item>
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
-        <item>0</item>
+        <item>4</item>
         <item>5</item>
         <item>6</item>
         <item>7</item>
     </string-array>
 
     <string-array name="mdnie_mode_entries">
-        <item>Standard (Default)</item>
-        <item>Dynamic</item>
+        <item>Dynamic (Default)</item>
+        <item>Standard</item>
         <item>Natural</item>
         <item>Movie</item>
     </string-array>
 
     <string-array name="mdnie_mode_entries_values" translatable="false">
-        <item>1</item>
         <item>0</item>
+        <item>1</item>
         <item>2</item>
         <item>3</item>
     </string-array>

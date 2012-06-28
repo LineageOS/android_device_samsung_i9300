@@ -48,7 +48,7 @@ public class mDNIeMode extends ListPreference implements OnPreferenceChangeListe
         }
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_MDNIE_MODE, "1"));
+        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_MDNIE_MODE, "0"));
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

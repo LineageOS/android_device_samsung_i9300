@@ -15,19 +15,19 @@
     </string-array>
 
     <string-array name="mdnie_scenario_entries">
-        <item>Kamera (Standard)</item>
+        <item>UI (Standard)</item>
         <item>Video</item>
         <item>Video warm</item>
         <item>Video kalt</item>
-        <item>UI</item>
+        <item>Kamera</item>
         <item>Navigation</item>
         <item>Gallerie</item>
         <item>VT</item>
     </string-array>
 
     <string-array name="mdnie_mode_entries">
-        <item>Standard (Standard)</item>
-        <item>Dynamisch</item>
+        <item>Dynamisch (Standard)</item>
+        <item>Standard</item>
         <item>Natürlich</item>
         <item>Film</item>
     </string-array>
