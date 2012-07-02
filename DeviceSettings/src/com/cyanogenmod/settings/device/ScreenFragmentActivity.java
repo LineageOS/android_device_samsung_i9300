@@ -59,7 +59,13 @@ public class ScreenFragmentActivity extends PreferenceFragment {
         mmDNIeNegative.setEnabled(mDNIeNegative.isSupported());
 
         mLedFade = (LedFade) findPreference(DeviceSettings.KEY_LED_FADE);
-	    mLedFade.setEnabled(LedFade.isSupported());
+        mLedFade.setEnabled(LedFade.isSupported());
+
+        if (((CheckBoxPreference)prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_LIGHT)).isChecked()) {
+            prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
+        } else {
+            prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
+        }
     }
 
     @Override
@@ -70,8 +76,15 @@ public class ScreenFragmentActivity extends PreferenceFragment {
         Log.w(TAG, "key: " + key);
 
         if (key.compareTo(DeviceSettings.KEY_TOUCHKEY_LIGHT) == 0) {
-            Utils.writeValue(FILE_TOUCHKEY_DISABLE, ((CheckBoxPreference)preference).isChecked() ? "0" : "1");
-            Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, ((CheckBoxPreference)preference).isChecked() ? "1" : "2");
+                if (((CheckBoxPreference)preference).isChecked()) {
+                    Utils.writeValue(FILE_TOUCHKEY_DISABLE, "0");
+                    Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, "1");
+                    preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
+                } else {
+                    Utils.writeValue(FILE_TOUCHKEY_DISABLE, "1");
+                    Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, "2");
+                    preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
+                }
         }
         return true;
     }
