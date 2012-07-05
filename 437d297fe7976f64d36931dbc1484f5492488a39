@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAUH//6Ss\u003d",
+        "filename": "DeviceSettings/res/values-ru/arrays.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 2597
+      },
+      "writtenOn": "2012-07-05T11:58:55Z",
+      "side": 1,
+      "message": "Whitespace",
+      "revId": "437d297fe7976f64d36931dbc1484f5492488a39",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
