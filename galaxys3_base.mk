@@ -43,8 +43,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-	device/samsung/i9300/configs/default_gain.conf:system/etc/default_gain.conf \
-	device/samsung/i9300/configs/tinyucm.conf:system/etc/tinyucm.conf
+	device/samsung/i9300/configs/tiny_hw.xml:system/etc/sound/GT-I9300
 
 # Vold and Storage
 PRODUCT_COPY_FILES += \
@@ -69,6 +68,7 @@ PRODUCT_COPY_FILES += \
 
 # Packages
 PRODUCT_PACKAGES := \
+	audio.primary.exynos4 \
 	audio.a2dp.default \
 	camera.exynos4 \
     Camera \
