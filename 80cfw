@@ -3,6 +3,11 @@
 # Copy camera firmware to /data/cfw
 #
 
+if [ ! -f /data/cfw/SlimISP_GD.bin ];
+then
+    busybox cp /system/vendor/firmware/SlimISP_GD.bin /data/cfw/SlimISP_GD.bin
+fi
+
 if [ ! -f /data/cfw/SlimISP_ZD.bin ];
 then
     busybox cp /system/vendor/firmware/SlimISP_ZD.bin /data/cfw/SlimISP_ZD.bin

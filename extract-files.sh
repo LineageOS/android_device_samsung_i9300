@@ -201,6 +201,8 @@ adb pull /system/usr/keylayout/Vendor_046d_Product_c299.kl ../../../vendor/$MANU
 adb pull /system/usr/keylayout/Vendor_046d_Product_c532.kl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/usr/keylayout/Vendor_046d_Product_c532.kl
 adb pull /system/usr/keylayout/Vendor_054c_Product_0268.kl ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/usr/keylayout/Vendor_054c_Product_0268.kl
 
+adb pull /system/vendor/firmware/SlimISP_GD.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/firmware/SlimISP_GD.bin
+adb pull /system/vendor/firmware/SlimISP_ZD.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/firmware/SlimISP_ZD.bin
 adb pull /system/vendor/firmware/fimc_is_fw.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/firmware/fimc_is_fw.bin
 adb pull /system/vendor/firmware/libpn544_fw.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/firmware/libpn544_fw.so
 adb pull /system/vendor/firmware/mfc_fw.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/vendor/firmware/mfc_fw.bin
@@ -426,6 +428,8 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/usr/keylayout/Vendor_054c_Product_0268.kl:system/usr/keylayout/Vendor_054c_Product_0268.kl
 
 PRODUCT_COPY_FILES += \\
+    \$(LOCAL_PATH)/proprietary/system/vendor/firmware/SlimISP_GD.bin:system/vendor/firmware/SlimISP_GD.bin \\
+    \$(LOCAL_PATH)/proprietary/system/vendor/firmware/SlimISP_ZD.bin:system/vendor/firmware/SlimISP_ZD.bin \\
     \$(LOCAL_PATH)/proprietary/system/vendor/firmware/fimc_is_fw.bin:system/vendor/firmware/fimc_is_fw.bin \\
     \$(LOCAL_PATH)/proprietary/system/vendor/firmware/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so \\
     \$(LOCAL_PATH)/proprietary/system/vendor/firmware/mfc_fw.bin:system/vendor/firmware/mfc_fw.bin \\
