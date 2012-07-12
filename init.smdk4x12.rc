@@ -72,7 +72,7 @@ on post-fs-data
     chmod 0644 /efs/h2k.dat
 
 # Camera
-	mkdir /data/cfw 0775 system system
+    write /data/ISP_CV 1
     chown system radio /sys/class/camera/rear/rear_camfw
     chown system radio /sys/class/camera/rear/rear_camtype
     chown system radio /sys/class/camera/rear/rear_flash
@@ -80,7 +80,15 @@ on post-fs-data
     chown system radio /sys/class/camera/front/front_camfw
     chown system radio /sys/class/camera/front/front_camtype
     chown system radio /sys/class/flash/flash/flash_power
-    write /data/ISP_CV 1
+
+# Camera Firmware
+	mkdir /data/cfw 0775 system system
+    chown system system /data/cfw
+    chmod 0775 /data/cfw
+    chown system system /data/cfw/SlimISP_GD.bin
+    chmod 0666 /data/cfw/SlimISP_GD.bin
+    chown system system /data/cfw/SlimISP_ZD.bin
+    chmod 0666 /data/cfw/SlimISP_ZD.bin
 
 # Permissions for bluetooth
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
