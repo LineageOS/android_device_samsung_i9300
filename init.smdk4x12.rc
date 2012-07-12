@@ -72,7 +72,7 @@ on post-fs-data
     chmod 0644 /efs/h2k.dat
 
 # Camera
-	mkdir /data/cfw 0775 system system
+    write /data/ISP_CV 1
     chown system radio /sys/class/camera/rear/rear_camfw
     chown system radio /sys/class/camera/rear/rear_camtype
     chown system radio /sys/class/camera/rear/rear_flash
@@ -80,7 +80,15 @@ on post-fs-data
     chown system radio /sys/class/camera/front/front_camfw
     chown system radio /sys/class/camera/front/front_camtype
     chown system radio /sys/class/flash/flash/flash_power
-    write /data/ISP_CV 1
+
+# Camera Firmware
+    mkdir /data/cfw 0775 system system
+    chown system system /data/cfw
+    chmod 0775 /data/cfw
+    chown system system /data/cfw/SlimISP_GD.bin
+    chmod 0666 /data/cfw/SlimISP_GD.bin
+    chown system system /data/cfw/SlimISP_ZD.bin
+    chmod 0666 /data/cfw/SlimISP_ZD.bin
 
 # Permissions for bluetooth
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
@@ -223,19 +231,19 @@ on post-fs-data
     chown system radio /sys/class/sec/tsp/cmd
 
 # Permissions for Touchkey
-  	chown system radio /sys/class/sec/sec_touchkey/enable_disable 
-	chown system radio /sys/class/sec/sec_touchkey/touchkey_brightness
-	chown system radio /sys/class/sec/sec_touchkey/touchkey_menu
-	chown system radio /sys/class/sec/sec_touchkey/touchkey_back
-	chown system radio /sys/class/sec/sec_touchkey/touch_update
-	chown system radio /sys/class/sec/sec_touchkey/touch_version
-	chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_version_panel
-	chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_version_phone
-	chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_update_status
-	chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_update
-	chown system radio /sys/class/sec/sec_touchkey/touch_sensitivity
-	chown system radio /sys/class/sec/sec_touchkey/touchkey_threshold
-	chown system system /sys/devices/virtual/sec/sec_touchkey/brightness
+    chown system radio /sys/class/sec/sec_touchkey/enable_disable 
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_brightness
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_menu
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_back
+    chown system radio /sys/class/sec/sec_touchkey/touch_update
+    chown system radio /sys/class/sec/sec_touchkey/touch_version
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_version_panel
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_version_phone
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_update_status
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_update
+    chown system radio /sys/class/sec/sec_touchkey/touch_sensitivity
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_threshold
+    chown system system /sys/devices/virtual/sec/sec_touchkey/brightness
 
 # Permissions for gpio_keys
     chown radio system /sys/class/sec/sec_key/wakeup_keys 
@@ -248,26 +256,26 @@ on post-fs-data
     chown system radio /sys/class/sec/switch/adc
 
 # SVC LED
-	chown system system /sys/class/sec/led/led_r
-	chown system system /sys/class/sec/led/led_g
-	chown system system /sys/class/sec/led/led_b
+    chown system system /sys/class/sec/led/led_r
+    chown system system /sys/class/sec/led/led_g
+    chown system system /sys/class/sec/led/led_b
 
-	chown system system /sys/class/leds/led_r/brightness
-	chown system system /sys/class/leds/led_g/brightness
-	chown system system /sys/class/leds/led_b/brightness
-	chown system system /sys/class/leds/led_r/delay_on
-	chown system system /sys/class/leds/led_g/delay_on
-	chown system system /sys/class/leds/led_b/delay_on
-	chown system system /sys/class/leds/led_r/delay_off
-	chown system system /sys/class/leds/led_g/delay_off
-	chown system system /sys/class/leds/led_b/delay_off
-	chown system system /sys/class/leds/led_r/blink
-	chown system system /sys/class/leds/led_g/blink
-	chown system system /sys/class/leds/led_b/blink
+    chown system system /sys/class/leds/led_r/brightness
+    chown system system /sys/class/leds/led_g/brightness
+    chown system system /sys/class/leds/led_b/brightness
+    chown system system /sys/class/leds/led_r/delay_on
+    chown system system /sys/class/leds/led_g/delay_on
+    chown system system /sys/class/leds/led_b/delay_on
+    chown system system /sys/class/leds/led_r/delay_off
+    chown system system /sys/class/leds/led_g/delay_off
+    chown system system /sys/class/leds/led_b/delay_off
+    chown system system /sys/class/leds/led_r/blink
+    chown system system /sys/class/leds/led_g/blink
+    chown system system /sys/class/leds/led_b/blink
 
-	chown system system /sys/class/sec/led/led_pattern
-	chown system system /sys/class/sec/led/led_blink
-	chown system system /sys/class/sec/led/led_br_lev
+    chown system system /sys/class/sec/led/led_pattern
+    chown system system /sys/class/sec/led/led_blink
+    chown system system /sys/class/sec/led/led_br_lev
 
 # <Sensors & NFC>
 # Input Events
@@ -380,8 +388,8 @@ on boot
     symlink /dev/block/mmcblk0p4 /dev/block/param
 
 # serial keyboard port
-	chown root system /dev/ttySAC2
-	chmod 0660 /dev/ttySAC2
+    chown root system /dev/ttySAC2
+    chmod 0660 /dev/ttySAC2
 
 # touchscreen
     chown radio system /sys/class/sec/tsp/cmd
@@ -399,12 +407,12 @@ on boot
 
 # serial keyboard daemon
 service sec_keyboard /system/bin/sec_keyboard /dev/ttySAC2
-	class late_start
-	disabled
-	group system
+    class late_start
+    disabled
+    group system
 
 on property:ro.uart_debug=0
-	start sec_keyboard
+    start sec_keyboard
 
 # create virtual SD card at /mnt/sdcard, based on the /data/media directory
 # daemon will drop to user/group system/media_rw after initializing
@@ -446,9 +454,9 @@ service dhcpcd_p2p /system/bin/dhcpcd -aABKL
     oneshot
 
 service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
-	class main
-	disabled
-	oneshot
+    class main
+    disabled
+    oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
     class main
@@ -461,9 +469,9 @@ service iprenew_p2p /system/bin/dhcpcd -n
     oneshot
 
 service iprenew_bnep0 /system/bin/dhcpcd -n
-	class main
-	disabled
-	oneshot
+    class main
+    disabled
+    oneshot
 
 service macloader /system/bin/macloader
     class main
