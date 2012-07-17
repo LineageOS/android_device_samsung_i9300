@@ -549,7 +549,7 @@ static void select_output_device(struct m0_audio_device *adev)
             LOGD("%s: AUDIO_DEVICE_OUT_ALL_SCO", __func__);
             break;
         default:
-            LOGD("%s: DEFAULT OUTPUT", __func__);
+            LOGD("%s: AUDIO_DEVICE_OUT_ALL", __func__);
             break;
     }
 
