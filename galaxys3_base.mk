@@ -76,6 +76,7 @@ PRODUCT_PACKAGES := \
     com.android.future.usb.accessory \
     GalaxyS3Settings \
     SamsungServiceMode \
+    tinymix \
     Torch
 
 # HAL
