@@ -45,7 +45,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/samsung/i9300/configs/tiny_hw.xml:system/etc/sound/GT-I9300 \
+    device/samsung/i9300/configs/tiny_hw.xml:system/etc/sound/m0 \
     device/samsung/i9300/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Vold and Storage
