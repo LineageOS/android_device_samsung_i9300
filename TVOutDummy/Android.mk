@@ -1,4 +1,4 @@
-# Copyright (C) 2011 The Android Open Source Project
+# Copyright (C) 2008 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,22 +12,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := $(call my-dir)
+LOCAL_PATH:= $(call my-dir)
+
+#
+# libTVOut
+#
 
 include $(CLEAR_VARS)
-
-LOCAL_MODULE := audio.primary.$(TARGET_BOOTLOADER_BOARD_NAME)
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_MODULE_TAGS := optional
+LOCAL_PRELINK_MODULE := false
 
-LOCAL_SRC_FILES := audio_hw.c ril_interface.c
+LOCAL_SRC_FILES := \
+	SecTVOutService.cpp \
+	MessageQueue.cpp \
+        main.cpp
+# 	ISecTVOut.cpp \
 
-LOCAL_C_INCLUDES += \
-	external/tinyalsa/include \
-	external/expat/lib \
-	$(call include-path-for, audio-utils) \
-	$(call include-path-for, audio-effects)
+LOCAL_C_INCLUDES := \
 
-LOCAL_SHARED_LIBRARIES := liblog libcutils libtinyalsa libaudioutils libdl libexpat
+LOCAL_SHARED_LIBRARIES := \
+	libbinder \
+	libutils \
+	libcutils
 
-include $(BUILD_SHARED_LIBRARY)
+LOCAL_MODULE := TVOutDummy
+include $(BUILD_EXECUTABLE)
+

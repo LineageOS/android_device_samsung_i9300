@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "audio_hw_primary"
-/*#define LOG_NDEBUG 0*/
+#define ALOG_TAG "audio_hw_primary"
+/*#define ALOG_NDEBUG 0*/
 
 #include <dlfcn.h>
 #include <stdlib.h>
@@ -72,7 +72,7 @@ static int ril_connect_if_required(struct ril_handle *ril)
         return 0;
 
     if (_ril_connect(ril->client) != RIL_CLIENT_ERR_SUCCESS) {
-        LOGE("ril_connect() failed");
+        ALOGE("ril_connect() failed");
         return -1;
     }
 
@@ -94,7 +94,7 @@ int ril_open(struct ril_handle *ril)
     ril->handle = dlopen(RIL_CLIENT_LIBPATH, RTLD_NOW);
 
     if (!ril->handle) {
-        LOGE("Cannot open '%s'", RIL_CLIENT_LIBPATH);
+        ALOGE("Cannot open '%s'", RIL_CLIENT_LIBPATH);
         return -1;
     }
 
@@ -115,14 +115,14 @@ int ril_open(struct ril_handle *ril)
         !_ril_is_connected || !_ril_disconnect || !_ril_set_call_volume ||
         !_ril_set_call_audio_path || !_ril_set_call_clock_sync ||
         !_ril_register_unsolicited_handler) {
-        LOGE("Cannot get symbols from '%s'", RIL_CLIENT_LIBPATH);
+        ALOGE("Cannot get symbols from '%s'", RIL_CLIENT_LIBPATH);
         dlclose(ril->handle);
         return -1;
     }
 
     ril->client = _ril_open_client();
     if (!ril->client) {
-        LOGE("ril_open_client() failed");
+        ALOGE("ril_open_client() failed");
         dlclose(ril->handle);
         return -1;
     }
@@ -148,7 +148,7 @@ int ril_close(struct ril_handle *ril)
 
     if ((_ril_disconnect(ril->client) != RIL_CLIENT_ERR_SUCCESS) ||
         (_ril_close_client(ril->client) != RIL_CLIENT_ERR_SUCCESS)) {
-        LOGE("ril_disconnect() or ril_close_client() failed");
+        ALOGE("ril_disconnect() or ril_close_client() failed");
         return -1;
     }
 

@@ -40,10 +40,10 @@
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
     <!-- Component name of the service providing network location support. -->
-    <string name="config_networkLocationProvider">com.google.android.location.NetworkLocationProvider</string>
+    <string name="config_networkLocationProviderPackageName">com.google.android.location.NetworkLocationProvider</string>
 
     <!-- Component name of the service providing geocoder API support. -->
-    <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
+    <string name="config_geocodeProviderPackageName">com.google.android.location.GeocodeProvider</string>
 
     <!-- Flag indicating whether we should enable the automatic brightness in Settings.
          config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
@@ -245,20 +245,14 @@
 
     <bool name="config_ui_enableFadingMarquee">false</bool>
 
-    <!-- Component name of the service providing network location support. -->
-    <string name="config_networkLocationProvider">com.google.android.location.NetworkLocationProvider</string>
-
-    <!-- Component name of the service providing geocoder API support. -->
-    <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
-
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
+    <!-- <bool name="config_intrusiveBatteryLed">true</bool> -->
 
     <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors -->
-    <bool name="config_multiColorBatteryLed">true</bool>
+    <!-- <bool name="config_multiColorBatteryLed">true</bool> -->
 
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
@@ -312,27 +306,5 @@
     
     <!-- Allow the menu hard key to be disabled in LockScreen on some devices -->
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
-    
-    <!-- CM CHANGES START HERE -->
-
-    <!-- LUN file to be used by legacy USB manager.
-         The existence of this file will be used to determine in the
-         legacy USB manager should be started. -->
-    <string name="config_legacyUmsLunFile">/sys/class/android_usb/f_mass_storage/lun0/file</string>
-
-    <!-- Workaround for devices with broken keyboards -->	
-    <bool name="config_forceDisableHardwareKeyboard">true</bool>
-
-    <!-- Hardware 'face' keys present on the device, stored as a bit field.
-         This integer should equal the sum of the corresponding value for each
-         of the following keys present:
-             1 - Home
-             2 - Back
-             4 - Menu
-             8 - Search
-            16 - App switch
-         For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
-    <integer name="config_deviceHardwareKeys">7</integer>
 
 </resources>

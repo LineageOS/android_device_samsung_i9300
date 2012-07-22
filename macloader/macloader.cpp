@@ -59,7 +59,7 @@ int main() {
     file = fopen(MACADDR_PATH, "r");
     if(file == 0) {
         fprintf(stderr, "open(%s) failed\n", MACADDR_PATH);
-        LOGE("Can't open %s\n", MACADDR_PATH);
+        ALOGE("Can't open %s\n", MACADDR_PATH);
         return -1;
     }
 
@@ -67,7 +67,7 @@ int main() {
     str = fgets(mac_addr_half, 9, file);    
     if(str == 0) {
         fprintf(stderr, "fgets() from file %s failed\n", MACADDR_PATH);
-        LOGE("Can't read from %s\n", MACADDR_PATH);
+        ALOGE("Can't read from %s\n", MACADDR_PATH);
         return -1;
     }
     
@@ -86,7 +86,7 @@ int main() {
         cidfile = fopen(CID_PATH, "w");
         if(cidfile == 0) {
             fprintf(stderr, "open(%s) failed\n", CID_PATH);
-            LOGE("Can't open %s\n", CID_PATH);
+            ALOGE("Can't open %s\n", CID_PATH);
             return -1;
         }
 
@@ -96,30 +96,30 @@ int main() {
             break;
             case MURATA:
                 /* write murata to cid file */
-                LOGI("Writing murata to %s\n", CID_PATH);
+                ALOGI("Writing murata to %s\n", CID_PATH);
                 ret = fputs("murata", cidfile);
             break;
             case SEMCOSH:
                 /* write semcosh to cid file */
-                LOGI("Writing semcosh to %s\n", CID_PATH);
+                ALOGI("Writing semcosh to %s\n", CID_PATH);
                 ret = fputs("semcosh", cidfile);
             break;
             case SEMCOVE:
                 /* write semcove to cid file */
-                LOGI("Writing semcove to %s\n", CID_PATH);
+                ALOGI("Writing semcove to %s\n", CID_PATH);
                 ret = fputs("semcove", cidfile);
             break;
          }
 
         if(ret != 0) {
             fprintf(stderr, "fputs() to file %s failed\n", CID_PATH);
-            LOGE("Can't write to %s\n", CID_PATH);
+            ALOGE("Can't write to %s\n", CID_PATH);
             return -1;
         }
         fclose(cidfile);
         
         /* set permissions on cid file */
-        LOGD("Setting permissions on %s\n", CID_PATH);
+        ALOGD("Setting permissions on %s\n", CID_PATH);
         amode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
         ret = chmod(CID_PATH, amode);
 
@@ -132,13 +132,13 @@ int main() {
 
         if(ret != 0) {
             fprintf(stderr, "chmod() on file %s failed\n", CID_PATH);
-            LOGE("Can't set permissions on %s\n", CID_PATH);
+            ALOGE("Can't set permissions on %s\n", CID_PATH);
             return ret;
         }
 
     } else {
         /* delete cid file if no specific type */
-        LOGD("Deleting file %s\n", CID_PATH);
+        ALOGD("Deleting file %s\n", CID_PATH);
         remove(CID_PATH);
     }
     fclose(file);
