@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAVX//+aY\u003d",
+        "filename": "cm.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 991
+      },
+      "writtenOn": "2012-07-23T00:28:27Z",
+      "side": 1,
+      "message": "PRODUCT_NAME\u003dm0xx per stock build.pro http://pastie.org/4301678",
+      "revId": "4d4a860ddd040250ef6ac7a89851d5c1c30df547",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
