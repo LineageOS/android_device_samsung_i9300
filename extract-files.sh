@@ -27,6 +27,8 @@ sleep 3
 adb pull /sbin/cbd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/sbin/cbd
 
 adb pull /system/bin/bcm4334.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bcm4334.hcd
+adb pull /system/bin/bcm4334_murata.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bcm4334_murata.hcd
+adb pull /system/bin/bcm4334_semcosh.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bcm4334_semcosh.hcd
 adb pull /system/bin/gps.cer ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/gps.cer
 adb pull /system/bin/gpsd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/gpsd
 adb pull /system/bin/lpmkey ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/lpmkey
@@ -35,42 +37,6 @@ adb pull /system/bin/rild ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/syst
 
 adb pull /system/cameradata/datapattern_420sp.yuv ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/cameradata/datapattern_420sp.yuv
 adb pull /system/cameradata/datapattern_front_420sp.yuv ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/cameradata/datapattern_front_420sp.yuv
-
-adb pull /system/etc/audio/LVVEFS_Rx_Configuration.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/LVVEFS_Rx_Configuration.txt
-adb pull /system/etc/audio/LVVEFS_Tx_Configuration.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/LVVEFS_Tx_Configuration.txt
-adb pull /system/etc/audio/Rx_ControlParams_BLUETOOTH_HEADSET.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Rx_ControlParams_BLUETOOTH_HEADSET.txt
-adb pull /system/etc/audio/Rx_ControlParams_EARPIECE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Rx_ControlParams_EARPIECE_WIDEBAND.txt
-adb pull /system/etc/audio/Rx_ControlParams_SECVOIP_BLUETOOTH_HEADSET.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Rx_ControlParams_SECVOIP_BLUETOOTH_HEADSET.txt
-adb pull /system/etc/audio/Rx_ControlParams_SECVOIP_EARPIECE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Rx_ControlParams_SECVOIP_EARPIECE_WIDEBAND.txt
-adb pull /system/etc/audio/Rx_ControlParams_SECVOIP_SPEAKER_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Rx_ControlParams_SECVOIP_SPEAKER_WIDEBAND.txt
-adb pull /system/etc/audio/Rx_ControlParams_SECVOIP_WIRED_HEADPHONE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Rx_ControlParams_SECVOIP_WIRED_HEADPHONE_WIDEBAND.txt
-adb pull /system/etc/audio/Rx_ControlParams_SECVOIP_WIRED_HEADSET_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Rx_ControlParams_SECVOIP_WIRED_HEADSET_WIDEBAND.txt
-adb pull /system/etc/audio/Rx_ControlParams_SPEAKER_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Rx_ControlParams_SPEAKER_WIDEBAND.txt
-adb pull /system/etc/audio/Rx_ControlParams_WIRED_HEADPHONE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Rx_ControlParams_WIRED_HEADPHONE_WIDEBAND.txt
-adb pull /system/etc/audio/Rx_ControlParams_WIRED_HEADSET_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Rx_ControlParams_WIRED_HEADSET_WIDEBAND.txt
-adb pull /system/etc/audio/Tx_ControlParams_BLUETOOTH_HEADSET.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Tx_ControlParams_BLUETOOTH_HEADSET.txt
-adb pull /system/etc/audio/Tx_ControlParams_EARPIECE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Tx_ControlParams_EARPIECE_WIDEBAND.txt
-adb pull /system/etc/audio/Tx_ControlParams_SECVOIP_BLUETOOTH_HEADSET.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Tx_ControlParams_SECVOIP_BLUETOOTH_HEADSET.txt
-adb pull /system/etc/audio/Tx_ControlParams_SECVOIP_EARPIECE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Tx_ControlParams_SECVOIP_EARPIECE_WIDEBAND.txt
-adb pull /system/etc/audio/Tx_ControlParams_SECVOIP_SPEAKER_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Tx_ControlParams_SECVOIP_SPEAKER_WIDEBAND.txt
-adb pull /system/etc/audio/Tx_ControlParams_SECVOIP_WIRED_HEADPHONE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Tx_ControlParams_SECVOIP_WIRED_HEADPHONE_WIDEBAND.txt
-adb pull /system/etc/audio/Tx_ControlParams_SECVOIP_WIRED_HEADSET_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Tx_ControlParams_SECVOIP_WIRED_HEADSET_WIDEBAND.txt
-adb pull /system/etc/audio/Tx_ControlParams_SPEAKER_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Tx_ControlParams_SPEAKER_WIDEBAND.txt
-adb pull /system/etc/audio/Tx_ControlParams_WIRED_HEADPHONE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Tx_ControlParams_WIRED_HEADPHONE_WIDEBAND.txt
-adb pull /system/etc/audio/Tx_ControlParams_WIRED_HEADSET_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio/Tx_ControlParams_WIRED_HEADSET_WIDEBAND.txt
-
-adb pull /system/etc/audio_VR/LVVEFS_Rx_Configuration.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/LVVEFS_Rx_Configuration.txt
-adb pull /system/etc/audio_VR/LVVEFS_Tx_Configuration.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/LVVEFS_Tx_Configuration.txt
-adb pull /system/etc/audio_VR/Rx_ControlParams_VR_BLUETOOTH_HEADSET.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/Rx_ControlParams_VR_BLUETOOTH_HEADSET.txt
-adb pull /system/etc/audio_VR/Rx_ControlParams_VR_EARPIECE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/Rx_ControlParams_VR_EARPIECE_WIDEBAND.txt
-adb pull /system/etc/audio_VR/Rx_ControlParams_VR_SPEAKER_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/Rx_ControlParams_VR_SPEAKER_WIDEBAND.txt
-adb pull /system/etc/audio_VR/Rx_ControlParams_VR_WIRED_HEADPHONE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/Rx_ControlParams_VR_WIRED_HEADPHONE_WIDEBAND.txt
-adb pull /system/etc/audio_VR/Rx_ControlParams_VR_WIRED_HEADSET_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/Rx_ControlParams_VR_WIRED_HEADSET_WIDEBAND.txt
-adb pull /system/etc/audio_VR/Tx_ControlParams_VR_BLUETOOTH_HEADSET.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/Tx_ControlParams_VR_BLUETOOTH_HEADSET.txt
-adb pull /system/etc/audio_VR/Tx_ControlParams_VR_EARPIECE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/Tx_ControlParams_VR_EARPIECE_WIDEBAND.txt
-adb pull /system/etc/audio_VR/Tx_ControlParams_VR_SPEAKER_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/Tx_ControlParams_VR_SPEAKER_WIDEBAND.txt
-adb pull /system/etc/audio_VR/Tx_ControlParams_VR_WIRED_HEADPHONE_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/Tx_ControlParams_VR_WIRED_HEADPHONE_WIDEBAND.txt
-adb pull /system/etc/audio_VR/Tx_ControlParams_VR_WIRED_HEADSET_WIDEBAND.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/audio_VR/Tx_ControlParams_VR_WIRED_HEADSET_WIDEBAND.txt
 
 adb pull /system/etc/firmware/RS_M9MO.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/firmware/RS_M9MO.bin
 
@@ -95,38 +61,22 @@ adb pull /system/etc/wifi/nvram_net.txt_murata_b2 ../../../vendor/$MANUFACTURER/
 adb pull /system/etc/wifi/nvram_net.txt_semcosh ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/nvram_net.txt_semcosh
 
 adb pull /system/etc/srm.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/srm.bin
-adb pull /system/etc/Volume.db ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/Volume.db
 
 adb pull /system/lib/egl/libEGL_mali.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/egl/libEGL_mali.so
 adb pull /system/lib/egl/libGLES_android.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/egl/libGLES_android.so
 adb pull /system/lib/egl/libGLESv1_CM_mali.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/egl/libGLESv1_CM_mali.so
 adb pull /system/lib/egl/libGLESv2_mali.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/egl/libGLESv2_mali.so
 
-adb pull /system/lib/hw/audio.primary.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/audio.primary.smdk4x12.so
-adb pull /system/lib/hw/audio.wfd.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/audio.wfd.smdk4x12.so
-adb pull /system/lib/hw/audio_policy.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/audio_policy.smdk4x12.so
 adb pull /system/lib/hw/vendor-camera.exynos4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/camera.smdk4x12.so
 adb pull /system/lib/hw/gps.exynos4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/gps.exynos4.so
 adb pull /system/lib/hw/gralloc.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/gralloc.smdk4x12.so
 adb pull /system/lib/hw/sensors.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/sensors.smdk4x12.so
 adb pull /system/lib/hw/hwcomposer.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/hwcomposer.smdk4x12.so
 
-adb pull /system/lib/libaudiopolicy_sec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libaudiopolicy_sec.so
-adb pull /system/lib/libcontrolcsc.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libcontrolcsc.so
-adb pull /system/lib/liblvvefs.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/liblvvefs.so
 adb pull /system/lib/libril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libril.so
-adb pull /system/lib/libsamsungRecord.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsamsungRecord.so
-adb pull /system/lib/lib_SamsungRec_V01005.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/lib_SamsungRec_V01005.so
-adb pull /system/lib/lib_Samsung_Resampler.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/lib_Samsung_Resampler.so
-adb pull /system/lib/lib_Samsung_SB_AM_for_ICS_v03004.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/lib_Samsung_SB_AM_for_ICS_v03004.so
-adb pull /system/lib/libsamsungSoundbooster.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsamsungSoundbooster.so
 adb pull /system/lib/libsec-ril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsec-ril.so
 adb pull /system/lib/libsecril-client.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsecril-client.so
-adb pull /system/lib/libtinyalsa.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libtinyalsa.so
 adb pull /system/lib/libakm.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libakm.so
-adb pull /system/lib/libGLESv1_CM.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libGLESv1_CM.so
-adb pull /system/lib/libGLESv2.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libGLESv2.so
-adb pull /system/lib/libGLESv2_dbg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libGLESv2_dbg.so
 adb pull /system/lib/libion.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libion.so
 adb pull /system/lib/libMali.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libMali.so
 adb pull /system/lib/libsecnativefeature.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsecnativefeature.so
@@ -245,6 +195,8 @@ PRODUCT_COPY_FILES += \\
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/bin/bcm4334.hcd:system/bin/bcm4334.hcd \\
+    \$(LOCAL_PATH)/proprietary/system/bin/bcm4334_murata.hcd:system/bin/bcm4334_murata.hcd \\
+    \$(LOCAL_PATH)/proprietary/system/bin/bcm4334_semcosh.hcd:system/bin/bcm4334_semcosh.hcd \\
     \$(LOCAL_PATH)/proprietary/system/bin/gps.cer:system/bin/gps.cer \\
     \$(LOCAL_PATH)/proprietary/system/bin/gpsd:system/bin/gpsd \\
     \$(LOCAL_PATH)/proprietary/system/bin/lpmkey:system/bin/lpmkey \\
@@ -254,44 +206,6 @@ PRODUCT_COPY_FILES += \\
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/cameradata/datapattern_420sp.yuv:system/cameradata/datapattern_420sp.yuv \\
     \$(LOCAL_PATH)/proprietary/system/cameradata/datapattern_front_420sp.yuv:system/cameradata/datapattern_front_420sp.yuv
-
-PRODUCT_COPY_FILES += \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/LVVEFS_Rx_Configuration.txt:system/etc/audio/LVVEFS_Rx_Configuration.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/LVVEFS_Tx_Configuration.txt:system/etc/audio/LVVEFS_Tx_Configuration.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Rx_ControlParams_BLUETOOTH_HEADSET.txt:system/etc/audio/Rx_ControlParams_BLUETOOTH_HEADSET.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Rx_ControlParams_EARPIECE_WIDEBAND.txt:system/etc/audio/Rx_ControlParams_EARPIECE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Rx_ControlParams_SECVOIP_BLUETOOTH_HEADSET.txt:system/etc/audio/Rx_ControlParams_SECVOIP_BLUETOOTH_HEADSET.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Rx_ControlParams_SECVOIP_EARPIECE_WIDEBAND.txt:system/etc/audio/Rx_ControlParams_SECVOIP_EARPIECE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Rx_ControlParams_SECVOIP_SPEAKER_WIDEBAND.txt:system/etc/audio/Rx_ControlParams_SECVOIP_SPEAKER_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Rx_ControlParams_SECVOIP_WIRED_HEADPHONE_WIDEBAND.txt:system/etc/audio/Rx_ControlParams_SECVOIP_WIRED_HEADPHONE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Rx_ControlParams_SECVOIP_WIRED_HEADSET_WIDEBAND.txt:system/etc/audio/Rx_ControlParams_SECVOIP_WIRED_HEADSET_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Rx_ControlParams_SPEAKER_WIDEBAND.txt:system/etc/audio/Rx_ControlParams_SPEAKER_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Rx_ControlParams_WIRED_HEADPHONE_WIDEBAND.txt:system/etc/audio/Rx_ControlParams_WIRED_HEADPHONE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Rx_ControlParams_WIRED_HEADSET_WIDEBAND.txt:system/etc/audio/Rx_ControlParams_WIRED_HEADSET_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Tx_ControlParams_BLUETOOTH_HEADSET.txt:system/etc/audio/Tx_ControlParams_BLUETOOTH_HEADSET.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Tx_ControlParams_EARPIECE_WIDEBAND.txt:system/etc/audio/Tx_ControlParams_EARPIECE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Tx_ControlParams_SECVOIP_BLUETOOTH_HEADSET.txt:system/etc/audio/Tx_ControlParams_SECVOIP_BLUETOOTH_HEADSET.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Tx_ControlParams_SECVOIP_EARPIECE_WIDEBAND.txt:system/etc/audio/Tx_ControlParams_SECVOIP_EARPIECE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Tx_ControlParams_SECVOIP_SPEAKER_WIDEBAND.txt:system/etc/audio/Tx_ControlParams_SECVOIP_SPEAKER_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Tx_ControlParams_SECVOIP_WIRED_HEADPHONE_WIDEBAND.txt:system/etc/audio/Tx_ControlParams_SECVOIP_WIRED_HEADPHONE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Tx_ControlParams_SECVOIP_WIRED_HEADSET_WIDEBAND.txt:system/etc/audio/Tx_ControlParams_SECVOIP_WIRED_HEADSET_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Tx_ControlParams_SPEAKER_WIDEBAND.txt:system/etc/audio/Tx_ControlParams_SPEAKER_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Tx_ControlParams_WIRED_HEADPHONE_WIDEBAND.txt:system/etc/audio/Tx_ControlParams_WIRED_HEADPHONE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio/Tx_ControlParams_WIRED_HEADSET_WIDEBAND.txt:system/etc/audio/Tx_ControlParams_WIRED_HEADSET_WIDEBAND.txt
-
-PRODUCT_COPY_FILES += \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/LVVEFS_Rx_Configuration.txt:system/etc/audio_VR/LVVEFS_Rx_Configuration.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/LVVEFS_Tx_Configuration.txt:system/etc/audio_VR/LVVEFS_Tx_Configuration.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/Rx_ControlParams_VR_BLUETOOTH_HEADSET.txt:system/etc/audio_VR/Rx_ControlParams_VR_BLUETOOTH_HEADSET.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/Rx_ControlParams_VR_EARPIECE_WIDEBAND.txt:system/etc/audio_VR/Rx_ControlParams_VR_EARPIECE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/Rx_ControlParams_VR_SPEAKER_WIDEBAND.txt:system/etc/audio_VR/Rx_ControlParams_VR_SPEAKER_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/Rx_ControlParams_VR_WIRED_HEADPHONE_WIDEBAND.txt:system/etc/audio_VR/Rx_ControlParams_VR_WIRED_HEADPHONE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/Rx_ControlParams_VR_WIRED_HEADSET_WIDEBAND.txt:system/etc/audio_VR/Rx_ControlParams_VR_WIRED_HEADSET_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/Tx_ControlParams_VR_BLUETOOTH_HEADSET.txt:system/etc/audio_VR/Tx_ControlParams_VR_BLUETOOTH_HEADSET.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/Tx_ControlParams_VR_EARPIECE_WIDEBAND.txt:system/etc/audio_VR/Tx_ControlParams_VR_EARPIECE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/Tx_ControlParams_VR_SPEAKER_WIDEBAND.txt:system/etc/audio_VR/Tx_ControlParams_VR_SPEAKER_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/Tx_ControlParams_VR_WIRED_HEADPHONE_WIDEBAND.txt:system/etc/audio_VR/Tx_ControlParams_VR_WIRED_HEADPHONE_WIDEBAND.txt \\
-    \$(LOCAL_PATH)/proprietary/system/etc/audio_VR/Tx_ControlParams_VR_WIRED_HEADSET_WIDEBAND.txt:system/etc/audio_VR/Tx_ControlParams_VR_WIRED_HEADSET_WIDEBAND.txt
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/etc/firmware/RS_M9MO.bin:system/etc/firmware/RS_M9MO.bin
@@ -318,8 +232,7 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/etc/wifi/nvram_net.txt_semcosh:system/etc/wifi/nvram_net.txt_semcosh
 
 PRODUCT_COPY_FILES += \\
-    \$(LOCAL_PATH)/proprietary/system/etc/srm.bin:system/etc/srm.bin \\
-    \$(LOCAL_PATH)/proprietary/system/etc/Volume.db:system/etc/Volume.db
+    \$(LOCAL_PATH)/proprietary/system/etc/srm.bin:system/etc/srm.bin
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/lib/egl/libEGL_mali.so:system/lib/egl/libEGL_mali.so \\
@@ -328,9 +241,6 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/lib/egl/libGLESv2_mali.so:system/lib/egl/libGLESv2_mali.so
 
 PRODUCT_COPY_FILES += \\
-    \$(LOCAL_PATH)/proprietary/system/lib/hw/audio.primary.smdk4x12.so:system/lib/hw/audio.primary.smdk4x12.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/hw/audio.wfd.smdk4x12.so:system/lib/hw/audio.wfd.smdk4x12.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/hw/audio_policy.smdk4x12.so:system/lib/hw/audio_policy.smdk4x12.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/hw/camera.smdk4x12.so:system/lib/hw/vendor-camera.exynos4.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/hw/gps.exynos4.so:system/lib/hw/gps.exynos4.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/hw/gralloc.smdk4x12.so:system/lib/hw/gralloc.smdk4x12.so \\
@@ -338,22 +248,10 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/lib/hw/hwcomposer.smdk4x12.so:system/lib/hw/hwcomposer.smdk4x12.so
 
 PRODUCT_COPY_FILES += \\
-    \$(LOCAL_PATH)/proprietary/system/lib/libaudiopolicy_sec.so:system/lib/libaudiopolicy_sec.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/libcontrolcsc.so:system/lib/libcontrolcsc.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/liblvvefs.so:system/lib/liblvvefs.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libril.so:system/lib/libril.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/libsamsungRecord.so:system/lib/libsamsungRecord.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/lib_SamsungRec_V01005.so:system/lib/lib_SamsungRec_V01005.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/lib_Samsung_Resampler.so:system/lib/lib_Samsung_Resampler.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/lib_Samsung_SB_AM_for_ICS_v03004.so:system/lib/lib_Samsung_SB_AM_for_ICS_v03004.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/libsamsungSoundbooster.so:system/lib/libsamsungSoundbooster.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libsec-ril.so:system/lib/libsec-ril.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libsecril-client.so:system/lib/libsecril-client.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/libtinyalsa.so:system/lib/libtinyalsa.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libakm.so:system/lib/libakm.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/libGLESv1_CM.so:system/lib/libGLESv1_CM.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/libGLESv2.so:system/lib/libGLESv2.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/libGLESv2_dbg.so:system/lib/libGLESv2_dbg.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libion.so:system/lib/libion.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libMali.so:system/lib/libMali.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libsecnativefeature.so:system/lib/libsecnativefeature.so \\
