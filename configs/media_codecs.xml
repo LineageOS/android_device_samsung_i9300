@@ -79,12 +79,9 @@ Only the three quirks included above are recognized at this point:
     <Decoders>
         <MediaCodec name="OMX.SEC.AVC.Decoder" type="video/avc" />
         <MediaCodec name="OMX.SEC.MPEG4.Decoder" type="video/mp4v-es" />
-
-        <MediaCodec name="OMX.Nvidia.mp4.decode" type="video/mp4v-es" />
-        <MediaCodec name="OMX.Nvidia.h263.decode" type="video/3gpp" />
-        <MediaCodec name="OMX.Nvidia.h264.decode" type="video/avc" />
-        <MediaCodec name="OMX.Nvidia.mpeg2v.decode" type="video/mpeg2" />
-        <MediaCodec name="OMX.Nvidia.mp2.decoder" type="audio/mpeg-L2" />
+        <MediaCodec name="OMX.SEC.H263.Decoder" type="video/3gpp" />
+        <MediaCodec name="OMX.SEC.AVC.Decoder" type="video/avc" />
+        <MediaCodec name="OMX.SEC.VP8.Decoder" type="video/x-vnd.on2.vp8" />
 
         <MediaCodec name="OMX.google.mp3.decoder" type="audio/mpeg" />
         <MediaCodec name="OMX.google.amrnb.decoder" type="audio/3gpp" />
@@ -93,7 +90,6 @@ Only the three quirks included above are recognized at this point:
         <MediaCodec name="OMX.google.g711.alaw.decoder" type="audio/g711-alaw" />
         <MediaCodec name="OMX.google.g711.mlaw.decoder" type="audio/g711-mlaw" />
         <MediaCodec name="OMX.google.vorbis.decoder" type="audio/vorbis" />
-
         <MediaCodec name="OMX.google.mpeg4.decoder" type="video/mp4v-es" />
         <MediaCodec name="OMX.google.h263.decoder" type="video/3gpp" />
         <MediaCodec name="OMX.google.h264.decoder" type="video/avc" />
@@ -101,9 +97,9 @@ Only the three quirks included above are recognized at this point:
     </Decoders>
 
     <Encoders>
-        <MediaCodec name="OMX.Nvidia.mp4.encoder" type="video/mp4v-es" />
-        <MediaCodec name="OMX.Nvidia.h263.encoder" type="video/3gpp" />
-        <MediaCodec name="OMX.Nvidia.h264.encoder" type="video/avc" />
+        <MediaCodec name="OMX.SEC.MPEG4.Encoder" type="video/mp4v-es" />
+        <MediaCodec name="OMX.SEC.H263.Encoder" type="video/3gpp" />
+        <MediaCodec name="OMX.SEC.AVC.Encoder" type="video/avc" />
 
         <MediaCodec name="OMX.google.amrnb.encoder" type="audio/3gpp" />
         <MediaCodec name="OMX.google.amrwb.encoder" type="audio/amr-wb" />
