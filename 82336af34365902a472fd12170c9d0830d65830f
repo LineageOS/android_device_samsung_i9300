@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAVX//+aM\u003d",
+        "filename": "cm.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 991
+      },
+      "writtenOn": "2012-07-23T00:32:07Z",
+      "side": 1,
+      "message": "nebkat fail\nPRODUCT_NAME\u003dm0xx TARGET_DEVICE\u003dm0",
+      "revId": "82336af34365902a472fd12170c9d0830d65830f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
