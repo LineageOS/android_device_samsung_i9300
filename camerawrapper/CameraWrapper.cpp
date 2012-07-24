@@ -400,7 +400,10 @@ int camera_send_command(struct camera_device * device,
     if(!device)
         return -EINVAL;
 
-    return VENDOR_CALL(device, send_command, cmd, arg1, arg2);
+    /* send_command causes the camera hal do to unexpected things like lockups.
+     * don't pass any command to the vendor hal to prevent this */
+    return 0;
+    //return VENDOR_CALL(device, send_command, cmd, arg1, arg2);
 }
 
 void camera_release(struct camera_device * device)
