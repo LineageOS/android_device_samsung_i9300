@@ -3,20 +3,21 @@ import init.bt.rc
 
 on early-init
     export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /mnt/extSdCard
-
+    export SECONDARY_STORAGE /storage/sdcard1
     mkdir /storage 0050 system sdcard_r
     mkdir /storage/sdcard0 0000 system system
-
-    mkdir /mnt/extSdCard 0775 system system
-    mkdir /mnt/usbdisk 0775 system system
+    mkdir /storage/sdcard1 0775 system system
+    mkdir /storage/usbdisk0 0775 system system
 
     # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
-    symlink /mnt/extSdCard /extSdCard
-    symlink /efs /factory
+    symlink /storage/sdcard1 /extSdCard
+    symlink /storage/sdcard1 /mnt/extSdCard
+    symlink /storage/usbdisk0 /usbdisk0
+    symlink /storage/usbdisk0 /mnt/usbdisk0
 
+    symlink /efs /factory
     mkdir /efs
 
 # ko files for exfat
