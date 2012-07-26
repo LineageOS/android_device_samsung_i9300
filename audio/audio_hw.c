@@ -581,25 +581,36 @@ static void select_output_device(struct m0_audio_device *adev)
         }
 
         if (headset_on || headphone_on || speaker_on || earpiece_on) {
-            LOGD("%s: set bigroute: voicecall_input_default", __func__);
+            LOGD("%s: set voicecall route: voicecall_default", __func__);
             set_bigroute_by_array(adev->mixer, voicecall_default, 1);
         } else {
-            LOGD("%s: set bigroute: voicecall_input_default_disable", __func__);
+            LOGD("%s: set voicecall route: voicecall_default_disable", __func__);
             set_bigroute_by_array(adev->mixer, voicecall_default_disable, 1);
         }
 
-        if (headset_on || headphone_on) {
-            LOGD("%s: set bigroute: headset_input", __func__);
+        if (speaker_on || earpiece_on || headphone_on) {
+            LOGD("%s: set voicecall route: default_input", __func__);
+            set_bigroute_by_array(adev->mixer, default_input, 1);
+        } else {
+            LOGD("%s: set voicecall route: default_input_disable", __func__);
+            set_bigroute_by_array(adev->mixer, default_input_disable, 1);
+        }
+
+        if (headset_on) {
+            LOGD("%s: set voicecall route: headset_input", __func__);
             set_bigroute_by_array(adev->mixer, headset_input, 1);
+        } else {
+            LOGD("%s: set voicecall route: headset_input_disable", __func__);
+            set_bigroute_by_array(adev->mixer, headset_input_disable, 1);
         }
 
         if (bt_on) {
             // bt uses a different port (PORT_BT) for playback, reopen the pcms
             end_call(adev);
             start_call(adev);
-            LOGD("%s: set bigroute: bt_input", __func__);
+            LOGD("%s: set voicecall route: bt_input", __func__);
             set_bigroute_by_array(adev->mixer, bt_input, 1);
-            LOGD("%s: set bigroute: bt_output", __func__);
+            LOGD("%s: set voicecall route: bt_output", __func__);
             set_bigroute_by_array(adev->mixer, bt_output, 1);
         }
         set_incall_device(adev);
