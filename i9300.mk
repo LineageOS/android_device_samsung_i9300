@@ -83,7 +83,7 @@ PRODUCT_PACKAGES := \
     GalaxyS3Settings \
     SamsungServiceMode \
     tinymix
-#    Torch
+    Torch
 
 # HAL
 PRODUCT_PACKAGES += \
