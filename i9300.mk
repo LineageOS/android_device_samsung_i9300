@@ -76,14 +76,14 @@ PRODUCT_PACKAGES := \
     audio.usb.default \
     camera.exynos4 \
     Camera \
-    libsecril-client \
-    macloader \
-    TVOutDummy \
     com.android.future.usb.accessory \
     GalaxyS3Settings \
+    libsecril-client \
+    macloader \
     SamsungServiceMode \
-    tinymix
-#    Torch
+    tinymix \
+    Torch \
+    TVOutDummy
 
 # HAL
 PRODUCT_PACKAGES += \
