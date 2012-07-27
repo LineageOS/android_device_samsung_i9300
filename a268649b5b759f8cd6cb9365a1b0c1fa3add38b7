@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAVX//8uc\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1881
+      },
+      "writtenOn": "2012-07-27T22:29:18Z",
+      "side": 1,
+      "message": "Do you mean this? Yup, I can read the scaling_governor sysfile to make this dynamic.",
+      "revId": "a268649b5b759f8cd6cb9365a1b0c1fa3add38b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAVX//8ug\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1881
+      },
+      "writtenOn": "2012-07-27T22:29:18Z",
+      "side": 1,
+      "message": "You mean I have to #define this? I still have to figure out why exactly this shouldn\u0027t be hard coded...",
+      "revId": "a268649b5b759f8cd6cb9365a1b0c1fa3add38b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
