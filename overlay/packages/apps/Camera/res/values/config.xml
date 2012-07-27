@@ -26,4 +26,6 @@
     <bool name="hasSamsungCamSettings">true</bool>
     <!-- Use ZSL mode -->
     <bool name="enableZSL">true</bool>
+    <!-- Allows focusing on ZSL mode -->
+    <bool name="enableZSLFocus">true</bool>
 </resources>
