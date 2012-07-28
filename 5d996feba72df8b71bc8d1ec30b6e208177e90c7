@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "AAAAVX//8rg\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 2793
+      },
+      "writtenOn": "2012-07-28T02:03:31Z",
+      "side": 1,
+      "message": "It\u0027s an I9300.  If you\u0027re running the included CM kernel, maxcpufreq will always be 1.4 GHz.  However, you are right - the screen-off limit of 500 MHz here is not tunable.  This seems to be the biggest issue with the power HAL.  It can\u0027t achieve anything that isn\u0027t already possible with more flexible settings.",
+      "parentUuid": "AAAAVX//8sQ\u003d",
+      "revId": "5d996feba72df8b71bc8d1ec30b6e208177e90c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAAAVX//8sM\u003d",
         "filename": "power/power.c",
         "patchSetId": 3
@@ -81,6 +99,24 @@
       "writtenOn": "2012-07-28T01:31:12Z",
       "side": 1,
       "message": "Set interactive will be only called if system requests interactive governor... So what does \"pegasusq\" does up there?",
+      "revId": "5d996feba72df8b71bc8d1ec30b6e208177e90c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAVX//8rk\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 2793
+      },
+      "writtenOn": "2012-07-28T02:03:31Z",
+      "side": 1,
+      "message": "In this case, \"interactive\" is not \"interactive governor\", but \"put it in an interactive state\".  I\u0027m 90% certain this is \"when screen is on\".\n\nSee Tuna power HAL implementation as an example.\n\nRight now, there\u0027s nothing here that couldn\u0027t be achieved by adding some sysfs tunables and earlysuspend handlers to the governor.  If done that way, the actual values could be changed by the user.\n\nIn this case, there\u0027s no way to change the screen off/on limits without changing the code.",
+      "parentUuid": "AAAAVX//8sA\u003d",
       "revId": "5d996feba72df8b71bc8d1ec30b6e208177e90c7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
