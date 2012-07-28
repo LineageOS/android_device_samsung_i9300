@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAVn////4\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1881
+      },
+      "writtenOn": "2012-07-28T23:27:52Z",
+      "side": 1,
+      "message": "Hmm. I just see this isn\u0027t going to work... Busy with fix!",
+      "revId": "e2a659ab6cb46c974aaabece7024e1067534b8c9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
