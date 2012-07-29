@@ -24,7 +24,7 @@ mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb root
 sleep 3
 
-adb pull /sbin/cbd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/root/sbin/cbd
+adb pull /sbin/cbd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/sbin/cbd
 adb pull /system/bin/bcm4334.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bcm4334.hcd
 adb pull /system/bin/bcm4334_murata.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bcm4334_murata.hcd
 adb pull /system/bin/bcm4334_semcosh.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bcm4334_semcosh.hcd
