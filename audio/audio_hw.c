@@ -385,6 +385,10 @@ static void end_call(struct m0_audio_device *adev)
     pcm_close(adev->pcm_modem_ul);
     adev->pcm_modem_dl = NULL;
     adev->pcm_modem_ul = NULL;
+
+    /* reset mixers to non-incall state */
+    select_output_device(adev);
+    select_input_device(adev);
 }
 
 static void set_eq_filter(struct m0_audio_device *adev)
