@@ -88,8 +88,9 @@ struct m0_audio_device {
     struct m0_dev_cfg *dev_cfgs;
     int num_dev_cfgs;
     struct mixer *mixer;
+    struct mixer_ctls mixer_ctls;
     audio_mode_t mode;
-	int active_devices;
+    int active_devices;
     int devices;
     struct pcm *pcm_modem_dl;
     struct pcm *pcm_modem_ul;
@@ -378,13 +379,15 @@ err_open_dl:
 static void end_call(struct m0_audio_device *adev)
 {
     ALOGE("Closing modem PCMs");
-
     pcm_stop(adev->pcm_modem_dl);
     pcm_stop(adev->pcm_modem_ul);
     pcm_close(adev->pcm_modem_dl);
     pcm_close(adev->pcm_modem_ul);
     adev->pcm_modem_dl = NULL;
     adev->pcm_modem_ul = NULL;
+
+    /* re-enable +30db boost on mic */
+    mixer_ctl_set_value(adev->mixer_ctls.mixinl_in1l_volume, 0, 1);
 }
 
 static void set_eq_filter(struct m0_audio_device *adev)
@@ -564,7 +567,7 @@ static void select_output_device(struct m0_audio_device *adev)
 
     select_devices(adev);
 
-	set_eq_filter(adev);
+    set_eq_filter(adev);
 
     if (adev->mode == AUDIO_MODE_IN_CALL) {
         if (!bt_on) {
@@ -2979,9 +2982,11 @@ static int adev_open(const hw_module_t* module, const char* name,
         return -EINVAL;
     }
 
-	ret = adev_config_parse(adev);
-	if (ret != 0)
-		goto err_mixer;
+    adev->mixer_ctls.mixinl_in1l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN1L Volume");
+
+    ret = adev_config_parse(adev);
+    if (ret != 0)
+        goto err_mixer;
 
     /* Set the default route before the PCM stream is opened */
     pthread_mutex_lock(&adev->lock);
