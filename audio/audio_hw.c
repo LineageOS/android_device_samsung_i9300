@@ -88,6 +88,7 @@ struct m0_audio_device {
     struct m0_dev_cfg *dev_cfgs;
     int num_dev_cfgs;
     struct mixer *mixer;
+    struct mixer_ctls mixer_ctls;
     audio_mode_t mode;
 	int active_devices;
     int devices;
@@ -378,13 +379,15 @@ err_open_dl:
 static void end_call(struct m0_audio_device *adev)
 {
     ALOGE("Closing modem PCMs");
-
     pcm_stop(adev->pcm_modem_dl);
     pcm_stop(adev->pcm_modem_ul);
     pcm_close(adev->pcm_modem_dl);
     pcm_close(adev->pcm_modem_ul);
     adev->pcm_modem_dl = NULL;
     adev->pcm_modem_ul = NULL;
+
+    /* re-enable +30db boost on mic */
+    mixer_ctl_set_value(adev->mixer_ctls.mixinl_in1l_volume, 0, 1);
 }
 
 static void set_eq_filter(struct m0_audio_device *adev)
@@ -2978,6 +2981,8 @@ static int adev_open(const hw_module_t* module, const char* name,
         ALOGE("Unable to open the mixer, aborting.");
         return -EINVAL;
     }
+
+    adev->mixer_ctls.mixinl_in1l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN1L Volume");
 
 	ret = adev_config_parse(adev);
 	if (ret != 0)
