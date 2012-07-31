@@ -19,7 +19,7 @@
 	        android:summary="@string/mdnie_mode_summary_head"
 	        android:entries="@array/mdnie_mode_entries"
   			android:entryValues="@array/mdnie_mode_entries_values"
-  			android:defaultValue="1" />
+  			android:defaultValue="0" />
 
     <!-- mDNIe Negative mode -->
     <com.cyanogenmod.settings.device.mDNIeNegative
