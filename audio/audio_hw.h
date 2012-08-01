@@ -107,6 +107,7 @@ enum tty_modes {
 struct mixer_ctls
 {
     struct mixer_ctl *mixinl_in1l_volume;
+    struct mixer_ctl *mixinl_in2l_volume;
 };
 
 struct route_setting
@@ -164,15 +165,15 @@ struct route_setting headset_input[] = {
     { .ctl_name = "MIXINL IN1L Switch", .intval = 0, },
     { .ctl_name = "MIXINR IN1R Switch", .intval = 0, },
     { .ctl_name = "Headset Mic Switch", .intval = 1, },
+    { .ctl_name = "IN2L Volume", .intval = 18, },
+    { .ctl_name = "MIXINL IN2L Switch", .intval = 1, },
+    { .ctl_name = "MIXINL IN2L Volume", .intval = 0, },
+    { .ctl_name = "AIF1ADC1 HPF Mode", .intval = 1, },
+    { .ctl_name = "AIF1ADC1 HPF Switch", .intval = 1, },
+    { .ctl_name = "AIF1ADC1 Volume", .intval = 96, },
     { .ctl_name = "AIF1ADCL Source", .intval = 0, },
     { .ctl_name = "AIF1ADCR Source", .intval = 0, },
     { .ctl_name = "AIF2ADCL Source", .intval = 0, },
-    { .ctl_name = "MIXINL IN2L Switch", .intval = 1, },
-    { .ctl_name = "AIF1ADC1 HPF Mode", .intval = 1, },
-    { .ctl_name = "AIF1ADC1 HPF Switch", .intval = 1, },
-    { .ctl_name = "IN2L Volume", .intval = 18, },
-    { .ctl_name = "MIXINL IN2L Volume", .intval = 0, },
-    { .ctl_name = "AIF1ADC1 Volume", .intval = 96, },
     { .ctl_name = NULL, },
 };
 

@@ -386,8 +386,9 @@ static void end_call(struct m0_audio_device *adev)
     adev->pcm_modem_dl = NULL;
     adev->pcm_modem_ul = NULL;
 
-    /* re-enable +30db boost on mic */
+    /* re-enable +30db boost on mics */
     mixer_ctl_set_value(adev->mixer_ctls.mixinl_in1l_volume, 0, 1);
+    mixer_ctl_set_value(adev->mixer_ctls.mixinl_in2l_volume, 0, 1);
 }
 
 static void set_eq_filter(struct m0_audio_device *adev)
@@ -2982,7 +2983,9 @@ static int adev_open(const hw_module_t* module, const char* name,
         return -EINVAL;
     }
 
+    /* +30db boost for mics */
     adev->mixer_ctls.mixinl_in1l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN1L Volume");
+    adev->mixer_ctls.mixinl_in2l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN2L Volume");
 
     ret = adev_config_parse(adev);
     if (ret != 0)
