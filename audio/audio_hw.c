@@ -70,18 +70,6 @@ struct pcm_config pcm_config_vx = {
 
 #define MIN(x, y) ((x) > (y) ? (y) : (x))
 
-struct mixer_ctls
-{
-    struct mixer_ctl *aif2dacl_source;
-    struct mixer_ctl *aif2dacr_source;
-    struct mixer_ctl *aif2_mode;
-    struct mixer_ctl *dac1l_mixer_aif1_switch;
-    struct mixer_ctl *dac1r_mixer_aif1_switch;
-    struct mixer_ctl *dac1l_mixer_aif2_switch;
-    struct mixer_ctl *dac1r_mixer_aif2_switch;
-    struct mixer_ctl *aif2dac_mux;
-};
-
 struct m0_audio_device {
     struct audio_hw_device hw_device;
 
@@ -371,6 +359,10 @@ static void end_call(struct m0_audio_device *adev)
     adev->pcm_modem_dl = NULL;
     adev->pcm_modem_ul = NULL;
     LOGD("%s: X", __func__);
+
+    /* re-enable +30db boost on mics */
+    mixer_ctl_set_value(adev->mixer_ctls.mixinl_in1l_volume, 0, 1);
+    mixer_ctl_set_value(adev->mixer_ctls.mixinl_in2l_volume, 0, 1);
 }
 
 static void set_eq_filter(struct m0_audio_device *adev)
@@ -2349,14 +2341,9 @@ static int adev_open(const hw_module_t* module, const char* name,
         return -EINVAL;
     }
 
-    adev->mixer_ctls.aif2dacl_source = mixer_get_ctl_by_name(adev->mixer, "AIF2DACL Source");
-    adev->mixer_ctls.aif2dacr_source = mixer_get_ctl_by_name(adev->mixer, "AIF2DACR Source");
-    adev->mixer_ctls.aif2_mode = mixer_get_ctl_by_name(adev->mixer, "AIF2 Mode");
-    adev->mixer_ctls.dac1l_mixer_aif1_switch = mixer_get_ctl_by_name(adev->mixer, "DAC1L Mixer AIF1.1 Switch");
-    adev->mixer_ctls.dac1r_mixer_aif1_switch = mixer_get_ctl_by_name(adev->mixer, "DAC1R Mixer AIF1.1 Switch");
-    adev->mixer_ctls.dac1l_mixer_aif2_switch = mixer_get_ctl_by_name(adev->mixer, "DAC1L Mixer AIF2 Switch");
-    adev->mixer_ctls.dac1r_mixer_aif2_switch = mixer_get_ctl_by_name(adev->mixer, "DAC1R Mixer AIF2 Switch");
-    adev->mixer_ctls.aif2dac_mux = mixer_get_ctl_by_name(adev->mixer, "AIF2DAC Mux");
+    /* +30db boost for mics */
+    adev->mixer_ctls.mixinl_in1l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN1L Volume");
+    adev->mixer_ctls.mixinl_in2l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN2L Volume");
 
 	ret = adev_config_parse(adev);
 	if (ret != 0)
