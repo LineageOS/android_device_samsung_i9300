@@ -79,6 +79,7 @@ PRODUCT_PACKAGES := \
     com.android.future.usb.accessory \
     GalaxyS3Settings \
     libsecril-client \
+    libsecril-client-sap \
     macloader \
     SamsungServiceMode \
     tinymix \

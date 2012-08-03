@@ -86,7 +86,6 @@ adb pull /system/lib/libion.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/libquramimagecodec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libquramimagecodec.so
 adb pull /system/lib/libril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libril.so
 adb pull /system/lib/libsec-ril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsec-ril.so
-adb pull /system/lib/libsecril-client-sap.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsecril-client-sap.so
 adb pull /system/lib/libsecnativefeature.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsecnativefeature.so
 adb pull /system/lib/libsecril-client.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsecril-client.so
 adb pull /system/lib/libtvout_jni.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libtvout_jni.so
