@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAVn//9f8\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 3494
+      },
+      "writtenOn": "2012-08-06T17:13:14Z",
+      "side": 1,
+      "message": "When (if ever) does this memory get free\u0027d?  Why not use a static char array?  Note that you\u0027re only allocating 80 characters...",
+      "revId": "8ea917a393d9ed2d4afa8574f8d2612516cd418f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAVn//9f4\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 3494
+      },
+      "writtenOn": "2012-08-06T17:13:14Z",
+      "side": 1,
+      "message": "\"string\" points to recently allocated memory that currently contains garbage.  Perhaps the parameter was meant to be \"path\"?",
+      "revId": "8ea917a393d9ed2d4afa8574f8d2612516cd418f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAVn//9f0\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 3494
+      },
+      "writtenOn": "2012-08-06T17:13:14Z",
+      "side": 1,
+      "message": "About that note above of only allocating 80 characters... there\u0027s nothing here preventing a buffer overrun if there are more than 80 characters in the file being read.  Don\u0027t say it won\u0027t happen - not only can it happen, but this type of sloppy programming creates security holes.",
+      "revId": "8ea917a393d9ed2d4afa8574f8d2612516cd418f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
