@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "AAAAVn//9Us\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 2296
+      },
+      "writtenOn": "2012-08-07T02:29:58Z",
+      "side": 1,
+      "message": "And so if your file /data/.power doesn\u0027t exists, you crash the whole HAL when doing strcmp?",
+      "revId": "8ea917a393d9ed2d4afa8574f8d2612516cd418f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAAAVn//9f0\u003d",
         "filename": "power/power.c",
         "patchSetId": 6
@@ -47,6 +64,74 @@
       "writtenOn": "2012-08-06T17:13:14Z",
       "side": 1,
       "message": "About that note above of only allocating 80 characters... there\u0027s nothing here preventing a buffer overrun if there are more than 80 characters in the file being read.  Don\u0027t say it won\u0027t happen - not only can it happen, but this type of sloppy programming creates security holes.",
+      "revId": "8ea917a393d9ed2d4afa8574f8d2612516cd418f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAVn//9VE\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 2296
+      },
+      "writtenOn": "2012-08-07T02:29:58Z",
+      "side": 1,
+      "message": "What does this function does differently than what the kernel actually do?",
+      "revId": "8ea917a393d9ed2d4afa8574f8d2612516cd418f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAVn//9Uw\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 2296
+      },
+      "writtenOn": "2012-08-07T02:29:58Z",
+      "side": 1,
+      "message": "There are better ways to store a local value than this.",
+      "revId": "8ea917a393d9ed2d4afa8574f8d2612516cd418f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAVn//9U8\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 2296
+      },
+      "writtenOn": "2012-08-07T02:29:58Z",
+      "side": 1,
+      "message": "What if I don\u0027t want my max_freq to be 1.4GHz?",
+      "revId": "8ea917a393d9ed2d4afa8574f8d2612516cd418f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAVn//9U0\u003d",
+        "filename": "power/power.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 2296
+      },
+      "writtenOn": "2012-08-07T02:29:58Z",
+      "side": 1,
+      "message": "What if I don\u0027t want my phone to die during sleep?",
       "revId": "8ea917a393d9ed2d4afa8574f8d2612516cd418f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
