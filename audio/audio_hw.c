@@ -406,7 +406,7 @@ void audio_set_wb_amr_callback(void *data, int enable)
         /* reopen the modem PCMs at the new rate */
         if (adev->in_call) {
             end_call(adev);
-            set_eq_filter(adev);
+            select_output_device(adev);
             start_call(adev);
         }
     }
