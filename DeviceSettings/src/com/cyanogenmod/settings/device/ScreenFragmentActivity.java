@@ -33,7 +33,7 @@ import com.cyanogenmod.settings.device.R;
 public class ScreenFragmentActivity extends PreferenceFragment {
 
     private static final String PREF_ENABLED = "1";
-    private static final String TAG = "GalaxyS3Settings_General";
+    private static final String TAG = "GalaxyS3Settings_Screen";
     private mDNIeScenario mmDNIeScenario;
     private mDNIeMode mmDNIeMode;
     private mDNIeNegative mmDNIeNegative;
@@ -72,19 +72,18 @@ public class ScreenFragmentActivity extends PreferenceFragment {
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 
         String key = preference.getKey();
-
         Log.w(TAG, "key: " + key);
 
         if (key.compareTo(DeviceSettings.KEY_TOUCHKEY_LIGHT) == 0) {
-                if (((CheckBoxPreference)preference).isChecked()) {
-                    Utils.writeValue(FILE_TOUCHKEY_DISABLE, "0");
-                    Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, "1");
-                    preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
-                } else {
-                    Utils.writeValue(FILE_TOUCHKEY_DISABLE, "1");
-                    Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, "2");
-                    preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
-                }
+            if (((CheckBoxPreference)preference).isChecked()) {
+                Utils.writeValue(FILE_TOUCHKEY_DISABLE, "0");
+                Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, "1");
+                preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
+            } else {
+                Utils.writeValue(FILE_TOUCHKEY_DISABLE, "1");
+                Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, "2");
+                preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
+            }
         }
         return true;
     }
@@ -95,20 +94,9 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
     public static void restore(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean light = sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true);
 
-        Boolean light = sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true);
-        String disabled;
-        String brightness;
-        
-        if (light == true) {
-            disabled = "0";
-            brightness = "1";
-        } else {
-            disabled = "1";
-            brightness = "2";
-        }
-
-        Utils.writeValue(FILE_TOUCHKEY_DISABLE, disabled);
-        Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, brightness);
+        Utils.writeValue(FILE_TOUCHKEY_DISABLE, light ? "0" : "1");
+        Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, light ? "1" : "2");
     }
 }
