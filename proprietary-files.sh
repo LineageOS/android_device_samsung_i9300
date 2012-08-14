@@ -87,7 +87,6 @@ adb pull /system/lib/libquramimagecodec.so ../../../vendor/$MANUFACTURER/$DEVICE
 adb pull /system/lib/libril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libril.so
 adb pull /system/lib/libsec-ril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsec-ril.so
 adb pull /system/lib/libsecnativefeature.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsecnativefeature.so
-adb pull /system/lib/libsecril-client.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsecril-client.so
 adb pull /system/lib/libtvout_jni.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libtvout_jni.so
 adb pull /system/lib/libtvoutinterface.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libtvoutinterface.so
 adb pull /system/lib/libtvoutservice.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libtvoutservice.so
@@ -231,7 +230,6 @@ PRODUCT_COPY_FILES += \\
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/lib/libril.so:system/lib/libril.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libsec-ril.so:system/lib/libsec-ril.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/libsecril-client-sap.so:system/lib/libsecril-client-sap.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libakm.so:system/lib/libakm.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libion.so:system/lib/libion.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libMali.so:system/lib/libMali.so \\
