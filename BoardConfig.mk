@@ -128,6 +128,7 @@ WIFI_DRIVER_MODULE_NAME          := "dhd"
 WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/wifi/bcmdhd_sta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
 WIFI_BAND                        := 802_11_ABG
 BOARD_HAVE_SAMSUNG_WIFI          := true
+BOARD_LEGACY_NL80211_STA_EVENTS  := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
