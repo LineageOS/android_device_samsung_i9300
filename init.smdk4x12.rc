@@ -505,12 +505,10 @@ service dmb /system/bin/dmbserver
     group radio inet misc audio camera graphics net_bt net_bt_admin sdcard_rw
 
 # TVout
-#service TvoutService_C /system/bin/bintvoutservice
-#     class main
-#     user system
-#     group graphics
-
-service SecTVOutService /system/bin/TVOutDummy
+service TvoutService_C /system/bin/bintvoutservice
     class main
+    user system
     group graphics
-    oneshot
+
+on property:ro.tvout.enable=false
+    stop TvoutService_C
