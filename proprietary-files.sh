@@ -28,8 +28,10 @@ adb pull /sbin/cbd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/sbin/cbd
 adb pull /system/bin/bcm4334.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bcm4334.hcd
 adb pull /system/bin/bcm4334_murata.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bcm4334_murata.hcd
 adb pull /system/bin/bcm4334_semcosh.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bcm4334_semcosh.hcd
+adb pull /system/bin/bintvoutservice ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/bintvoutservice
 adb pull /system/bin/gps.cer ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/gps.cer
 adb pull /system/bin/gpsd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/gpsd
+adb pull /system/bin/hostapd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/hostapd
 adb pull /system/bin/lpmkey ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/lpmkey
 adb pull /system/bin/playlpm ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/playlpm
 adb pull /system/bin/rild ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/rild
@@ -169,7 +171,7 @@ PRODUCT_PACKAGES += \\
     libTVOut \\
     libUMP \\
     libfimc \\
-    libsamsungion
+    libsecion
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/sbin/cbd:root/sbin/cbd
@@ -178,8 +180,10 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/bin/bcm4334.hcd:system/bin/bcm4334.hcd \\
     \$(LOCAL_PATH)/proprietary/system/bin/bcm4334_murata.hcd:system/bin/bcm4334_murata.hcd \\
     \$(LOCAL_PATH)/proprietary/system/bin/bcm4334_semcosh.hcd:system/bin/bcm4334_semcosh.hcd \\
+    \$(LOCAL_PATH)/proprietary/system/bin/bintvoutservice:system/bin/bintvoutservice \\
     \$(LOCAL_PATH)/proprietary/system/bin/gps.cer:system/bin/gps.cer \\
     \$(LOCAL_PATH)/proprietary/system/bin/gpsd:system/bin/gpsd \\
+    \$(LOCAL_PATH)/proprietary/system/bin/hostapd:system/bin/hostapd \\
     \$(LOCAL_PATH)/proprietary/system/bin/lpmkey:system/bin/lpmkey \\
     \$(LOCAL_PATH)/proprietary/system/bin/playlpm:system/bin/playlpm \\
     \$(LOCAL_PATH)/proprietary/system/bin/rild:system/bin/rild
@@ -371,7 +375,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT)/lib
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := libsamsungion
+LOCAL_MODULE := libsecion
 LOCAL_MODULE_OWNER := samsung
 LOCAL_SRC_FILES := system/lib/libion.so
 LOCAL_MODULE_TAGS := optional
