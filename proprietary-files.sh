@@ -61,7 +61,7 @@ adb pull /system/etc/wifi/nvram_net.txt_semcosh ../../../vendor/$MANUFACTURER/$D
 adb pull /system/lib/egl/libEGL_mali.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/egl/libEGL_mali.so
 adb pull /system/lib/egl/libGLESv1_CM_mali.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/egl/libGLESv1_CM_mali.so
 adb pull /system/lib/egl/libGLESv2_mali.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/egl/libGLESv2_mali.so
-adb pull /system/lib/hw/camera.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/camera.smdk4x12.so
+adb pull /system/lib/hw/vendor-camera.exynos4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/camera.smdk4x12.so
 adb pull /system/lib/hw/gps.exynos4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/gps.exynos4.so
 adb pull /system/lib/hw/gralloc.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/gralloc.smdk4x12.so
 adb pull /system/lib/hw/hwcomposer.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/hwcomposer.smdk4x12.so
