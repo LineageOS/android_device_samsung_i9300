@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAXX///jw\u003d",
+        "filename": "DeviceSettings/res/values-es/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 2134
+      },
+      "writtenOn": "2012-09-08T19:50:06Z",
+      "side": 1,
+      "message": "... parpadeo ...",
+      "revId": "9164c10093976ebf9228acf2b7f9ad9b6cf26202",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
