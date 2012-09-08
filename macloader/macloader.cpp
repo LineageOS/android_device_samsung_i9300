@@ -72,7 +72,7 @@ int main() {
     }
     
     /* murata */
-    if(strncmp(mac_addr_half, "00:37:6d", 9) == 0 || strncmp(mac_addr_half, "88:30:8a", 9) == 0) {
+    if(strncmp(mac_addr_half, "00:37:6d", 9) == 0 || strncmp(mac_addr_half, "88:30:8a", 9) == 0 || strncmp(mac_addr_half, "20:02:af", 9) == 0) {
         type = MURATA;
     }
 
