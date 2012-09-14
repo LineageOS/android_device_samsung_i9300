@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Config. Galaxy S III</string>
     <string name="category_haptic_title">Resposta Tátil</string>
@@ -24,4 +24,5 @@
     <string name="touchkey_light_summary_on">Desativar luz de fundo</string>
     <string name="touchkey_timeout_title_head">Tempo limite da luz de fundo</string>
     <string name="touchkey_timeout_summary_head">Define o tempo limite para a luz de fundo</string>
+    <string name="hspa_title_head">HSPA</string>
 </resources>
