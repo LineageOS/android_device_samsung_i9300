@@ -71,6 +71,7 @@ adb pull /system/lib/hw/sensors.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVIC
 adb pull /system/lib/libMali.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libMali.so
 adb pull /system/lib/libMcClient.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libMcClient.so
 adb pull /system/lib/libMcRegistry.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libMcRegistry.so
+adb pull /system/lib/libMcVersion.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libMcVersion.so
 adb pull /system/lib/libQmageDecoder.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libQmageDecoder.so
 adb pull /system/lib/libTVOut.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libTVOut.so
 adb pull /system/lib/libUMP.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libUMP.so
@@ -84,7 +85,7 @@ adb pull /system/lib/libhdmi.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietar
 adb pull /system/lib/libhdmiclient.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libhdmiclient.so
 adb pull /system/lib/libhwconverter.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libhwconverter.so
 adb pull /system/lib/libhwjpeg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libhwjpeg.so
-adb pull /system/lib/libion.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libion.so
+adb pull /system/lib/libsecion.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsecion.so
 adb pull /system/lib/libquramimagecodec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libquramimagecodec.so
 adb pull /system/lib/libril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libril.so
 adb pull /system/lib/libsec-ril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsec-ril.so
@@ -235,10 +236,11 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/lib/libril.so:system/lib/libril.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libsec-ril.so:system/lib/libsec-ril.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libakm.so:system/lib/libakm.so \\
-    \$(LOCAL_PATH)/proprietary/system/lib/libion.so:system/lib/libion.so \\
+    \$(LOCAL_PATH)/proprietary/system/lib/libsecion.so:system/lib/libsecion.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libMali.so:system/lib/libMali.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libMcClient.so:system/lib/libMcClient.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libMcRegistry.so:system/lib/libMcRegistry.so \\
+    \$(LOCAL_PATH)/proprietary/system/lib/libMcVersion.so:system/lib/libMcVersion.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libsecnativefeature.so:system/lib/libsecnativefeature.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libUMP.so:system/lib/libUMP.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libvdis.so:system/lib/libvdis.so \\
@@ -377,7 +379,7 @@ include \$(BUILD_PREBUILT)
 include \$(CLEAR_VARS)
 LOCAL_MODULE := libsecion
 LOCAL_MODULE_OWNER := samsung
-LOCAL_SRC_FILES := system/lib/libion.so
+LOCAL_SRC_FILES := system/lib/libsecion.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_SUFFIX := .so
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
