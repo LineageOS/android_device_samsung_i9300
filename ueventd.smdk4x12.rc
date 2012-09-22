@@ -79,3 +79,4 @@
 /dev/ttyUSB0              0666   system     system
 /dev/usb/lp*              0660   system     usb
 /dev/block/mmcblk0p4	  0660	 system	    system
+/dev/block/mmcblk0p7	  0660	 system	    radio
