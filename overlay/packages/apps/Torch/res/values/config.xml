@@ -24,7 +24,7 @@
     <bool name="useCameraInterface">false</bool>
 
     <!-- Full path to the sysfs toggle -->
-    <string name="flashDevice">/sys/devices/virtual/flash/flash/flash_power</string>
+    <string name="flashDevice">/sys/devices/virtual/camera/flash/rear_flash</string>
 
     <!-- Lowest setting -->
     <integer name="valueOn">159</integer>

@@ -4,7 +4,7 @@ import init.bt.rc
 on early-init
     export EXTERNAL_STORAGE /storage/sdcard0
     export SECONDARY_STORAGE /storage/sdcard1
-    mkdir /storage 0050 system sdcard_r
+    mkdir /storage 0550 system sdcard_r
     mkdir /storage/sdcard0 0000 system system
     mkdir /storage/sdcard1 0775 system system
     mkdir /storage/usbdisk0 0775 system system
@@ -17,22 +17,14 @@ on early-init
     symlink /storage/usbdisk0 /usbdisk0
     symlink /storage/usbdisk0 /mnt/usbdisk0
 
-    symlink /efs /factory
-    mkdir /efs
-
-# ko files for exfat
-    insmod /system/lib/modules/exfat_core.ko
-    insmod /system/lib/modules/exfat_fs.ko
+    mkdir /efs 0771 radio system
 
 # ko files for FM Radio
     insmod /system/lib/modules/Si4709_driver.ko
 
 on fs
-    mount ext4 /dev/block/mmcblk0p9 /system ro wait noatime
-    mount ext4 /dev/block/mmcblk0p12 /data wait nosuid nodev noatime discard,noauto_da_alloc,journal_async_commit
-    mount ext4 /dev/block/mmcblk0p8 /cache nosuid nodev noatime journal_async_commit
-    mount ext4 /dev/block/mmcblk0p3 /efs nosuid nodev noatime wait journal_async_commit
-    
+    mount_all /fstab.smdk4x12
+
     setprop ro.crypto.fuse_sdcard true
     
     chown radio system /efs
@@ -91,6 +83,8 @@ on post-fs-data
     chown system radio /sys/class/camera/front/front_camtype
     chown system radio /sys/class/flash/flash/flash_power
     write /data/ISP_CV 1
+
+	symlink /dev/block/mmcblk0p4 /dev/block/param
 
 # Permissions for bluetooth
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
@@ -447,7 +441,7 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \
-    -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -e/data/misc/wifi/entropy.bin \
+    -Dnl80211 -iwlan0 -e/data/misc/wifi/entropy.bin \
     -c/data/misc/wifi/wpa_supplicant.conf
     #   we will start as root and wpa_supplicant will switch to user wifi
     #   after setting up the capabilities required for WEXT

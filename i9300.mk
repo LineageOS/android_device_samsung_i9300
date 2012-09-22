@@ -14,7 +14,9 @@
 # limitations under the License.
 #
 
-DEVICE_PACKAGE_OVERLAYS += device/samsung/i9300/overlay
+LOCAL_PATH := device/samsung/i9300
+
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -32,25 +34,27 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Init files
 PRODUCT_COPY_FILES := \
-    device/samsung/i9300/init.bt.rc:root/init.bt.rc \
-    device/samsung/i9300/init.smdk4x12.rc:root/init.smdk4x12.rc \
-    device/samsung/i9300/init.smdk4x12.usb.rc:root/init.smdk4x12.usb.rc \
-    device/samsung/i9300/lpm.rc:root/lpm.rc \
-    device/samsung/i9300/ueventd.smdk4x12.rc:root/ueventd.smdk4x12.rc \
-    device/samsung/i9300/ueventd.smdk4x12.rc:recovery/root/ueventd.smdk4x12.rc
+    $(LOCAL_PATH)/fstab.smdk4x12:root/fstab.smdk4x12 \
+    $(LOCAL_PATH)/init.bt.rc:root/init.bt.rc \
+    $(LOCAL_PATH)/init.smdk4x12.rc:root/init.smdk4x12.rc \
+    $(LOCAL_PATH)/init.smdk4x12.usb.rc:root/init.smdk4x12.usb.rc \
+    $(LOCAL_PATH)/lpm.rc:root/lpm.rc \
+    $(LOCAL_PATH)/init.trace.rc:root/init.trace.rc \
+    $(LOCAL_PATH)/ueventd.smdk4x12.rc:root/ueventd.smdk4x12.rc \
+    $(LOCAL_PATH)/ueventd.smdk4x12.rc:recovery/root/ueventd.smdk4x12.rc
 
 # Camera FW
 PRODUCT_COPY_FILES += \
-    device/samsung/i9300/80cfw:system/etc/init.d/80cfw
+    $(LOCAL_PATH)/80cfw:system/etc/init.d/80cfw
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/samsung/i9300/configs/tiny_hw.xml:system/etc/sound/m0 \
-    device/samsung/i9300/configs/audio_policy.conf:system/etc/audio_policy.conf
+    $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/m0 \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Vold and Storage
 PRODUCT_COPY_FILES += \
-    device/samsung/i9300/configs/vold.fstab:system/etc/vold.fstab
+    $(LOCAL_PATH)/configs/vold.fstab:system/etc/vold.fstab
 
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
@@ -58,7 +62,7 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    device/samsung/i9300/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
@@ -66,8 +70,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Gps
 PRODUCT_COPY_FILES += \
-    device/samsung/i9300/configs/gps.conf:system/etc/gps.conf \
-    device/samsung/i9300/configs/gps.xml:system/etc/gps.xml
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml
 
 # Packages
 PRODUCT_PACKAGES := \
@@ -90,20 +94,6 @@ PRODUCT_PACKAGES += \
     nfc.exynos4 \
     lights.exynos4
 
-#    libgralloc_ump \
-#    libhwconverter \
-#    libfimg \
-#    hwcomposer.exynos4
-#    libhwjpeg \
-#    libhdmi \
-#    libfimc \
-#    libcec \
-#    libddc \
-#    libedid \
-#    libhdmiclient \
-#    libTVOut
-#    libtinyalsa \
-
 # NFC
 PRODUCT_PACKAGES += \
     libnfc \
@@ -118,9 +108,9 @@ PRODUCT_COPY_FILES += \
 
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/samsung/i9300/nfcee_access.xml
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/nfcee_access.xml
 else
-    NFCEE_ACCESS_PATH := device/samsung/i9300/nfcee_access_debug.xml
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/nfcee_access_debug.xml
 endif
 
 PRODUCT_COPY_FILES += \
@@ -147,8 +137,8 @@ PRODUCT_PACKAGES += \
 #   libOMX.SEC.VP8.Decoder
 
 PRODUCT_COPY_FILES += \
-    device/samsung/i9300/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    device/samsung/i9300/configs/media_codecs.xml:system/etc/media_codecs.xml
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
