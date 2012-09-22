@@ -78,10 +78,10 @@ on post-fs-data
     chown system radio /sys/class/camera/rear/rear_camfw
     chown system radio /sys/class/camera/rear/rear_camtype
     chown system radio /sys/class/camera/rear/rear_flash
+    chmod 0666 /sys/class/camera/rear/rear_flash
     chown system radio /sys/class/camera/rear/isp_core
     chown system radio /sys/class/camera/front/front_camfw
     chown system radio /sys/class/camera/front/front_camtype
-    chown system radio /sys/class/flash/flash/flash_power
     write /data/ISP_CV 1
 
 	symlink /dev/block/mmcblk0p4 /dev/block/param
@@ -115,10 +115,6 @@ on post-fs-data
     chown system system /sys/class/sec/sec_touchkey/timeout
     chmod 0660 /sys/class/sec/sec_touchkey/force_disable
     chown system system /sys/class/sec/sec_touchkey/force_disable
-
-# Camera Flash
-    chmod 0666 /sys/devices/virtual/flash/flash/flash_power
-    chown system radio /sys/devices/virtual/flash/flash/flash_power
 
 # Permissions for LCD
     chown system radio /sys/class/lcd/panel/lcd_power
