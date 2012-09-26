@@ -425,8 +425,9 @@ service cpboot-daemon /sbin/cbd -d
     group radio cache inet misc audio sdcard_rw log
 
 service p2p_supplicant /system/bin/wpa_supplicant \
-    -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -e/data/misc/wifi/entropy.bin \
-    -c/data/misc/wifi/wpa_supplicant.conf
+    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
+    -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin \
+    -puse_p2p_group_interface=1
     #   we will start as root and wpa_supplicant will switch to user wifi
     #   after setting up the capabilities required for WEXT
     #   user wifi
