@@ -84,6 +84,7 @@ PRODUCT_PACKAGES := \
     GalaxyS3Settings \
     libsecril-client \
     libsecril-client-sap \
+    libsync \
     macloader \
     SamsungServiceMode \
     tinymix \
