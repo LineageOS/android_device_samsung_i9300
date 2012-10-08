@@ -36,7 +36,6 @@ adb pull /system/bin/playlpm ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/s
 adb pull /system/bin/rild ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/bin/rild
 adb pull /system/cameradata/datapattern_420sp.yuv ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/cameradata/datapattern_420sp.yuv
 adb pull /system/cameradata/datapattern_front_420sp.yuv ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/cameradata/datapattern_front_420sp.yuv
-adb pull /system/etc/firmware/RS_M9MO.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/firmware/RS_M9MO.bin
 adb pull /system/etc/srm.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/srm.bin
 adb pull /system/etc/wifi/bcmdhd_apsta.bin_b2 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/bcmdhd_apsta.bin_b2
 adb pull /system/etc/wifi/bcmdhd_mfg.bin_b2 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/etc/wifi/bcmdhd_mfg.bin_b2
@@ -58,7 +57,6 @@ adb pull /system/lib/hw/gps.exynos4.so ../../../vendor/$MANUFACTURER/$DEVICE/pro
 adb pull /system/lib/hw/gralloc.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/gralloc.smdk4x12.so
 adb pull /system/lib/hw/hwcomposer.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/hwcomposer.smdk4x12.so
 adb pull /system/lib/hw/lights.exynos4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/lights.exynos4.so
-adb pull /system/lib/hw/nfc.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/nfc.smdk4x12.so
 adb pull /system/lib/hw/sensors.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/sensors.smdk4x12.so
 adb pull /system/lib/libMali.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libMali.so
 adb pull /system/lib/libMcClient.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libMcClient.so
@@ -181,9 +179,6 @@ PRODUCT_COPY_FILES += \\
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/cameradata/datapattern_420sp.yuv:system/cameradata/datapattern_420sp.yuv \\
     \$(LOCAL_PATH)/proprietary/system/cameradata/datapattern_front_420sp.yuv:system/cameradata/datapattern_front_420sp.yuv \\
-
-PRODUCT_COPY_FILES += \\
-    \$(LOCAL_PATH)/proprietary/system/etc/firmware/RS_M9MO.bin:system/etc/firmware/RS_M9MO.bin
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/etc/wifi/bcmdhd_apsta.bin_b2:system/etc/wifi/bcmdhd_apsta.bin_b2 \\
