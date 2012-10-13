@@ -39,11 +39,11 @@
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
-    <!-- Component name of the service providing network location support. -->
-    <string name="config_networkLocationProviderPackageName">com.google.android.location.NetworkLocationProvider</string>
+    <!-- Package name providing network location support. -->
+    <string name="config_networkLocationProviderPackageName" translatable="false">com.google.android.location</string>
 
-    <!-- Component name of the service providing geocoder API support. -->
-    <string name="config_geocodeProviderPackageName">com.google.android.location.GeocodeProvider</string>
+    <!-- Package name providing geocoder API support. -->
+    <string name="config_geocodeProviderPackageName" translatable="false">com.google.android.location</string>
 
     <!-- Flag indicating whether we should enable the automatic brightness in Settings.
          config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
