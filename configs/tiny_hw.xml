@@ -125,8 +125,8 @@ We are able to have most of our routing static so do that
         <ctl name="SPKL DAC1 Volume" val="1"/>
         <ctl name="SPKR DAC1 Volume" val="1"/>
         <ctl name="Speaker Mixer Volume" val="3"/>
-        <ctl name="Speaker Boost Volume" val="5"/>
-        <ctl name="Speaker Volume" val="60"/>
+        <ctl name="Speaker Boost Volume" val="4"/>
+        <ctl name="Speaker Volume" val="57"/>
         <ctl name="AIF1DAC1 EQ Switch" val="1"/>
         <ctl name="AIF1DAC1 EQ1 Volume" val="9"/>
         <ctl name="AIF1DAC1 EQ2 Volume" val="7"/>
