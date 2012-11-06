@@ -1,0 +1,11 @@
+Change-Id: I4132ca09b15029ba2d299ba3c6a4c1aaf634cd3e
+Code-Review+2: Daniel Hillenbrand <codeworkx@cyanogenmod.com>
+Verified+1: Daniel Hillenbrand <codeworkx@cyanogenmod.com>
+Code-Review+1: David van Tonder <david.vantonder@gmail.com>
+Code-Review+1: Oran Avraham <oranav@gmail.com>
+Code-Review+1: Jacob Müller <jacob.mueller.elz@gmail.com>
+Submitted-by: Daniel Hillenbrand <codeworkx@cyanogenmod.com>
+Submitted-at: Tue, 06 Nov 2012 00:16:54 -0800
+Reviewed-on: http://review.cyanogenmod.org/25582
+Project: CyanogenMod/android_device_samsung_i9300
+Branch: refs/heads/jellybean
