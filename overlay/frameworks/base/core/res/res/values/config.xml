@@ -21,159 +21,9 @@
      for different hardware and product builds. -->
 <resources>
 
-    <!-- Default color for notification LED is white. -->
-    <color name="config_defaultNotificationColor">#ffffffff</color>
-
-    <!-- Default LED on time for notification LED in milliseconds. -->
-    <integer name="config_defaultNotificationLedOn">1000</integer>
-
-    <!-- Default LED off time for notification LED in milliseconds. -->
-    <integer name="config_defaultNotificationLedOff">9000</integer>
-
-    <!-- Our amoled doesn't animate well. -->
-    <bool name="config_animateScreenLights">false</bool>
-
-    <integer name="config_deskDockKeepsScreenOn">0</integer>
-    <integer name="config_carDockKeepsScreenOn">1</integer>
-
-    <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
-    <bool name="config_unplugTurnsOnScreen">true</bool>
-
-    <!-- Package name providing network location support. -->
-    <string name="config_networkLocationProviderPackageName" translatable="false">com.google.android.location</string>
-
-    <!-- Package name providing geocoder API support. -->
-    <string name="config_geocodeProviderPackageName" translatable="false">com.google.android.location</string>
-
-    <!-- Flag indicating whether we should enable the automatic brightness in Settings.
-         config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
-    <bool name="config_automatic_brightness_available">true</bool>
-
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">false</bool>
-
-    <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
-        The N entries of this array define N + 1 zones as follows:
-
-        Zone 0: 0 <= LUX < array[0]
-        Zone 1: array[0] <= LUX < array[1]
-        ...
-        Zone N: array[N - 1] <= LUX < array[N]
-        Zone N + 1: array[N] <= LUX < infinity
-
-        Must be overridden in platform specific overlays
-    -->
-    <integer-array name="config_autoBrightnessLevels">
-        <item>6</item>
-        <item>10</item>
-        <item>15</item>
-        <item>20</item>
-        <item>40</item>
-        <item>60</item>
-        <item>80</item>
-        <item>100</item>
-        <item>120</item>
-        <item>240</item>
-        <item>480</item>
-        <item>960</item>
-        <item>1920</item>
-        <item>2880</item>
-        <item>3840</item>
-        <item>7680</item>
-        <item>15360</item>
-        <item>30720</item>
-        <item>61440</item>
-        <item>121200</item>
-    </integer-array>
-
-    <!-- Array of output values for LCD backlight corresponding to the LUX values
-        in the config_autoBrightnessLevels array. This array should have size one greater
-        than the size of the config_autoBrightnessLevels array.
-    -->
-    <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>40</item>
-        <item>50</item>
-        <item>60</item>
-        <item>70</item>
-        <item>80</item>
-        <item>90</item>
-        <item>100</item>
-        <item>110</item>
-        <item>120</item>
-        <item>130</item>
-        <item>140</item>
-        <item>150</item>
-        <item>160</item>
-        <item>170</item>
-        <item>185</item>
-        <item>200</item>
-        <item>215</item>
-        <item>225</item>
-        <item>235</item>
-        <item>245</item>
-        <item>255</item>
-    </integer-array>
-
-    <!-- Array of output values for button backlight corresponding to the LUX values
-        in the config_autoBrightnessLevels array. This array should have size one greater
-        than the size of the config_autoBrightnessLevels array.
-    -->
-    <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-    </integer-array>
-
-    <!-- Array of output values for keyboard backlight corresponding to the LUX values
-        in the config_autoBrightnessLevels array. This array should have size one greater
-        than the size of the config_autoBrightnessLevels array.
-        i9300 has no keyboard so all values are zero.
-    -->
-    <integer-array name="config_autoBrightnessKeyboardBacklightValues">
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-    </integer-array>
-
-    <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">10</integer>
 
     <!-- XXXXX NOTE THE FOLLOWING RESOURCES USE THE WRONG NAMING CONVENTION.
          Please don't copy them, copy anything else. -->
@@ -210,20 +60,6 @@
         <item>"rndis0"</item>
     </string-array>
 
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
-         should be empty.  An example would be "softap.*" -->
-    <string-array translatable="false" name="config_tether_wifi_regexs">
-        <item>"wlan0"</item>
-    </string-array>
-
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
-         should be empty. -->
-    <string-array translatable="false" name="config_tether_bluetooth_regexs">
-        <item>"bnep\\d"</item>
-    </string-array>
-
     <!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering -->
     <!-- Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or
     <!== [0,1,5,7] for TYPE_MOBILE, TYPE_WIFI, TYPE_MOBILE_HIPRI and TYPE_BLUETOOTH -->
@@ -234,16 +70,8 @@
         <item>7</item>
     </integer-array>
 
-    <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
-    <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
-
-    <!-- Boolean indicating whether the wifi chipset has p2p support -->
-    <bool translatable="false" name="config_wifi_p2p_support">true</bool>
-
-    <!-- Boolean indicating whether the wifi chipset has background scan support -->
-    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
-
-    <bool name="config_ui_enableFadingMarquee">false</bool>
+    <!-- The default iface on which to monitor data use -->
+    <string name="config_datause_iface">pdp0</string>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
@@ -254,56 +82,15 @@
     <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors -->
     <bool name="config_multiColorBatteryLed">true</bool>
 
-    <!-- Vibrator pattern for feedback about a long screen/key press -->
-    <integer-array name="config_longPressVibePattern">
-        <item>0</item>
-        <item>1</item>
-        <item>20</item>
-        <item>21</item>
-    </integer-array>
+    <!-- Default color for notification LED is white. -->
+    <color name="config_defaultNotificationColor">#ffffffff</color>
 
-    <!-- Vibrator pattern for feedback about touching a virtual key -->
-    <integer-array name="config_virtualKeyVibePattern">
-        <item>0</item>
-        <item>1</item>
-        <item>20</item>
-        <item>21</item>
-    </integer-array>
+    <!-- Default LED on time for notification LED in milliseconds. -->
+    <integer name="config_defaultNotificationLedOn">1000</integer>
 
-    <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
-    <integer-array name="config_keyboardTapVibePattern">
-        <item>20</item>
-    </integer-array>
+    <!-- Default LED off time for notification LED in milliseconds. -->
+    <integer name="config_defaultNotificationLedOff">9000</integer>
 
-    <!-- Vibrator pattern for feedback about booting with safe mode disabled -->
-    <integer-array name="config_safeModeDisabledVibePattern">
-        <item>0</item>
-        <item>1</item>
-        <item>20</item>
-        <item>21</item>
-    </integer-array>
-
-    <!-- Vibrator pattern for feedback about booting with safe mode disabled -->
-    <integer-array name="config_safeModeEnabledVibePattern">
-        <item>0</item>
-        <item>1</item>
-        <item>20</item>
-        <item>21</item>
-        <item>500</item>
-        <item>600</item>
-    </integer-array>
-
-    <!-- Vibrator pattern for feedback about hitting a scroll barrier -->
-    <integer-array name="config_scrollBarrierVibePattern">
-        <item>0</item>
-        <item>15</item>
-        <item>10</item>
-        <item>10</item>
-    </integer-array>
-
-    <!-- The default iface on which to monitor data use -->
-    <string name="config_datause_iface">pdp0</string>
-    
     <!-- Allow the menu hard key to be disabled in LockScreen on some devices -->
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
 
