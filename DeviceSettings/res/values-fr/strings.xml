@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Paramètres Galaxy S III</string>
+
+    <string name="category_haptic_title">Haptic</string>
+    <string name="vibrator_subcat_title">Vibreur</string>
+    <string name="vibrator_intensity_title_head">Intensité du vibreur</string>
+    <string name="vibrator_intensity_summary_head">Régler l\'intensité du vibreur</string>
+
+    <string name="category_radio_title">Radio</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Activer HSDPA/HSUPA</string>
+
+    <string name="category_screen_title">Écran</string>
+    <string name="mdnie_subcat_title">Couleurs</string>
+    <string name="mdnie_scenario_title_head">Scénario</string>
+    <string name="mdnie_scenario_summary_head">Définit le scénario mDNIe</string>
+    <string name="mdnie_mode_title_head">Mode</string>
+    <string name="mdnie_mode_summary_head">Définit le mode mDNIe</string>
+    <string name="mdnie_negative_title_head">Mode négatif</string>
+    <string name="mdnie_negative_summary_head">Active/désactive les couleurs inversées</string>
+
+    <string name="led_subcat_title">Notification LED</string>
+    <string name="led_fade_title_head">Extinction de la LED</string>
+    <string name="led_fade_summary_head">Définir le type d\'extinction de la LED</string>
+
+    <string name="touchkey_subcat_title">Touches tactiles</string>
+    <string name="touchkey_light_title_head">Éclairage</string>
+    <string name="touchkey_light_summary_off">Activer l\'éclairage</string>
+    <string name="touchkey_light_summary_on">Désactiver l\'éclairage</string>
+    <string name="touchkey_timeout_title_head">Temps avant extinction</string>
+    <string name="touchkey_timeout_summary_head">Définir le délai avant l\'extinction des touches</string>
+
+</resources>
