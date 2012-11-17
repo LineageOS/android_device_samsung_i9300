@@ -60,6 +60,16 @@ enum ril_clock_state {
     SOUND_CLOCK_START
 };
 
+enum ril_two_mic_device {
+    AUDIENCE,
+    FORTEMEDIA
+};
+
+enum ril_two_mic_state {
+    TWO_MIC_SOLUTION_OFF,
+    TWO_MIC_SOLUTION_ON
+};
+
 /* Function prototypes */
 int ril_open(struct ril_handle *ril);
 int ril_close(struct ril_handle *ril);
