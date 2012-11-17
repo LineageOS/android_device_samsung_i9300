@@ -29,6 +29,7 @@ adb pull /system/bin/rild ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/syst
 adb pull /system/lib/hw/gps.exynos4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/gps.exynos4.so
 adb pull /system/lib/hw/vendor-camera.exynos4.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/camera.smdk4x12.so
 adb pull /system/lib/hw/sensors.smdk4x12.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/hw/sensors.smdk4x12.so
+adb pull /system/lib/libakm.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libakm.so
 adb pull /system/lib/libril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libril.so
 adb pull /system/lib/libsec-ril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/lib/libsec-ril.so
 adb pull /system/usr/idc/sec_touchscreen.idc ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/system/usr/idc/sec_touchscreen.idc
@@ -65,6 +66,7 @@ PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/system/lib/hw/sensors.smdk4x12.so:system/lib/hw/sensors.smdk4x12.so
 
 PRODUCT_COPY_FILES += \\
+    \$(LOCAL_PATH)/proprietary/system/lib/libakm.so:system/lib/libakm.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libril.so:system/lib/libril.so \\
     \$(LOCAL_PATH)/proprietary/system/lib/libsec-ril.so:system/lib/libsec-ril.so
 
