@@ -52,8 +52,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     GalaxyS3Settings \
     libsecril-client \
-    libsecril-client-sap \
-    SamsungServiceMode
+    libsecril-client-sap
+
+#    SamsungServiceMode
 
 # NFC
 PRODUCT_PACKAGES += \
