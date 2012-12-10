@@ -21,6 +21,7 @@
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/i9300/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/samsung/i9300/bluetooth/vnd_i9300.txt
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
