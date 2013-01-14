@@ -173,7 +173,7 @@ We are able to have most of our routing static so do that
 <device name="headphone">
     <path name="on">
         <ctl name="HP Switch" val="1"/>
-        <ctl name="Headphone Volume" val="50"/>
+        <ctl name="Headphone Volume" val="60"/>
         <ctl name="Headphone ZC Switch" val="0"/>
         <ctl name="AIF1DAC1 Volume" val="96"/>
         <ctl name="AIF1 Boost Volume" val="0"/>
