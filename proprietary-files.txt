@@ -8,6 +8,3 @@ system/lib/libril.so
 system/lib/libsec-ril.so
 system/usr/idc/sec_touchscreen.idc
 system/usr/keylayout/sec_touchkey.kl
-system/vendor/firmware/SlimISP_GD.bin
-system/vendor/firmware/SlimISP_ZD.bin
-system/vendor/firmware/SlimISP_ZH.bin
