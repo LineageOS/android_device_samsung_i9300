@@ -2,6 +2,11 @@
 <resources>
     <string name="app_name">Galaxy S III Settings</string>
 
+    <string name="category_dock_title">Dock</string>
+    <string name="dockaudio_subcat_title">Dock Audio</string>
+    <string name="use_dock_audio_title_head">Use Dock USB Audio</string>
+    <string name="use_dock_audio_summary_head">Use the passive audio out on the dock</string>
+
     <string name="category_haptic_title">Haptic</string>
     <string name="vibrator_subcat_title">Vibrator</string>
     <string name="vibrator_intensity_title_head">Vibrator Intensity</string>
