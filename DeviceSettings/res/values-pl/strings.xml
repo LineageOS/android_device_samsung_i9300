@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ustawienia Galaxy S III</string>
+
+    <string name="category_dock_title">Stacja dokująca</string>
+    <string name="dockaudio_subcat_title">Dźwięk w stacji dokującej</string>
+    <string name="use_dock_audio_title_head">Użyj stacji dokującej</string>
+    <string name="use_dock_audio_summary_head">Użyj pasywnego wyjścia audio w stacji dokującej</string>
+
+    <string name="category_haptic_title">Dotyk</string>
+    <string name="vibrator_subcat_title">Wibracje</string>
+    <string name="vibrator_intensity_title_head">Intensywność wibracji</string>
+    <string name="vibrator_intensity_summary_head">Ustaw intensywność wibracji</string>
+
+    <string name="category_radio_title">Radio</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Aktywuj HSDPA/HSUPA</string>
+
+    <string name="category_screen_title">Ekran</string>
+    <string name="mdnie_subcat_title">Kolory</string>
+    <string name="mdnie_scenario_title_head">Technologia mDNIe</string>
+    <string name="mdnie_scenario_summary_head">Ustaw scenariusz mDNIe</string>
+    <string name="mdnie_mode_title_head">Tryb</string>
+    <string name="mdnie_mode_summary_head">Ustaw tryb mDNIe</string>
+    <string name="mdnie_negative_title_head">Tryb negatywu</string>
+    <string name="mdnie_negative_summary_head">Włącz/wyłącz odwrócone kolory</string>
+
+    <string name="led_subcat_title">Lampka LED</string>
+    <string name="led_fade_title_head">Zanikanie lampki LED</string>
+    <string name="led_fade_summary_head">Aktywuj delikatne zanikanie lampki LED zamiast migania.</string>
+
+    <string name="touchkey_subcat_title">Przyciski dotykowe</string>
+    <string name="touchkey_light_title_head">Podświetlenie</string>
+    <string name="touchkey_light_summary_off">Włącz podświetlenie</string>
+    <string name="touchkey_light_summary_on">Wyłącz podświetlenie</string>
+    <string name="touchkey_timeout_title_head">Opóźnienie podświetlenia</string>
+    <string name="touchkey_timeout_summary_head">Ustaw opóźnienie dla podświetlenia</string>
+
+</resources>
