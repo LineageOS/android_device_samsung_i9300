@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAeX//1q8\u003d",
+        "filename": "DeviceSettings/res/values-pl/arrays.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2013-03-31T00:17:55Z",
+      "side": 1,
+      "message": "indentation",
+      "revId": "d783bf00df55ce5a0796327131dbc7276b499e5f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAeX//1q4\u003d",
+        "filename": "DeviceSettings/res/values-pl/strings.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2013-03-31T00:17:55Z",
+      "side": 1,
+      "message": "whitespace error",
+      "revId": "d783bf00df55ce5a0796327131dbc7276b499e5f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
