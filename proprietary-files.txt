@@ -1,10 +1,8 @@
 system/bin/gpsd
-system/bin/rild
 system/lib/hw/gps.exynos4.so
 system/lib/hw/vendor-camera.exynos4.so
 system/lib/hw/sensors.smdk4x12.so
 system/lib/libakm.so
-system/lib/libril.so
 system/lib/libsec-ril.so
 system/usr/idc/sec_touchscreen.idc
 system/usr/keylayout/sec_touchkey.kl
