@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Galaxy S III Settings</string>
+    <string name="app_name">Advanced settings</string>
 
     <string name="category_dock_title">Dock</string>
     <string name="dockaudio_subcat_title">Dock Audio</string>
