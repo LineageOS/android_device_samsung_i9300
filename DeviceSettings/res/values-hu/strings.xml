@@ -2,6 +2,11 @@
 <resources>
     <string name="app_name">Galaxy S III Beállítások</string>
 
+    <string name="category_dock_title">Dokkoló</string>
+    <string name="dockaudio_subcat_title">Dokkoló hangszórók</string>
+    <string name="use_dock_audio_title_head">Dokkoló hangszóróinak használata</string>
+    <string name="use_dock_audio_summary_head">Használja a dokkoló passzív hangkimenetét</string>
+
     <string name="category_haptic_title">Érintési visszajelzés</string>
     <string name="vibrator_subcat_title">Rezgés</string>
     <string name="vibrator_intensity_title_head">Rezgés erőssége</string>
