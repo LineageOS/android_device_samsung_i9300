@@ -211,6 +211,7 @@ static void dispatchGsmBrSmsCnf(Parcel &p, RequestInfo *pRI);
 static void dispatchCdmaBrSmsCnf(Parcel &p, RequestInfo *pRI);
 static void dispatchRilCdmaSmsWriteArgs(Parcel &p, RequestInfo *pRI);
 static int responseInts(Parcel &p, void *response, size_t responselen);
+static int responseIntsGetPreferredNetworkType(Parcel &p, void *response, size_t responselen);
 static int responseStrings(Parcel &p, void *response, size_t responselen);
 static int responseStringsNetworks(Parcel &p, void *response, size_t responselen);
 static int responseStrings(Parcel &p, void *response, size_t responselen, bool network_search);
@@ -1401,6 +1402,41 @@ responseInts(Parcel &p, void *response, size_t responselen) {
     /* each int*/
     startResponse;
     for (int i = 0 ; i < numInts ; i++) {
+        appendPrintBuf("%s%d,", printBuf, p_int[i]);
+        p.writeInt32(p_int[i]);
+    }
+    removeLastChar;
+    closeResponse;
+
+    return 0;
+}
+
+static int
+responseIntsGetPreferredNetworkType(Parcel &p, void *response, size_t responselen) {
+    int numInts;
+
+    if (response == NULL && responselen != 0) {
+        ALOGE("invalid response: NULL");
+        return RIL_ERRNO_INVALID_RESPONSE;
+    }
+    if (responselen % sizeof(int) != 0) {
+        ALOGE("invalid response length %d expected multiple of %d\n",
+            (int)responselen, (int)sizeof(int));
+        return RIL_ERRNO_INVALID_RESPONSE;
+    }
+
+    int *p_int = (int *) response;
+
+    numInts = responselen / sizeof(int *);
+    p.writeInt32 (numInts);
+
+    /* each int*/
+    startResponse;
+    for (int i = 0 ; i < numInts ; i++) {
+        if (i == 0 && p_int[0] == 7) {
+            ALOGE("REQUEST_GET_PREFERRED_NETWORK_TYPE: NETWORK_MODE_GLOBAL => NETWORK_MODE_WCDMA_PREF");
+            p_int[0] = 0;
+        }
         appendPrintBuf("%s%d,", printBuf, p_int[i]);
         p.writeInt32(p_int[i]);
     }
