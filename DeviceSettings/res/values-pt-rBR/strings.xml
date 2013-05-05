@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Config. Galaxy S III</string>
+    <string name="app_name">Configurações avançadas</string>
     <string name="category_haptic_title">Resposta Tátil</string>
     <string name="vibrator_subcat_title">Vibração</string>
     <string name="vibrator_intensity_title_head">Intensidade da Vibração</string>
@@ -25,4 +25,8 @@
     <string name="touchkey_timeout_title_head">Tempo limite da luz de fundo</string>
     <string name="touchkey_timeout_summary_head">Define o tempo limite para a luz de fundo</string>
     <string name="hspa_title_head">HSPA</string>
+    <string name="category_dock_title">Dock</string>
+    <string name="dockaudio_subcat_title">Áudio do dock</string>
+    <string name="use_dock_audio_title_head">Usar áudio USB do dock</string>
+    <string name="use_dock_audio_summary_head">Usar a saída de áudio passiva no dock</string>
 </resources>
