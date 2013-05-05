@@ -25,4 +25,8 @@
     <string name="touchkey_timeout_title_head">Tempo limite da luz de fundo</string>
     <string name="touchkey_timeout_summary_head">Define o tempo limite para a luz de fundo</string>
     <string name="hspa_title_head">HSPA</string>
+    <string name="category_dock_title">Dock</string>
+    <string name="dockaudio_subcat_title">Áudio do dock</string>
+    <string name="use_dock_audio_title_head">Usar áudio do dock USB</string>
+    <string name="use_dock_audio_summary_head">Usar a saída passiva de áudio no dock</string>
 </resources>
