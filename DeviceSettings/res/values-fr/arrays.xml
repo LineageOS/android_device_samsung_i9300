@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,10 +13,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
  -->
-
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="vibrator_intensity_entries">
-        <item>0%</item>
+        <item>Désactivé</item>
         <item>25%</item>
         <item>50% (Défaut)</item>
         <item>75%</item>
@@ -53,7 +52,7 @@
         <item>Progressive</item>
     </string-array>
     <string-array name="touchkey_timeout_entries">
-        <item>Jamais</item>
+        <item>Désactivé</item>
         <item>1 seconde</item>
         <item>2 secondes</item>
         <item>3 secondes (Défaut)</item>
