@@ -2,6 +2,11 @@
 <resources>
     <string name="app_name">Настройки Galaxy S III</string>
 
+    <string name="category_dock_title">Док-станция</string>
+    <string name="dockaudio_subcat_title">Аудио</string>
+    <string name="use_dock_audio_title_head">USB аудио док-станция</string>
+    <string name="use_dock_audio_summary_head">Использовать пассивный режим аудио док-станции</string>
+
     <string name="category_haptic_title">Отклик</string>
     <string name="vibrator_subcat_title">Вибрация</string>
     <string name="vibrator_intensity_title_head">Интенсивность вибрации</string>
