@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "iE9JDdA",
+        "filename": "DeviceSettings/res/values-fr/strings.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4617
+      },
+      "writtenOn": "2013-05-25T01:22:50Z",
+      "side": 1,
+      "message": "Activer l\\\u0027éclairage (manque l’apostrophe non ?)\nEt ce n\u0027est pas mieux :\n\"Préférer l\\\u0027éclairage progressif au clignotement\"",
+      "revId": "2b26e9e6865cae9ab620ef3ec8a89c5ff5054f87",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
