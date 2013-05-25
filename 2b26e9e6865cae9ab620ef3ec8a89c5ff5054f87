@@ -16,6 +16,24 @@
       "revId": "2b26e9e6865cae9ab620ef3ec8a89c5ff5054f87",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iA951fw",
+        "filename": "DeviceSettings/res/values-fr/strings.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4808
+      },
+      "writtenOn": "2013-05-25T01:47:20Z",
+      "side": 1,
+      "message": "Je trouve votre traduction bien plus \"propre\" : \"Préférer l\\\u0027éclairage progressif au clignotement\". Mais je dois corriger les autres device :)\n\nPS: il manque bien l\u0027apostrophe.",
+      "parentUuid": "iE9JDdA",
+      "revId": "2b26e9e6865cae9ab620ef3ec8a89c5ff5054f87",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
