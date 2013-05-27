@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,14 +12,13 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
-
-<resources>
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Paramètres avancés</string>
     <string name="category_dock_title">Station d\'accueil</string>
-    <string name="dockaudio_subcat_title">Sortie audio</string>
-    <string name="use_dock_audio_title_head">Sortie audio passive</string>
-    <string name="use_dock_audio_summary_head">Utiliser la sortie audio passive de la station d\'accueil</string>
+    <string name="dockaudio_subcat_title">Audio</string>
+    <string name="use_dock_audio_title_head">Sortie audio</string>
+    <string name="use_dock_audio_summary_head">Utiliser la sortie audio de la station d\'accueil</string>
     <string name="category_haptic_title">Haptique</string>
     <string name="vibrator_subcat_title">Vibreur</string>
     <string name="vibrator_intensity_title_head">Intensité du vibreur</string>
@@ -37,11 +36,11 @@
     <string name="mdnie_negative_summary_head">Activer/désactiver les couleurs inversées</string>
     <string name="led_subcat_title">LED de notification</string>
     <string name="led_fade_title_head">LED progressive</string>
-    <string name="led_fade_summary_head">Activé l\éclairage progressif à la place du clignotement</string>
-    <string name="touchkey_subcat_title">Tactile</string>
-    <string name="touchkey_light_title_head">Activer l\'éclairage</string>
-    <string name="touchkey_light_summary_off">Activer l\'éclairage des touches tactiles quand l\'écran est activé</string>
-    <string name="touchkey_light_summary_on">Désactiver l\'éclairage des touches tactiles quand l\'écran est activé</string>
-    <string name="touchkey_timeout_title_head">Temps avant extinction</string>
+    <string name="led_fade_summary_head">Préférer l\'éclairage progressif au clignotement</string>
+    <string name="touchkey_subcat_title">Touches tactiles</string>
+    <string name="touchkey_light_title_head">Rétroéclairage</string>
+    <string name="touchkey_light_summary_off">Activer le rétroéclairage des touches tactiles lorsque l\'écran est activé</string>
+    <string name="touchkey_light_summary_on">Désactiver le rétroéclairage des touches tactiles lorsque l\'écran est activé</string>
+    <string name="touchkey_timeout_title_head">Délai avant extinction</string>
     <string name="touchkey_timeout_summary_head">Définir le délai avant l\'extinction des touches</string>
 </resources>
