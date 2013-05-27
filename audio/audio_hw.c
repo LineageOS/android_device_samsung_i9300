@@ -668,7 +668,7 @@ static void select_input_device(struct m0_audio_device *adev)
             ALOGD("%s: AUDIO_DEVICE_IN_BUILTIN_MIC", __func__);
             break;
         case AUDIO_DEVICE_IN_BACK_MIC:
-            ALOGD("%s: AUDIO_DEVICE_IN_BACK_MIC", __func__);
+            ALOGD("%s: AUDIO_DEVICE_IN_BACK_MIC | AUDIO_DEVICE_IN_BUILTIN_MIC", __func__);
             // Force use both mics for video recording
             adev->in_device = (AUDIO_DEVICE_IN_BACK_MIC | AUDIO_DEVICE_IN_BUILTIN_MIC) & ~AUDIO_DEVICE_BIT_IN;
             break;
@@ -2356,7 +2356,6 @@ static int in_remove_audio_effect(const struct audio_stream *stream,
     in->preprocessors[in->num_preprocessors].effect_itfe = NULL;
     in->preprocessors[in->num_preprocessors].channel_configs = NULL;
 
-
     /* check compatibility between main channel supported and possible auxiliary channels */
     in_update_aux_channels(in, NULL);
 
@@ -2626,6 +2625,13 @@ static int adev_open_input_stream(struct audio_hw_device *dev,
     struct m0_audio_device *ladev = (struct m0_audio_device *)dev;
     struct m0_stream_in *in;
     int ret;
+
+    /* Respond with a request for stereo if a different format is given. */
+    if (config->channel_mask != AUDIO_CHANNEL_IN_STEREO) {
+        config->channel_mask = AUDIO_CHANNEL_IN_STEREO;
+        return -EINVAL;
+    }
+
     int channel_count = popcount(config->channel_mask);
 
     *stream_in = NULL;
