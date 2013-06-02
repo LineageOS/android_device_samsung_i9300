@@ -17,53 +17,53 @@
     <string-array name="vibrator_intensity_entries">
         <item>0%</item>
         <item>25%</item>
-        <item>50% (domyślnie)</item>
+        <item>50% (standaard)</item>
         <item>75%</item>
         <item>100%</item>
     </string-array>
 
     <string-array name="hspa_entries">
-        <item>Tylko UMTS</item>
-        <item>Tylko HSDPA</item>
-        <item>HSDPA + HSUPA</item>
+        <item>Alleen UMTS</item>
+        <item>Alleen HSDPA</item>
+        <item>HSDPA &amp; HSUPA</item>
     </string-array>
 
     <string-array name="mdnie_scenario_entries">
-        <item>CyanogenMod (domyślnie)</item>
-        <item>UI</item>
-        <item>Wideo</item>
-        <item>Ciepły film</item>
-        <item>Zimny film</item>
-        <item>Kamera</item>
-        <item>Nawigacja</item>
-        <item>Galeria</item>
+        <item>CyanogenMod (standaard)</item>
+        <item>Uiterlijk</item>
+        <item>Video</item>
+        <item>Video (warm)</item>
+        <item>Video (koud)</item>
+        <item>Camera</item>
+        <item>Navigatie</item>
+        <item>Galerij</item>
         <item>VT</item>
     </string-array>
 
     <string-array name="mdnie_mode_entries">
-        <item>Dynamicznie (domyślnie)</item>
-        <item>Standardowo</item>
-        <item>Naturalnie</item>
+        <item>Dynamisch (standaard)</item>
+        <item>Standaard</item>
+        <item>Natuurlijk</item>
         <item>Film</item>
     </string-array>
 
     <string-array name="mdnie_negative_entries">
-        <item>Normalnie</item>
-        <item>Odwrócony</item>
+        <item>Normaal</item>
+        <item>Omgedraaid</item>
     </string-array>
 
     <string-array name="led_fade_entries">
-        <item>Miganie</item>
-        <item>Zanikanie</item>
+        <item>Knipperen</item>
+        <item>Vervagen</item>
     </string-array>
 
     <string-array name="touchkey_timeout_entries">
-        <item>Nigdy</item>
-        <item>1 sekunda</item>
-        <item>2 sekundy</item>
-        <item>3 sekundy (domyślnie)</item>
-        <item>4 sekundy</item>
-        <item>5 sekund</item>
-        <item>6 sekund</item>
+        <item>Nooit</item>
+        <item>1 seconde</item>
+        <item>2 seconden</item>
+        <item>3 seconden (standaard)</item>
+        <item>4 seconden</item>
+        <item>5 seconden</item>
+        <item>6 seconden</item>
     </string-array>
 </resources>
