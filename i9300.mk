@@ -80,8 +80,8 @@ $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     mobiledata.interfaces=pdp0,wlan0,gprs,ppp0 \
-    ro.ril.hsxpa=1 \
-    ro.ril.gprsclass=10
+    ro.telephony.call_ring.multiple=false \
+    ro.telephony.call_ring.delay=3000
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
