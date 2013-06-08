@@ -38,6 +38,7 @@ public class ScreenFragmentActivity extends PreferenceFragment {
     private mDNIeMode mmDNIeMode;
     private mDNIeNegative mmDNIeNegative;
     private LedFade mLedFade;
+    private CABC mCABC;
 
     private static final String FILE_TOUCHKEY_BRIGHTNESS = "/sys/class/sec/sec_touchkey/brightness";
     private static final String FILE_TOUCHKEY_DISABLE = "/sys/class/sec/sec_touchkey/force_disable";
@@ -61,6 +62,9 @@ public class ScreenFragmentActivity extends PreferenceFragment {
         mLedFade = (LedFade) findPreference(DeviceSettings.KEY_LED_FADE);
         mLedFade.setEnabled(LedFade.isSupported());
 
+        mCABC = (CABC) findPreference(DeviceSettings.KEY_CABC);
+        mCABC.setEnabled(CABC.isSupported());
+        
         if (((CheckBoxPreference)prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_LIGHT)).isChecked()) {
             prefSet.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(true);
         } else {

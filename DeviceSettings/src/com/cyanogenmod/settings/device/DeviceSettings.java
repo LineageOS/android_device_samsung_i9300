@@ -45,6 +45,7 @@ public class DeviceSettings extends FragmentActivity {
     public static final String KEY_TOUCHKEY_LIGHT = "touchkey_light";
     public static final String KEY_TOUCHKEY_TIMEOUT = "touchkey_timeout";
     public static final String KEY_USE_DOCK_AUDIO = "dock_audio";
+    public static final String KEY_CABC = "cabc";
 
     ViewPager mViewPager;
     TabsAdapter mTabsAdapter;
