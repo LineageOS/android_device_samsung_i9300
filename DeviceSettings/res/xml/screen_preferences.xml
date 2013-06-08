@@ -3,6 +3,14 @@
 
     <PreferenceCategory
                 android:title="@string/mdnie_subcat_title">
+                
+    <!-- CABC -->
+    <com.cyanogenmod.settings.device.CABC
+            android:key="cabc"
+            android:title="@string/cabc_title_head"
+            android:summary="@string/cabc_summary_head"
+            android:defaultValue="true" />
+            
     <!-- mDNIe Scenario modes -->
     <com.cyanogenmod.settings.device.mDNIeScenario
 	        android:key="mdnie_scenario"
@@ -30,7 +38,7 @@
   			android:entryValues="@array/mdnie_negative_entries_values"
   			android:defaultValue="0" />
     </PreferenceCategory>
-
+                
     <PreferenceCategory
                 android:title="@string/led_subcat_title">
     <!-- LED fading mode -->
