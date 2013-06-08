@@ -32,6 +32,17 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+            android:title="@string/lcd_power">
+    <CheckBoxPreference
+                android:key="lcd_power"
+                android:title="@string/lcd_power_title_head"
+                android:summaryOff="@string/lcd_power_summary_off"
+                android:summaryOn="@string/lcd_power_summary_on"
+                android:defaultValue="false"
+                />        
+    </PreferenceCategory>
+                
+    <PreferenceCategory
                 android:title="@string/led_subcat_title">
     <!-- LED fading mode -->
     <com.cyanogenmod.settings.device.LedFade

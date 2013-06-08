@@ -36,4 +36,8 @@
     <string name="touchkey_timeout_title_head">Backlight timeout</string>
     <string name="touchkey_timeout_summary_head">Set timeout for the backlight</string>
 
+    <string name="lcd_power">Energy saving</string>
+    <string name="lcd_power_title_head">LCD Power saving</string>
+    <string name="lcd_power_summary_off">Disabled</string>
+    <string name="lcd_power_summary_on">Enabled</string>
 </resources>

@@ -41,6 +41,7 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
     private static final String FILE_TOUCHKEY_BRIGHTNESS = "/sys/class/sec/sec_touchkey/brightness";
     private static final String FILE_TOUCHKEY_DISABLE = "/sys/class/sec/sec_touchkey/force_disable";
+    private static final String FILE_LCD_POWER_REDUCE = "/sys/class/lcd/panel/power_reduce";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,6 +85,12 @@ public class ScreenFragmentActivity extends PreferenceFragment {
                 Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, "2");
                 preferenceScreen.findPreference(DeviceSettings.KEY_TOUCHKEY_TIMEOUT).setEnabled(false);
             }
+        } else if (key.compareTo(DeviceSettings.KEY_LCD_POWER_REDUCE) == 0){
+        	if (((CheckBoxPreference)preference).isChecked()) {
+        		Utils.writeValue(FILE_LCD_POWER_REDUCE, "1");
+        	} else {
+        		Utils.writeValue(FILE_LCD_POWER_REDUCE, "0");
+        	}
         }
         return true;
     }
@@ -98,5 +105,6 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
         Utils.writeValue(FILE_TOUCHKEY_DISABLE, light ? "0" : "1");
         Utils.writeValue(FILE_TOUCHKEY_BRIGHTNESS, light ? "1" : "2");
+        Utils.writeValue(FILE_LCD_POWER_REDUCE, "0");
     }
 }
