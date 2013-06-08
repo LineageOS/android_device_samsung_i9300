@@ -36,14 +36,15 @@ public class DeviceSettings extends FragmentActivity {
 
     public static final String SHARED_PREFERENCES_BASENAME = "com.cyanogenmod.settings.device";
     public static final String ACTION_UPDATE_PREFERENCES = "com.cyanogenmod.settings.device.UPDATE";
-    public static final String KEY_HSPA = "hspa";
-    public static final String KEY_VIBRATOR_INTENSITY = "vibrator_intensity";
+    public static final String KEY_CABC = "cabc";
     public static final String KEY_MDNIE_SCENARIO = "mdnie_scenario";
     public static final String KEY_MDNIE_MODE = "mdnie_mode";
     public static final String KEY_MDNIE_NEGATIVE = "mdnie_negative";
     public static final String KEY_LED_FADE = "led_fade";
     public static final String KEY_TOUCHKEY_LIGHT = "touchkey_light";
     public static final String KEY_TOUCHKEY_TIMEOUT = "touchkey_timeout";
+    public static final String KEY_HSPA = "hspa";
+    public static final String KEY_VIBRATOR_INTENSITY = "vibrator_intensity";
     public static final String KEY_USE_DOCK_AUDIO = "dock_audio";
 
     ViewPager mViewPager;

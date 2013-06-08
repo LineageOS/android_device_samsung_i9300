@@ -29,6 +29,7 @@ public class Startup extends BroadcastReceiver {
         Hspa.restore(context);
         RadioFragmentActivity.restore(context);
         ScreenFragmentActivity.restore(context);
+        CABC.restore(context);
         mDNIeScenario.restore(context);
         mDNIeMode.restore(context);
         mDNIeNegative.restore(context);

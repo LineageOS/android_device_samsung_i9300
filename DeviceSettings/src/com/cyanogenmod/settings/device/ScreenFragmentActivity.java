@@ -33,11 +33,12 @@ import com.cyanogenmod.settings.device.R;
 public class ScreenFragmentActivity extends PreferenceFragment {
 
     private static final String PREF_ENABLED = "1";
-    private static final String TAG = "GalaxyS3Settings_Screen";
+    private static final String TAG = "DeviceSettings_Screen";
     private mDNIeScenario mmDNIeScenario;
     private mDNIeMode mmDNIeMode;
     private mDNIeNegative mmDNIeNegative;
     private LedFade mLedFade;
+    private CABC mCABC;
 
     private static final String FILE_TOUCHKEY_BRIGHTNESS = "/sys/class/sec/sec_touchkey/brightness";
     private static final String FILE_TOUCHKEY_DISABLE = "/sys/class/sec/sec_touchkey/force_disable";
@@ -47,8 +48,11 @@ public class ScreenFragmentActivity extends PreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.screen_preferences);
-
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        mCABC = (CABC) findPreference(DeviceSettings.KEY_CABC);
+        mCABC.setEnabled(CABC.isSupported());
+
         mmDNIeScenario = (mDNIeScenario) findPreference(DeviceSettings.KEY_MDNIE_SCENARIO);
         mmDNIeScenario.setEnabled(mDNIeScenario.isSupported());
 

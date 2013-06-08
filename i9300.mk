@@ -44,7 +44,7 @@ PRODUCT_COPY_FILES += \
 
 # Product specific Packages
 PRODUCT_PACKAGES += \
-    GalaxyS3Settings \
+    DeviceSettings \
     libsecril-client \
     libsecril-client-sap \
     SamsungServiceMode
