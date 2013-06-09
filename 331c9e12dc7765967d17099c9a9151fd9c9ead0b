@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "iMUQS1E",
+        "filename": "DeviceSettings/res/xml/screen_preferences.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2013-06-09T13:19:46Z",
+      "side": 1,
+      "message": "whitespaces",
+      "revId": "331c9e12dc7765967d17099c9a9151fd9c9ead0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iKUdV2g",
+        "filename": "DeviceSettings/res/xml/screen_preferences.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2013-06-09T13:19:46Z",
+      "side": 1,
+      "message": "whitespaces",
+      "revId": "331c9e12dc7765967d17099c9a9151fd9c9ead0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iIUaU20",
+        "filename": "DeviceSettings/res/xml/screen_preferences.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2013-06-09T13:19:46Z",
+      "side": 1,
+      "message": "whitespaces",
+      "revId": "331c9e12dc7765967d17099c9a9151fd9c9ead0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iOUTT1s",
+        "filename": "DeviceSettings/src/com/cyanogenmod/settings/device/ScreenFragmentActivity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2013-06-09T13:19:46Z",
+      "side": 1,
+      "message": "whitespaces",
+      "revId": "331c9e12dc7765967d17099c9a9151fd9c9ead0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
