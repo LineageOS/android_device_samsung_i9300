@@ -3,8 +3,7 @@
 
     <!-- Screen -->
     <PreferenceCategory
-            android:title="@string/mdnie_subcat_title">
-
+            android:title="@string/screen_colors_title">
         <!-- CABC -->
         <com.cyanogenmod.settings.device.CABC
                 android:key="cabc"

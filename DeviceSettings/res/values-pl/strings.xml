@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ustawienia Galaxy S III</string>
+    <string name="app_name">Advanced settings</string>
 
     <string name="category_dock_title">Stacja dokująca</string>
     <string name="dockaudio_subcat_title">Dźwięk w stacji dokującej</string>
     <string name="use_dock_audio_title_head">Użyj stacji dokującej</string>
     <string name="use_dock_audio_summary_head">Użyj pasywnego wyjścia audio w stacji dokującej</string>
 
-    <string name="category_haptic_title">Dotyk</string>
-    <string name="vibrator_subcat_title">Wibracje</string>
-    <string name="vibrator_intensity_title_head">Intensywność wibracji</string>
-    <string name="vibrator_intensity_summary_head">Ustaw intensywność wibracji</string>
-
     <string name="category_radio_title">Radio</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">Aktywuj HSDPA/HSUPA</string>
 
     <string name="category_screen_title">Ekran</string>
-    <string name="mdnie_subcat_title">Kolory</string>
+    <string name="screen_colors_title">Kolory</string>
     <string name="mdnie_scenario_title_head">Technologia mDNIe</string>
     <string name="mdnie_scenario_summary_head">Ustaw scenariusz mDNIe</string>
     <string name="mdnie_mode_title_head">Tryb</string>

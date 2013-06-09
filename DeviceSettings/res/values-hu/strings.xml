@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Galaxy S III Beállítások</string>
+    <string name="app_name">Advanced settings</string>
 
     <string name="category_dock_title">Dokkoló</string>
     <string name="dockaudio_subcat_title">Dokkoló hangszórók</string>
     <string name="use_dock_audio_title_head">Dokkoló hangszóróinak használata</string>
     <string name="use_dock_audio_summary_head">Használja a dokkoló passzív hangkimenetét</string>
 
-    <string name="category_haptic_title">Érintési visszajelzés</string>
-    <string name="vibrator_subcat_title">Rezgés</string>
-    <string name="vibrator_intensity_title_head">Rezgés erőssége</string>
-    <string name="vibrator_intensity_summary_head">Rezgés erősségének beállítása</string>
-
     <string name="category_radio_title">GSM Rádió</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">HSDPA/HSUPA engedélyezése</string>
 
     <string name="category_screen_title">Kijelző</string>
-    <string name="mdnie_subcat_title">Színek</string>
+    <string name="screen_colors_title">Színek</string>
     <string name="mdnie_scenario_title_head">Megjelenítés</string>
     <string name="mdnie_scenario_summary_head">mDNIe megjelenítési beállítások</string>
     <string name="mdnie_mode_title_head">Üzemmód</string>

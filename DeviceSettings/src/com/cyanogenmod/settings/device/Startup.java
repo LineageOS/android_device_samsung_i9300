@@ -34,7 +34,7 @@ public class Startup extends BroadcastReceiver {
         mDNIeMode.restore(context);
         mDNIeNegative.restore(context);
         LedFade.restore(context);
-        VibratorIntensity.restore(context);
         TouchkeyTimeout.restore(context);
+        VibratorTuningPreference.restore(context);
     }
 }

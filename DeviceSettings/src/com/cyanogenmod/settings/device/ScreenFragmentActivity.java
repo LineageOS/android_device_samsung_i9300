@@ -34,11 +34,11 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 
     private static final String PREF_ENABLED = "1";
     private static final String TAG = "DeviceSettings_Screen";
+    private CABC mCABC;
     private mDNIeScenario mmDNIeScenario;
     private mDNIeMode mmDNIeMode;
     private mDNIeNegative mmDNIeNegative;
     private LedFade mLedFade;
-    private CABC mCABC;
 
     private static final String FILE_TOUCHKEY_BRIGHTNESS = "/sys/class/sec/sec_touchkey/brightness";
     private static final String FILE_TOUCHKEY_DISABLE = "/sys/class/sec/sec_touchkey/force_disable";

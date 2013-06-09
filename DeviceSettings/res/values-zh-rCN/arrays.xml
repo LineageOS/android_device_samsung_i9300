@@ -15,13 +15,6 @@
  -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string-array name="vibrator_intensity_entries">
-        <item>0%</item>
-        <item>25%</item>
-        <item>50% (默认)</item>
-        <item>75%</item>
-        <item>100%</item>
-    </string-array>
 
     <string-array name="hspa_entries">
         <item>仅使用 UMTS</item>

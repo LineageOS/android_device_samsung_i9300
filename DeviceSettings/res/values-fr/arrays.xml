@@ -14,13 +14,6 @@
      limitations under the License.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string-array name="vibrator_intensity_entries">
-        <item>Désactivé</item>
-        <item>25%</item>
-        <item>50% (Défaut)</item>
-        <item>75%</item>
-        <item>100%</item>
-    </string-array>
     <string-array name="hspa_entries">
         <item>UMTS seulement</item>
         <item>HSDPA seulement</item>

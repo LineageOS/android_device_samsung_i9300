@@ -65,15 +65,14 @@ public class DeviceSettings extends FragmentActivity {
         bar.setDisplayHomeAsUpEnabled(true);
 
         mTabsAdapter = new TabsAdapter(this, mViewPager);
-        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_dock_title),
-                DockFragmentActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_radio_title),
                 RadioFragmentActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_screen_title),
                 ScreenFragmentActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_haptic_title),
                 HapticFragmentActivity.class, null);
-
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_dock_title),
+                DockFragmentActivity.class, null);
 
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));

@@ -17,17 +17,12 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">高级设置</string>
 
-    <string name="category_haptic_title">振动</string>
-    <string name="vibrator_subcat_title">振动器</string>
-    <string name="vibrator_intensity_title_head">振动器强度</string>
-    <string name="vibrator_intensity_summary_head">设置振动器强度</string>
-
     <string name="category_radio_title">无线电</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">启用 HSDPA/HSUPA</string>
 
     <string name="category_screen_title">屏幕</string>
-    <string name="mdnie_subcat_title">颜色</string>
+    <string name="screen_colors_title">颜色</string>
     <string name="mdnie_scenario_title_head">场景</string>
     <string name="mdnie_scenario_summary_head">设置 mDNIe 场景</string>
     <string name="mdnie_mode_title_head">模式</string>

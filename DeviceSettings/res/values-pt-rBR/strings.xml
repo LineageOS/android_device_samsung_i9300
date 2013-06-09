@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Configurações avançadas</string>
-    <string name="category_haptic_title">Resposta Tátil</string>
-    <string name="vibrator_subcat_title">Vibração</string>
-    <string name="vibrator_intensity_title_head">Intensidade da Vibração</string>
-    <string name="vibrator_intensity_summary_head">Define a intensidade da vibração</string>
+    <string name="category_haptic_title">Resposta tátil</string>
+    <string name="vibrator_title">Vibração</string>
+    <string name="vibrator_tuning_title">Intensidade da vibração</string>
+    <string name="vibrator_tuning_summary_head">Ajusar a intensidade da resposta por vibração</string>
+    <string name="vibrator_warning">Valores maiores que %1$d não são recomendados</string>
     <string name="category_radio_title">Rádio</string>
     <string name="hspa_summary_head">Ativar HSDPA/HSUPA</string>
     <string name="category_screen_title">Tela</string>
-    <string name="mdnie_subcat_title">Cores</string>
+    <string name="screen_colors_title">Cores</string>
     <string name="mdnie_scenario_title_head">Cenário</string>
     <string name="mdnie_scenario_summary_head">Define o Cenário mDNIe</string>
     <string name="mdnie_mode_title_head">Modo</string>

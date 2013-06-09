@@ -17,9 +17,9 @@
 package com.cyanogenmod.settings.device;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -32,27 +32,33 @@ import com.cyanogenmod.settings.device.R;
 
 public class HapticFragmentActivity extends PreferenceFragment {
 
-    private static final String PREF_ENABLED = "1";
     private static final String TAG = "DeviceSettings_Haptic";
+    public static final String KEY_VIBRATOR_TUNING = "vibrator_tuning";
+
+    private static boolean sVibratorTuning;
+    private VibratorTuningPreference mVibratorTuning;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Resources res = getResources();
+        sVibratorTuning = res.getBoolean(R.bool.has_vibrator_tuning);
+
         addPreferencesFromResource(R.xml.haptic_preferences);
 
-        PreferenceScreen prefSet = getPreferenceScreen();
-
+        if (sVibratorTuning) {
+            String vibratorFilePath = res.getString(R.string.vibrator_sysfs_file);
+            mVibratorTuning = (VibratorTuningPreference) findPreference(KEY_VIBRATOR_TUNING);
+            mVibratorTuning.setEnabled(VibratorTuningPreference.isSupported(vibratorFilePath));
+        }
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-
         String boxValue;
         String key = preference.getKey();
-
         Log.w(TAG, "key: " + key);
-
         return true;
     }
 
