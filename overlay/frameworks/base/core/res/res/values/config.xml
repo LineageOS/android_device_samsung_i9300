@@ -115,4 +115,9 @@
     <!-- Boolean to enable stk functionality on Samsung phones -->
     <bool name="config_samsung_stk">true</bool>
 
+    <!-- Integer to configure panel auto brightness mode when changed -->
+    <integer name="config_panelAutoBrightnessValue">1</integer>
+
+    <!-- Sysfs node to to set a special value when using panel auto brightness -->
+    <string name="config_panelAutoBrightnessSysfsFile" translatable="false">/sys/class/backlight/panel/auto_brightness</string>
 </resources>
