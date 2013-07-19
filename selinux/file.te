@@ -1,0 +1,3 @@
+type radio_efs_file, file_type;
+type firmware_mfc, file_type;
+type firmware_camera, file_type;
