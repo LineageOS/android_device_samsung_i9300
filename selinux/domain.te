@@ -1,0 +1,14 @@
+## /dev/mali, /dev/ump
+allow domain mali_device:chr_file rw_file_perms;
+
+## RIL
+allow rild radio_device:chr_file rw_file_perms;
+allow rild { efs_file }:file rw_file_perms;
+allow rild { radio_data_file }:file rw_file_perms;
+
+## /dev/rfkill for wpa_supp
+allow wpa rfkill_device:chr_file rw_file_perms;
+
+## Firmwares
+allow ueventd { firmware_mfc }:file r_file_perms;
+allow mediaserver { firmware_camera }:file r_file_perms;
