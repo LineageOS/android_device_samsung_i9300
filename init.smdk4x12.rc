@@ -508,3 +508,10 @@ service TvoutService_C /system/bin/bintvoutservice
 
 on property:ro.tvout.enable=false
     stop TvoutService_C
+
+# Workaround for broken incall audio
+service bootsnd /system/bin/tinyplay /system/etc/sound/silence.wav -D 0 -d 0 -p 880
+    class late_start
+    user root
+    group audio
+    oneshot
