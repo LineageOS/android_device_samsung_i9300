@@ -1,12 +1,17 @@
-# mount point	fstype		device
-/efs			ext4		/dev/block/mmcblk0p3
-/boot			emmc		/dev/block/mmcblk0p5
-/recovery		emmc		/dev/block/mmcblk0p6
-/cache			ext4		/dev/block/mmcblk0p8
-/system			ext4		/dev/block/mmcblk0p9
-/data			ext4		/dev/block/mmcblk0p12 length=-16384
-/preload		ext4		/dev/block/mmcblk0p10
-/modem			emmc		/dev/block/mmcblk0p7
+# Android fstab file.
+#<src>                                         <mnt_point>  <type>  <mnt_flags and options>  <fs_mgr_flags>
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+/dev/block/mmcblk0p3	/efs		ext4 	defaults	wait
+/dev/block/mmcblk0p5	/boot		emmc	defaults	defaults
+/dev/block/mmcblk0p6	/recovery	emmc	defaults	defaults
+/dev/block/mmcblk0p7	/modem		emmc	defaults	defaults
+/dev/block/mmcblk0p8	/cache		ext4	noatime,nosuid,nodev,barrier=1,data=ordered	wait,check
+/dev/block/mmcblk0p9	/system		ext4	ro,barrier=1	wait
+/dev/block/mmcblk0p12	/data		ext4	noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc	wait,check
+/dev/block/mmcblk0p10	/preload	ext4	defaults	wait
 
-/sdcard			datamedia   /dev/null
-/external_sd	auto		/dev/block/mmcblk1p1	/dev/block/mmcblk1
+/dev/null		/sdcard		datamedia	defaults	defaults
+/dev/block/mmcblk1p1	/external_sd	auto		defaults	defaults
+
+
