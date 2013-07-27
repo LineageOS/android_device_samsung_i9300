@@ -365,7 +365,6 @@ on boot
 
     setprop ro.build.product smdk4x12
     setprop ro.product.device smdk4x12
-    setprop ro.radio.noril yes
     setprop wifi.interface wlan0
 
 # fake some battery state
