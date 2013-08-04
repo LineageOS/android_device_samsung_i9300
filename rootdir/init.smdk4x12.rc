@@ -28,6 +28,7 @@ on init
     insmod /system/lib/modules/Si4709_driver.ko
 
 on fs
+    mkdir /preload
     mount_all /fstab.smdk4x12
 
     setprop ro.crypto.fuse_sdcard true
