@@ -36,8 +36,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/m0 \
-    $(LOCAL_PATH)/audio/silence.wav:system/etc/sound/silence.wav
+    $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/m0
 
 # Gps
 PRODUCT_COPY_FILES += \
@@ -48,8 +47,7 @@ PRODUCT_PACKAGES += \
     DeviceSettings \
     libsecril-client \
     libsecril-client-sap \
-    SamsungServiceMode \
-    tinyplay
+    SamsungServiceMode
 
 # NFC
 PRODUCT_PACKAGES += \
