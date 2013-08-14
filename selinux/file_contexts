@@ -1,0 +1,32 @@
+# GFX
+/dev/mali                               u:object_r:mali_device:s0
+/dev/ump                                u:object_r:mali_device:s0
+/dev/fimg2d                             u:object_r:mali_device:s0
+
+# NFC
+/dev/pn544                              u:object_r:nfc_device:s0
+
+# RIL
+/dev/umts_boot0                         u:object_r:radio_device:s0
+/dev/umts_boot1                         u:object_r:radio_device:s0
+/dev/umts_ipc0                          u:object_r:radio_device:s0
+/dev/umts_ramdump0                      u:object_r:radio_device:s0
+/dev/umts_rfs0                          u:object_r:radio_device:s0
+
+/dev/block/mmcblk0p7                    u:object_r:efs_block_device:s0
+
+# Bluetooth
+/dev/ttySAC0                            u:object_r:hci_attach_dev:s0
+/efs/bluetooth(/.*)?                    u:object_r:bluetooth_data_file:s0
+
+# GPS
+/dev/ttySAC1                            u:object_r:gps_device:s0
+
+# Sensors
+/dev/akm8963                            u:object_r:sensors_device:s0
+
+# for wpa_supp
+/dev/rfkill                             u:object_r:rfkill_device:s0
+
+# Firmwares
+/system/vendor/firmware/mfc_fw.bin      u:object_r:firmware_mfc:s0

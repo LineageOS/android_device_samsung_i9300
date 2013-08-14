@@ -1,0 +1,8 @@
+## /dev/mali, /dev/ump
+allow domain mali_device:chr_file rw_file_perms;
+
+## /dev/rfkill for wpa_supp
+allow wpa rfkill_device:chr_file rw_file_perms;
+
+## Firmwares
+allow ueventd { firmware_mfc }:file r_file_perms;
