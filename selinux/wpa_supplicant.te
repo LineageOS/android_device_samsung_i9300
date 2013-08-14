@@ -1,0 +1,2 @@
+allow wpa_socket wifi_data_file:sock_file unlink;
+allow wpa rfkill_device:chr_file rw_file_perms;
