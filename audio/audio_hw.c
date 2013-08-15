@@ -522,6 +522,10 @@ static void select_mode(struct m0_audio_device *adev)
             } else
                 adev->out_device &= ~AUDIO_DEVICE_OUT_SPEAKER;
             select_output_device(adev);
+
+            /* Set voicecall bit */
+            mixer_ctl_set_value(adev->mixer_ctls.aif2_dacr_source, 0, 0);
+
             start_call(adev);
             ril_set_call_clock_sync(&adev->ril, SOUND_CLOCK_START);
             adev_set_voice_volume(&adev->hw_device, adev->voice_volume);
@@ -534,6 +538,10 @@ static void select_mode(struct m0_audio_device *adev)
             adev->in_call = 0;
             end_call(adev);
             force_all_standby(adev);
+
+            /* Set voicecall bit */
+            mixer_ctl_set_value(adev->mixer_ctls.aif2_dacr_source, 0, 1);
+
             select_output_device(adev);
             select_input_device(adev);
         }
@@ -3012,6 +3020,9 @@ static int adev_open(const hw_module_t* module, const char* name,
     /* +30db boost for mics */
     adev->mixer_ctls.mixinl_in1l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN1L Volume");
     adev->mixer_ctls.mixinl_in2l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN2L Volume");
+
+    /* Voicecall bit */
+    adev->mixer_ctls.aif2_dacr_source = mixer_get_ctl_by_name(adev->mixer, "AIF2DACR Source");
 
     ret = adev_config_parse(adev);
     if (ret != 0)
