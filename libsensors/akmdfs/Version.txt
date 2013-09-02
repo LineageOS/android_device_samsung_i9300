@@ -1,0 +1,31 @@
+Version
+ * Console Version 20120329
+    570 AK8975Driver.c
+    496 AK8975Driver.h
+    579 AKFS_APIs.c
+    572 AKFS_APIs.h
+    580 AKFS_APIs_8975/AKFS_AK8975.c
+    580 AKFS_APIs_8975/AKFS_AK8975.h
+    580 AKFS_APIs_8975/AKFS_AOC.c
+    580 AKFS_APIs_8975/AKFS_AOC.h
+    580 AKFS_APIs_8975/AKFS_Configure.h
+    580 AKFS_APIs_8975/AKFS_Device.c
+    580 AKFS_APIs_8975/AKFS_Device.h
+    580 AKFS_APIs_8975/AKFS_Direction.c
+    580 AKFS_APIs_8975/AKFS_Direction.h
+    580 AKFS_APIs_8975/AKFS_Math.h
+    580 AKFS_APIs_8975/AKFS_VNorm.c
+    580 AKFS_APIs_8975/AKFS_VNorm.h
+    568 AKFS_CSpec.h
+    573 AKFS_Common.h
+    572 AKFS_Compass.h
+    579 AKFS_Disp.c
+    568 AKFS_Disp.h
+    568 AKFS_FileIO.c
+    549 AKFS_FileIO.h
+    573 AKFS_Measure.c
+    568 AKFS_Measure.h
+    574 Android.mk
+    575 NOTICE
+    579 main.c
+
