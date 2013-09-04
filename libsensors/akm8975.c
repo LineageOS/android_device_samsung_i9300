@@ -292,7 +292,7 @@ int akm8975_init(struct exynos_sensors_handlers *handlers,
 	}
 
 	i2c_data[0] = 3;
-	i2c_data[1] = AK8975_FUSE_ASAX;
+	i2c_data[1] = AK8975_FUSE_ASAY;
 	rc = ioctl(device_fd, ECS_IOCTL_READ, &i2c_data);
 	if (rc < 0) {
 		ALOGE("%s: Unable to set read akm8975 FUSE data", __func__);
