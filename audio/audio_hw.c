@@ -3029,9 +3029,6 @@ static int adev_open(const hw_module_t* module, const char* name,
     adev->mixer_ctls.mixinl_in1l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN1L Volume");
     adev->mixer_ctls.mixinl_in2l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN2L Volume");
 
-    /* Disable voicecall route */
-    set_voicecall_route_by_array(adev->mixer, voicecall_default_disable, 1);
-
     adev->pcm_modem_dl = NULL;
     adev->pcm_modem_ul = NULL;
     adev->voice_volume = 1.0f;
