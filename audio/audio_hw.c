@@ -671,6 +671,8 @@ static void select_input_device(struct m0_audio_device *adev)
     switch(input_device) {
         case AUDIO_DEVICE_IN_BUILTIN_MIC:
             ALOGD("%s: AUDIO_DEVICE_IN_BUILTIN_MIC", __func__);
+            ALOGD("%s: set voicecall route: default_input", __func__);
+            set_voicecall_route_by_array(adev->mixer, default_input, 1);
             break;
         case AUDIO_DEVICE_IN_BACK_MIC:
             ALOGD("%s: AUDIO_DEVICE_IN_BACK_MIC | AUDIO_DEVICE_IN_BUILTIN_MIC", __func__);
