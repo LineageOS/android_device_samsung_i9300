@@ -97,6 +97,10 @@ struct m0_audio_device {
     struct pcm *pcm_modem_dl;
     struct pcm *pcm_modem_ul;
     int in_call;
+    int voicecall_default_output;
+    int voicecall_default_input;
+    int voicecall_headset_input;
+    int voicecall_bluetooth;
     float voice_volume;
     struct m0_stream_in *active_input;
     struct m0_stream_out *outputs[OUTPUT_TOTAL];
@@ -535,11 +539,33 @@ static void select_mode(struct m0_audio_device *adev)
             end_call(adev);
             force_all_standby(adev);
 
-            /* Disable voicecall route */
-            ALOGE("Disabling voicecall route");
-            set_voicecall_route_by_array(adev->mixer, voicecall_default_disable, 1);
+            if (adev->voicecall_default_output) {
+                ALOGD("%s: set voicecall route: voicecall_default_disable", __func__);
+                set_voicecall_route_by_array(adev->mixer, voicecall_default_disable, 1);
+                adev->voicecall_default_output = 0;
+            }
+
+            if (adev->voicecall_default_input) {
+                ALOGD("%s: set voicecall route: default_input_disable", __func__);
+                set_voicecall_route_by_array(adev->mixer, default_input_disable, 1);
+                adev->voicecall_default_input = 0;
+            }
+
+            if (adev->voicecall_headset_input) {
+                ALOGD("%s: set voicecall route: headset_input_disable", __func__);
+                set_voicecall_route_by_array(adev->mixer, headset_input_disable, 1);
+                adev->voicecall_headset_input = 0;
+            }
+
+            if (adev->voicecall_bluetooth) {
+                ALOGD("%s: set voicecall route: bt_disable", __func__);
+                set_voicecall_route_by_array(adev->mixer, bt_disable, 1);
+                adev->voicecall_bluetooth = 0;
+            }
 
             select_output_device(adev);
+            //Force Input Standby
+            adev->in_device = AUDIO_DEVICE_NONE;
             select_input_device(adev);
         }
     }
@@ -626,25 +652,31 @@ static void select_output_device(struct m0_audio_device *adev)
         if (headset_on || headphone_on || speaker_on || earpiece_on) {
             ALOGD("%s: set voicecall route: voicecall_default", __func__);
             set_voicecall_route_by_array(adev->mixer, voicecall_default, 1);
+            adev->voicecall_default_output = 1;
         } else {
             ALOGD("%s: set voicecall route: voicecall_default_disable", __func__);
             set_voicecall_route_by_array(adev->mixer, voicecall_default_disable, 1);
+            adev->voicecall_default_output = 0;
         }
 
         if (speaker_on || earpiece_on || headphone_on) {
             ALOGD("%s: set voicecall route: default_input", __func__);
             set_voicecall_route_by_array(adev->mixer, default_input, 1);
+            adev->voicecall_default_input = 1;
         } else {
             ALOGD("%s: set voicecall route: default_input_disable", __func__);
             set_voicecall_route_by_array(adev->mixer, default_input_disable, 1);
+            adev->voicecall_default_input = 0;
         }
 
         if (headset_on) {
             ALOGD("%s: set voicecall route: headset_input", __func__);
             set_voicecall_route_by_array(adev->mixer, headset_input, 1);
+            adev->voicecall_headset_input = 1;
         } else {
             ALOGD("%s: set voicecall route: headset_input_disable", __func__);
             set_voicecall_route_by_array(adev->mixer, headset_input_disable, 1);
+            adev->voicecall_headset_input = 0;
         }
 
         if (bt_on) {
@@ -655,9 +687,11 @@ static void select_output_device(struct m0_audio_device *adev)
             set_voicecall_route_by_array(adev->mixer, bt_input, 1);
             ALOGD("%s: set voicecall route: bt_output", __func__);
             set_voicecall_route_by_array(adev->mixer, bt_output, 1);
+            adev->voicecall_bluetooth = 1;
         } else {
             ALOGD("%s: set voicecall route: bt_disable", __func__);
             set_voicecall_route_by_array(adev->mixer, bt_disable, 1);
+            adev->voicecall_bluetooth = 0;
         }
 
         set_incall_device(adev);
@@ -3022,12 +3056,15 @@ static int adev_open(const hw_module_t* module, const char* name,
     pthread_mutex_lock(&adev->lock);
     adev->mode = AUDIO_MODE_NORMAL;
     adev->out_device = AUDIO_DEVICE_OUT_SPEAKER;
-    adev->in_device = AUDIO_DEVICE_IN_BUILTIN_MIC & ~AUDIO_DEVICE_BIT_IN;
+    adev->in_device = AUDIO_DEVICE_NONE;
     select_devices(adev);
 
     /* +30db boost for mics */
     adev->mixer_ctls.mixinl_in1l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN1L Volume");
     adev->mixer_ctls.mixinl_in2l_volume = mixer_get_ctl_by_name(adev->mixer, "MIXINL IN2L Volume");
+
+    /* Disable voicecall route */
+    set_voicecall_route_by_array(adev->mixer, voicecall_default_disable, 1);
 
     adev->pcm_modem_dl = NULL;
     adev->pcm_modem_ul = NULL;
