@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da37b569_b0fd8670",
+        "filename": "audio/audio_hw.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2013-09-30T10:01:12Z",
+      "side": 1,
+      "message": "why don\u0027t you simply disable everything? none of the routes have to be left active when really ending a call.",
+      "revId": "a0e68b90919b409d8402a0ae59515416d31bba92",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da37b569_f0030e75",
+        "filename": "audio/audio_hw.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 3066,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2013-09-30T10:01:12Z",
+      "side": 1,
+      "message": "shouldn\u0027t get added again",
+      "revId": "a0e68b90919b409d8402a0ae59515416d31bba92",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
