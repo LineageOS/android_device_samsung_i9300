@@ -42,19 +42,19 @@
 
 struct sensor_t exynos_sensors[] = {
 	{ "LSM330DLC Acceleration Sensor", "STMicroelectronics", 1, SENSOR_TYPE_ACCELEROMETER,
-		SENSOR_TYPE_ACCELEROMETER, 19.61f, 0.0096f, 0.23f, 10000, {}, },
+		SENSOR_TYPE_ACCELEROMETER, 19.61f, 0.0096f, 0.23f, 10000, 0, 0, {}, },
 	{ "AKM8975 Magnetic Sensor", "Asahi Kasei", 1, SENSOR_TYPE_MAGNETIC_FIELD,
-		SENSOR_TYPE_MAGNETIC_FIELD, 2000.0f, 0.06f, 6.8f, 10000, {}, },
+		SENSOR_TYPE_MAGNETIC_FIELD, 2000.0f, 0.06f, 6.8f, 10000, 0, 0, {}, },
 	{ "Orientation Sensor", "Exynos Sensors", 1, SENSOR_TYPE_ORIENTATION,
-		SENSOR_TYPE_ORIENTATION, 360.0f, 0.1f, 0.0f, 10000, {}, },
+		SENSOR_TYPE_ORIENTATION, 360.0f, 0.1f, 0.0f, 10000, 0, 0, {}, },
 	{ "CM36651 Light Sensor", "Capella", 1, SENSOR_TYPE_LIGHT,
-		SENSOR_TYPE_LIGHT, 121240.0f, 1.0f, 0.2f, 0, {}, },
+		SENSOR_TYPE_LIGHT, 121240.0f, 1.0f, 0.2f, 0, 0, 0, {}, },
 	{ "CM36651 Proximity Sensor", "Capella", 1, SENSOR_TYPE_PROXIMITY,
-		SENSOR_TYPE_PROXIMITY, 8.0f, 8.0f, 1.3f, 0, {}, },
+		SENSOR_TYPE_PROXIMITY, 8.0f, 8.0f, 1.3f, 0, 0, 0, {}, },
 	{ "LSM330DLC Gyroscope Sensor", "STMicroelectronics", 1, SENSOR_TYPE_GYROSCOPE,
-		SENSOR_TYPE_GYROSCOPE, 8.73f, 0.00031f, 6.1f, 5000, {}, },
+		SENSOR_TYPE_GYROSCOPE, 8.73f, 0.00031f, 6.1f, 5000, 0, 0, {}, },
 	{ "LPS331AP Pressure Sensor", "STMicroelectronics", 1, SENSOR_TYPE_PRESSURE,
-		SENSOR_TYPE_PRESSURE, 1260.0f, 0.00024f, 0.045f, 40000, {}, },
+		SENSOR_TYPE_PRESSURE, 1260.0f, 0.00024f, 0.045f, 40000, 0, 0, {}, },
 };
 
 int exynos_sensors_count = sizeof(exynos_sensors) / sizeof(struct sensor_t);
