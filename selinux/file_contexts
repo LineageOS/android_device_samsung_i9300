@@ -3,9 +3,6 @@
 /dev/ump                                u:object_r:mali_device:s0
 /dev/fimg2d                             u:object_r:mali_device:s0
 
-# NFC
-/dev/pn544                              u:object_r:nfc_device:s0
-
 # RIL
 /dev/umts_boot0                         u:object_r:radio_device:s0
 /dev/umts_boot1                         u:object_r:radio_device:s0
