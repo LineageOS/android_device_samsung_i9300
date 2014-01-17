@@ -1,5 +1,19 @@
+on init
+# ko files for FM Radio
+    insmod /system/lib/modules/Si4709_driver.ko
+
 on post-fs-data
-    # make param block device link for SysScope
+# icd
+    exec icd_check
+    chown system system /dev/icd
+    chmod 0644 /dev/icd
+    write /dev/icdr 0
+    chown system system /dev/icdr
+    chmod 0644 /dev/icdr
+    chown system system /dev/tzic
+
+
+# make param block device link for SysScope
     symlink /dev/block/mmcblk0p4 /dev/block/param
 
 # Restorecon
