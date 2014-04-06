@@ -38,10 +38,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/m0
 
-# Camera
-PRODUCT_PACKAGES += \
-    camera.smdk4x12
-
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.smdk4x12

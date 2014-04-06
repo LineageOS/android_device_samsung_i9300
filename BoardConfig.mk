@@ -54,5 +54,7 @@ BOARD_SEPOLICY_UNION += \
 # assert
 TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
 
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+
 # inherit from the proprietary version
 -include vendor/samsung/i9300/BoardConfigVendor.mk
