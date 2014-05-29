@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da0c15f0_a92572c3",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 10
+      },
+      "writtenOn": "2014-05-29T14:01:07Z",
+      "side": 1,
+      "message": "Why the exposure lock change?",
+      "revId": "64993849323ba993c515b648aa0486908c58bc95",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
