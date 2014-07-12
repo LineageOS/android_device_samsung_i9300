@@ -176,6 +176,9 @@
         <item>7</item>
     </integer-array>
 
+    <!-- Indicate whether the SD card is accessible without removing the battery. -->
+    <bool name="config_batterySdCardAccessibility">true</bool>
+
     <!-- The default iface on which to monitor data use -->
     <string name="config_datause_iface">pdp0</string>
 
