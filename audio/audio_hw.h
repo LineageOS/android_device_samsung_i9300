@@ -97,12 +97,6 @@ enum output_type {
     OUTPUT_TOTAL
 };
 
-struct mixer_ctls
-{
-    struct mixer_ctl *mixinl_in1l_volume;
-    struct mixer_ctl *mixinl_in2l_volume;
-};
-
 struct route_setting
 {
     char *ctl_name;
@@ -143,6 +137,7 @@ struct route_setting default_input[] = {
     { .ctl_name = "AIF2ADCR Source", .intval = 1, },
     { .ctl_name = "MIXINR IN1R Switch", .intval = 1, },
     { .ctl_name = "IN1L Volume", .intval = 25, },
+    { .ctl_name = "IN1R Volume", .intval = 25, },
     { .ctl_name = "MIXINL IN1L Volume", .intval = 0, },
     { .ctl_name = "DAC2 Left Sidetone Volume", .intval = 12, },
     { .ctl_name = "DAC2 Right Sidetone Volume", .intval = 12, },
