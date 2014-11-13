@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Paul Kocialkowski
+ * Copyright (C) 2013 Paul Kocialkowski <contact@paulk.fr>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,10 +25,10 @@
 #include <linux/input.h>
 #include <linux/uinput.h>
 
-#define LOG_TAG "exynos_sensors"
+#define LOG_TAG "smdk4x12_sensors"
 #include <utils/Log.h>
 
-#include "exynos_sensors.h"
+#include "smdk4x12_sensors.h"
 
 void input_event_set(struct input_event *event, int type, int code, int value)
 {
@@ -44,7 +44,7 @@ void input_event_set(struct input_event *event, int type, int code, int value)
 	gettimeofday(&event->time, NULL);
 }
 
-long int timestamp(struct timeval *time)
+int64_t timestamp(struct timeval *time)
 {
 	if (time == NULL)
 		return -1;
@@ -52,7 +52,7 @@ long int timestamp(struct timeval *time)
 	return time->tv_sec * 1000000000LL + time->tv_usec * 1000;
 }
 
-long int input_timestamp(struct input_event *event)
+int64_t input_timestamp(struct input_event *event)
 {
 	if (event == NULL)
 		return -1;
@@ -88,6 +88,7 @@ int uinput_rel_create(const char *name)
 	rc |= ioctl(uinput_fd, UI_SET_RELBIT, REL_X);
 	rc |= ioctl(uinput_fd, UI_SET_RELBIT, REL_Y);
 	rc |= ioctl(uinput_fd, UI_SET_RELBIT, REL_Z);
+	rc |= ioctl(uinput_fd, UI_SET_RELBIT, REL_MISC);
 	rc |= ioctl(uinput_fd, UI_SET_EVBIT, EV_SYN);
 
 	if (rc < 0) {
@@ -276,12 +277,12 @@ complete:
 	return rc;
 }
 
-int sysfs_string_read(char *path, char *buffer, int length)
+int sysfs_string_read(char *path, char *buffer, size_t length)
 {
 	int fd = -1;
 	int rc;
 
-	if (path == NULL || buffer == NULL || length <= 0)
+	if (path == NULL || buffer == NULL || length == 0)
 		return -1;
 
 	fd = open(path, O_RDONLY);
@@ -305,12 +306,12 @@ complete:
 	return rc;
 }
 
-int sysfs_string_write(char *path, char *buffer, int length)
+int sysfs_string_write(char *path, char *buffer, size_t length)
 {
 	int fd = -1;
 	int rc;
 
-	if (path == NULL || buffer == NULL || length <= 0)
+	if (path == NULL || buffer == NULL || length == 0)
 		return -1;
 
 	fd = open(path, O_WRONLY);

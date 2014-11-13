@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Paul Kocialkowski
+ * Copyright (C) 2013 Paul Kocialkowski <contact@paulk.fr>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,17 +27,17 @@
 #include <hardware/sensors.h>
 #include <hardware/hardware.h>
 
-#define LOG_TAG "exynos_sensors"
+#define LOG_TAG "smdk4x12_sensors"
 #include <utils/Log.h>
 
-#include "exynos_sensors.h"
+#include "smdk4x12_sensors.h"
 
 struct cm36651_proximity_data {
 	char path_enable[PATH_MAX];
 };
 
-int cm36651_proximity_init(struct exynos_sensors_handlers *handlers,
-	struct exynos_sensors_device *device)
+int cm36651_proximity_init(struct smdk4x12_sensors_handlers *handlers,
+	struct smdk4x12_sensors_device *device)
 {
 	struct cm36651_proximity_data *data = NULL;
 	char path[PATH_MAX] = { 0 };
@@ -83,7 +83,7 @@ error:
 	return -1;
 }
 
-int cm36651_proximity_deinit(struct exynos_sensors_handlers *handlers)
+int cm36651_proximity_deinit(struct smdk4x12_sensors_handlers *handlers)
 {
 	ALOGD("%s(%p)", __func__, handlers);
 
@@ -101,8 +101,7 @@ int cm36651_proximity_deinit(struct exynos_sensors_handlers *handlers)
 	return 0;
 }
 
-
-int cm36651_proximity_activate(struct exynos_sensors_handlers *handlers)
+int cm36651_proximity_activate(struct smdk4x12_sensors_handlers *handlers)
 {
 	struct cm36651_proximity_data *data;
 	int rc;
@@ -125,7 +124,7 @@ int cm36651_proximity_activate(struct exynos_sensors_handlers *handlers)
 	return 0;
 }
 
-int cm36651_proximity_deactivate(struct exynos_sensors_handlers *handlers)
+int cm36651_proximity_deactivate(struct smdk4x12_sensors_handlers *handlers)
 {
 	struct cm36651_proximity_data *data;
 	int rc;
@@ -148,19 +147,19 @@ int cm36651_proximity_deactivate(struct exynos_sensors_handlers *handlers)
 	return 0;
 }
 
-int cm36651_proximity_set_delay(struct exynos_sensors_handlers *handlers, long int delay)
+int cm36651_proximity_set_delay(struct smdk4x12_sensors_handlers *handlers, int64_t delay)
 {
-	ALOGD("%s(%p, %ld)", __func__, handlers, delay);
+	ALOGD("%s(%p, %" PRId64 ")", __func__, handlers, delay);
 
 	return 0;
 }
 
 float cm36651_proximity_convert(int value)
 {
-	return (float) value * 8.0f;
+	return (float) value * 6.0f;
 }
 
-int cm36651_proximity_get_data(struct exynos_sensors_handlers *handlers,
+int cm36651_proximity_get_data(struct smdk4x12_sensors_handlers *handlers,
 	struct sensors_event_t *event)
 {
 	struct input_event input_event;
@@ -176,6 +175,7 @@ int cm36651_proximity_get_data(struct exynos_sensors_handlers *handlers,
 	if (input_fd < 0)
 		return -EINVAL;
 
+	memset(event, 0, sizeof(struct sensors_event_t));
 	event->version = sizeof(struct sensors_event_t);
 	event->sensor = handlers->handle;
 	event->type = handlers->handle;
@@ -197,7 +197,7 @@ int cm36651_proximity_get_data(struct exynos_sensors_handlers *handlers,
 	return 0;
 }
 
-struct exynos_sensors_handlers cm36651_proximity = {
+struct smdk4x12_sensors_handlers cm36651_proximity = {
 	.name = "CM36651 Proximity",
 	.handle = SENSOR_TYPE_PROXIMITY,
 	.init = cm36651_proximity_init,
