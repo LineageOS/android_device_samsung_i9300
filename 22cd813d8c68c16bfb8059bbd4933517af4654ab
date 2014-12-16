@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aa08908_ae99ec21",
+        "filename": "overlay/frameworks/base/packages/Keyguard/res/values-land/styles.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5574
+      },
+      "writtenOn": "2014-12-16T15:29:54Z",
+      "side": 1,
+      "message": "Oh look, a whitespace!",
+      "revId": "22cd813d8c68c16bfb8059bbd4933517af4654ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
