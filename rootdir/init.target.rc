@@ -21,13 +21,6 @@ on post-fs-data
 
 on boot
 
-# icd
-service icd /system/bin/icd
-    class main
-    user system
-    group system log
-    onrestart exec icd_check
-
 # cbd
 service cpboot-daemon /sbin/cbd -d
     class main
@@ -41,17 +34,3 @@ service gpsd /system/bin/gpsd -c /system/etc/gps.xml
     user gps
     group system inet sdcard_rw
     seclabel u:r:gpsd:s0
-
-service dmb /system/bin/dmbserver
-    class main
-    user system
-    group radio inet misc audio camera graphics net_bt net_bt_admin sdcard_rw
-
-# TVout
-service TvoutService_C /system/bin/bintvoutservice
-    class main
-    user system
-    group graphics
-
-on property:ro.tvout.enable=false
-    stop TvoutService_C
