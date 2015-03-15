@@ -1,0 +1,2 @@
+allow vold efs_device_file:dir rw_file_perms;
+allow vold efs_device_file:file rw_file_perms;

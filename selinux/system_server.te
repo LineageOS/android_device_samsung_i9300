@@ -1,0 +1,18 @@
+allow system_server input_device:chr_file { read ioctl write open };
+allow system_server sensors_device:chr_file { read open };
+allow system_server sensors_data_file:file r_file_perms;
+allow system_server wpa_socket:unix_dgram_socket sendto;
+
+allow system_server sysfs:file { read open write };
+allow system_server self:capability { sys_module };
+
+allow system_server efs_file:dir search;
+allow system_server efs_device_file:dir search;
+allow system_server uhid_device:chr_file { read ioctl write open };
+
+# /efs/wifi/.mac.info
+allow system_server wifi_data_file:file { read open };
+
+allow system_server default_prop:property_service set;
+
+allow system_server gpsd:binder transfer;

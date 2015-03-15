@@ -40,15 +40,25 @@ BOARD_SEPOLICY_DIRS += \
     device/samsung/i9300/selinux
 
 BOARD_SEPOLICY_UNION += \
+    bluetooth.te \
     device.te \
     domain.te \
     file.te \
     file_contexts \
+    gpsd.te \
     init.te \
     mediaserver.te \
+    netd.te \
+    nfc.te \
     rild.te \
-    system.te \
+    servicemanager.te \
+    service_contexts \
+    surfaceflinger.te \
+    sysinit.te \
+    system_app.te \
+    system_server.te \
     ueventd.te \
+    vold.te \
     wpa_supplicant.te
 
 # assert

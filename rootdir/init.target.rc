@@ -17,6 +17,7 @@ on post-fs-data
     symlink /dev/block/mmcblk0p4 /dev/block/param
 
 # Restorecon
+    restorecon /efs
     restorecon /efs/nv_data.bin
     restorecon /efs/nv_data.bin.md5
     restorecon /efs/.nv_core.bak
@@ -54,6 +55,7 @@ service gpsd /system/bin/gpsd -c /system/etc/gps.xml
     socket gps seqpacket 0660 gps system
     user gps
     group system inet sdcard_rw
+    seclabel u:r:gpsd:s0
 
 service dmb /system/bin/dmbserver
     class main

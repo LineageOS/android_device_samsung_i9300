@@ -1,0 +1,1 @@
+allow nfc firmware_camera:dir search;
