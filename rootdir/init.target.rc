@@ -17,21 +17,7 @@ on post-fs-data
     symlink /dev/block/mmcblk0p4 /dev/block/param
 
 # Restorecon
-    restorecon /efs/nv_data.bin
-    restorecon /efs/nv_data.bin.md5
-    restorecon /efs/.nv_core.bak
-    restorecon /efs/.nv_core.bak.md5
-    restorecon /efs/.nv_data.bak
-    restorecon /efs/.nv_data.bak.md5
-    restorecon /efs/.nv_state
-    restorecon /efs/bluetooth/bt_addr
-    restorecon /efs/FactoryApp/factorymode
-    restorecon /efs/FactoryApp/hw_ver
-    restorecon /efs/FactoryApp/keystr
-    restorecon /efs/FactoryApp/serial_no
-    restorecon /efs/imei/mps_code.dat
-    restorecon /efs/gyro_cal_data
-    restorecon /efs/wifi/.mac.info
+    restorecon_recursive /efs
 
 on boot
 
@@ -54,6 +40,7 @@ service gpsd /system/bin/gpsd -c /system/etc/gps.xml
     socket gps seqpacket 0660 gps system
     user gps
     group system inet sdcard_rw
+    seclabel u:r:gpsd:s0
 
 service dmb /system/bin/dmbserver
     class main

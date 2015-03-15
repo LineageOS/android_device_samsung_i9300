@@ -1,1 +1,3 @@
 allow init wpa_socket:unix_dgram_socket { bind create };
+allow init init:process { execmem };
+allow init init:tcp_socket { create };
