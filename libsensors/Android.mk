@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2013 Paul Kocialkowski
+# Copyright (C) 2013 Paul Kocialkowski <contact@paulk.fr>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -13,15 +12,13 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
 
 LOCAL_PATH := $(call my-dir)
-EXYNOS_SENSORS_PATH := $(LOCAL_PATH)
 
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-	exynos_sensors.c \
+	smdk4x12_sensors.c \
 	input.c \
 	orientation.c \
 	akm8975.c \
@@ -35,7 +32,7 @@ LOCAL_SRC_FILES := \
 	cm36651_light.c \
 	lsm330dlc_acceleration.c \
 	lsm330dlc_gyroscope.c \
-	lps331ap.c \
+	lps331ap.c
 
 LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH)/akmdfs \

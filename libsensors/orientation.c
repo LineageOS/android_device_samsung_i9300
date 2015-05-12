@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Paul Kocialkowski
+ * Copyright (C) 2013 Paul Kocialkowski <contact@paulk.fr>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,14 +28,14 @@
 #include <hardware/sensors.h>
 #include <hardware/hardware.h>
 
-#define LOG_TAG "exynos_sensors"
+#define LOG_TAG "smdk4x12_sensors"
 #include <utils/Log.h>
 
-#include "exynos_sensors.h"
+#include "smdk4x12_sensors.h"
 
 struct orientation_data {
-	struct exynos_sensors_handlers *acceleration_sensor;
-	struct exynos_sensors_handlers *magnetic_sensor;
+	struct smdk4x12_sensors_handlers *acceleration_sensor;
+	struct smdk4x12_sensors_handlers *magnetic_sensor;
 
 	sensors_vec_t orientation;
 	sensors_vec_t acceleration;
@@ -85,17 +85,17 @@ void orientation_calculate(sensors_vec_t *a, sensors_vec_t *m, sensors_vec_t *o)
 	x = m->x * sinp * sinr + m->y * cosp + m->z * sinp * cosr;
 	azimuth = atan2f(y, x);
 
-	o->x = rad2deg(azimuth);
-	o->y = rad2deg(pitch);
-	o->z = rad2deg(roll);
+	o->azimuth = rad2deg(azimuth);
+	o->pitch = rad2deg(pitch);
+	o->roll = rad2deg(roll);
 
-	if (o->x < 0)
-		o->x += 360.0f;
+	if (o->azimuth < 0)
+		o->azimuth += 360.0f;
 }
 
 void *orientation_thread(void *thread_data)
 {
-	struct exynos_sensors_handlers *handlers = NULL;
+	struct smdk4x12_sensors_handlers *handlers = NULL;
 	struct orientation_data *data = NULL;
 	struct input_event event;
 	struct timeval time;
@@ -106,7 +106,7 @@ void *orientation_thread(void *thread_data)
 	if (thread_data == NULL)
 		return NULL;
 
-	handlers = (struct exynos_sensors_handlers *) thread_data;
+	handlers = (struct smdk4x12_sensors_handlers *) thread_data;
 	if (handlers->data == NULL)
 		return NULL;
 
@@ -127,11 +127,11 @@ void *orientation_thread(void *thread_data)
 
 			orientation_calculate(&data->acceleration, &data->magnetic, &data->orientation);
 
-			input_event_set(&event, EV_REL, REL_X, (int) (data->orientation.x * 1000));
+			input_event_set(&event, EV_REL, REL_X, (int) (data->orientation.azimuth * 1000));
 			write(uinput_fd, &event, sizeof(event));
-			input_event_set(&event, EV_REL, REL_Y, (int) (data->orientation.y * 1000));
+			input_event_set(&event, EV_REL, REL_Y, (int) (data->orientation.pitch * 1000));
 			write(uinput_fd, &event, sizeof(event));
-			input_event_set(&event, EV_REL, REL_Z, (int) (data->orientation.z * 1000));
+			input_event_set(&event, EV_REL, REL_Z, (int) (data->orientation.roll * 1000));
 			write(uinput_fd, &event, sizeof(event));
 			input_event_set(&event, EV_SYN, 0, 0);
 			write(uinput_fd, &event, sizeof(event));
@@ -150,7 +150,7 @@ void *orientation_thread(void *thread_data)
 	return NULL;
 }
 
-int orientation_fill(struct exynos_sensors_handlers *handlers,
+int orientation_fill(struct smdk4x12_sensors_handlers *handlers,
 	sensors_vec_t *acceleration, sensors_vec_t *magnetic)
 {
 	struct orientation_data *data;
@@ -177,8 +177,8 @@ int orientation_fill(struct exynos_sensors_handlers *handlers,
 	return 0;
 }
 
-int orientation_init(struct exynos_sensors_handlers *handlers,
-	struct exynos_sensors_device *device)
+int orientation_init(struct smdk4x12_sensors_handlers *handlers,
+	struct smdk4x12_sensors_device *device)
 {
 	struct orientation_data *data = NULL;
 	pthread_attr_t thread_attr;
@@ -258,7 +258,7 @@ error:
 	return -1;
 }
 
-int orientation_deinit(struct exynos_sensors_handlers *handlers)
+int orientation_deinit(struct smdk4x12_sensors_handlers *handlers)
 {
 	struct orientation_data *data;
 
@@ -291,7 +291,7 @@ int orientation_deinit(struct exynos_sensors_handlers *handlers)
 	return 0;
 }
 
-int orientation_activate(struct exynos_sensors_handlers *handlers)
+int orientation_activate(struct smdk4x12_sensors_handlers *handlers)
 {
 	struct orientation_data *data;
 
@@ -305,12 +305,12 @@ int orientation_activate(struct exynos_sensors_handlers *handlers)
 	if (data->acceleration_sensor == NULL || data->magnetic_sensor == NULL)
 		return -1;
 
-	data->acceleration_sensor->needed |= EXYNOS_SENSORS_NEEDED_ORIENTATION;
-	if (data->acceleration_sensor->needed == EXYNOS_SENSORS_NEEDED_ORIENTATION)
+	data->acceleration_sensor->needed |= SMDK4x12_SENSORS_NEEDED_ORIENTATION;
+	if (data->acceleration_sensor->needed == SMDK4x12_SENSORS_NEEDED_ORIENTATION)
 		data->acceleration_sensor->activate(data->acceleration_sensor);
 
-	data->magnetic_sensor->needed |= EXYNOS_SENSORS_NEEDED_ORIENTATION;
-	if (data->magnetic_sensor->needed == EXYNOS_SENSORS_NEEDED_ORIENTATION)
+	data->magnetic_sensor->needed |= SMDK4x12_SENSORS_NEEDED_ORIENTATION;
+	if (data->magnetic_sensor->needed == SMDK4x12_SENSORS_NEEDED_ORIENTATION)
 		data->magnetic_sensor->activate(data->magnetic_sensor);
 
 	handlers->activated = 1;
@@ -319,7 +319,7 @@ int orientation_activate(struct exynos_sensors_handlers *handlers)
 	return 0;
 }
 
-int orientation_deactivate(struct exynos_sensors_handlers *handlers)
+int orientation_deactivate(struct smdk4x12_sensors_handlers *handlers)
 {
 	struct orientation_data *data;
 
@@ -333,11 +333,11 @@ int orientation_deactivate(struct exynos_sensors_handlers *handlers)
 	if (data->acceleration_sensor == NULL || data->magnetic_sensor == NULL)
 		return -1;
 
-	data->acceleration_sensor->needed &= ~(EXYNOS_SENSORS_NEEDED_ORIENTATION);
+	data->acceleration_sensor->needed &= ~(SMDK4x12_SENSORS_NEEDED_ORIENTATION);
 	if (data->acceleration_sensor->needed == 0)
 		data->acceleration_sensor->deactivate(data->acceleration_sensor);
 
-	data->magnetic_sensor->needed &= ~(EXYNOS_SENSORS_NEEDED_ORIENTATION);
+	data->magnetic_sensor->needed &= ~(SMDK4x12_SENSORS_NEEDED_ORIENTATION);
 	if (data->magnetic_sensor->needed == 0)
 		data->magnetic_sensor->deactivate(data->magnetic_sensor);
 
@@ -346,7 +346,8 @@ int orientation_deactivate(struct exynos_sensors_handlers *handlers)
 	return 0;
 }
 
-int orientation_set_delay(struct exynos_sensors_handlers *handlers, long int delay)
+int orientation_set_delay(struct smdk4x12_sensors_handlers *handlers,
+	long int delay)
 {
 	struct orientation_data *data;
 
@@ -360,10 +361,10 @@ int orientation_set_delay(struct exynos_sensors_handlers *handlers, long int del
 	if (data->acceleration_sensor == NULL || data->magnetic_sensor == NULL)
 		return -1;
 
-	if (data->acceleration_sensor->needed == EXYNOS_SENSORS_NEEDED_ORIENTATION)
+	if (data->acceleration_sensor->needed == SMDK4x12_SENSORS_NEEDED_ORIENTATION)
 		data->acceleration_sensor->set_delay(data->acceleration_sensor, delay);
 
-	if (data->magnetic_sensor->needed == EXYNOS_SENSORS_NEEDED_ORIENTATION)
+	if (data->magnetic_sensor->needed == SMDK4x12_SENSORS_NEEDED_ORIENTATION)
 		data->magnetic_sensor->set_delay(data->magnetic_sensor, delay);
 
 	data->delay = delay;
@@ -376,25 +377,23 @@ float orientation_convert(int value)
 	return (float) value / 1000.0f;
 }
 
-int orientation_get_data(struct exynos_sensors_handlers *handlers,
+int orientation_get_data(struct smdk4x12_sensors_handlers *handlers,
 	struct sensors_event_t *event)
 {
-	struct orientation_data *data;
 	struct input_event input_event;
 	int input_fd = -1;
 	int rc;
 
 //	ALOGD("%s(%p, %p)", __func__, handlers, event);
 
-	if (handlers == NULL || handlers->data == NULL || event == NULL)
+	if (handlers == NULL || event == NULL)
 		return -EINVAL;
-
-	data = (struct orientation_data *) handlers->data;
 
 	input_fd = handlers->poll_fd;
 	if (input_fd < 0)
 		return -EINVAL;
 
+	memset(event, 0, sizeof(struct sensors_event_t));
 	event->version = sizeof(struct sensors_event_t);
 	event->sensor = handlers->handle;
 	event->type = handlers->handle;
@@ -409,13 +408,13 @@ int orientation_get_data(struct exynos_sensors_handlers *handlers,
 		if (input_event.type == EV_REL) {
 			switch (input_event.code) {
 				case REL_X:
-					event->orientation.x = orientation_convert(input_event.value);
+					event->orientation.azimuth = orientation_convert(input_event.value);
 					break;
 				case REL_Y:
-					event->orientation.y = orientation_convert(input_event.value);
+					event->orientation.pitch = orientation_convert(input_event.value);
 					break;
 				case REL_Z:
-					event->orientation.z = orientation_convert(input_event.value);
+					event->orientation.roll = orientation_convert(input_event.value);
 					break;
 				default:
 					continue;
@@ -429,7 +428,7 @@ int orientation_get_data(struct exynos_sensors_handlers *handlers,
 	return 0;
 }
 
-struct exynos_sensors_handlers orientation = {
+struct smdk4x12_sensors_handlers orientation = {
 	.name = "Orientation",
 	.handle = SENSOR_TYPE_ORIENTATION,
 	.init = orientation_init,

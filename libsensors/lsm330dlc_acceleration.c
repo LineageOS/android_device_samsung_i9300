@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Paul Kocialkowski
+ * Copyright (C) 2013 Paul Kocialkowski <contact@paulk.fr>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,22 +20,18 @@
 #include <stdint.h>
 #include <fcntl.h>
 #include <errno.h>
-#include <sys/types.h>
-#include <linux/ioctl.h>
-#include <linux/uinput.h>
-#include <linux/input.h>
 
 #include <hardware/sensors.h>
 #include <hardware/hardware.h>
 
-#define LOG_TAG "exynos_sensors"
+#define LOG_TAG "smdk4x12_sensors"
 #include <utils/Log.h>
 
-#include "exynos_sensors.h"
+#include "smdk4x12_sensors.h"
 #include "lsm330dlc_accel.h"
 
 struct lsm330dlc_acceleration_data {
-	struct exynos_sensors_handlers *orientation_sensor;
+	struct smdk4x12_sensors_handlers *orientation_sensor;
 
 	long int delay;
 	int device_fd;
@@ -48,11 +44,11 @@ struct lsm330dlc_acceleration_data {
 
 void *lsm330dlc_acceleration_thread(void *thread_data)
 {
-	struct exynos_sensors_handlers *handlers = NULL;
+	struct smdk4x12_sensors_handlers *handlers = NULL;
 	struct lsm330dlc_acceleration_data *data = NULL;
-	struct lsm330dlc_acc values;
 	struct input_event event;
 	struct timeval time;
+	struct lsm330dlc_acc acceleration_data;
 	long int before, after;
 	int diff;
 	int device_fd;
@@ -62,7 +58,7 @@ void *lsm330dlc_acceleration_thread(void *thread_data)
 	if (thread_data == NULL)
 		return NULL;
 
-	handlers = (struct exynos_sensors_handlers *) thread_data;
+	handlers = (struct smdk4x12_sensors_handlers *) thread_data;
 	if (handlers->data == NULL)
 		return NULL;
 
@@ -85,22 +81,24 @@ void *lsm330dlc_acceleration_thread(void *thread_data)
 			gettimeofday(&time, NULL);
 			before = timestamp(&time);
 
-			memset(&values, 0, sizeof(values));
-			rc = ioctl(device_fd, LSM330DLC_ACCEL_IOCTL_READ_XYZ, &values);
+			memset(&acceleration_data, 0, sizeof(acceleration_data));
+
+			rc = ioctl(device_fd, LSM330DLC_ACCEL_IOCTL_READ_XYZ, &acceleration_data);
 			if (rc < 0) {
-				ALOGE("%s: Unable to set read XYZ", __func__);
+				ALOGE("%s: Unable to get lsm330dlc acceleration data", __func__);
 				return NULL;
 			}
 
-			input_event_set(&event, EV_REL, REL_X, (int) values.x);
+			input_event_set(&event, EV_REL, REL_X, (int) (acceleration_data.x * 1000));
 			write(uinput_fd, &event, sizeof(event));
-			input_event_set(&event, EV_REL, REL_Y, (int) values.y);
+			input_event_set(&event, EV_REL, REL_Y, (int) (acceleration_data.y * 1000));
 			write(uinput_fd, &event, sizeof(event));
-			input_event_set(&event, EV_REL, REL_Z, (int) values.z);
+			input_event_set(&event, EV_REL, REL_Z, (int) (acceleration_data.z * 1000));
 			write(uinput_fd, &event, sizeof(event));
 			input_event_set(&event, EV_SYN, 0, 0);
 			write(uinput_fd, &event, sizeof(event));
 
+next:
 			gettimeofday(&time, NULL);
 			after = timestamp(&time);
 
@@ -114,8 +112,8 @@ void *lsm330dlc_acceleration_thread(void *thread_data)
 	return NULL;
 }
 
-int lsm330dlc_acceleration_init(struct exynos_sensors_handlers *handlers,
-	struct exynos_sensors_device *device)
+int lsm330dlc_acceleration_init(struct smdk4x12_sensors_handlers *handlers,
+	struct smdk4x12_sensors_device *device)
 {
 	struct lsm330dlc_acceleration_data *data = NULL;
 	pthread_attr_t thread_attr;
@@ -127,7 +125,7 @@ int lsm330dlc_acceleration_init(struct exynos_sensors_handlers *handlers,
 
 	ALOGD("%s(%p, %p)", __func__, handlers, device);
 
-	if (handlers == NULL)
+	if (handlers == NULL || device == NULL)
 		return -EINVAL;
 
 	data = (struct lsm330dlc_acceleration_data *) calloc(1, sizeof(struct lsm330dlc_acceleration_data));
@@ -168,7 +166,7 @@ int lsm330dlc_acceleration_init(struct exynos_sensors_handlers *handlers,
 
 	rc = pthread_create(&data->thread, &thread_attr, lsm330dlc_acceleration_thread, (void *) handlers);
 	if (rc < 0) {
-		ALOGE("%s: Unable to create acceleration thread", __func__);
+		ALOGE("%s: Unable to create lsm330dlc acceleration thread", __func__);
 		pthread_mutex_destroy(&data->mutex);
 		goto error;
 	}
@@ -199,9 +197,9 @@ error:
 	return -1;
 }
 
-int lsm330dlc_acceleration_deinit(struct exynos_sensors_handlers *handlers)
+int lsm330dlc_acceleration_deinit(struct smdk4x12_sensors_handlers *handlers)
 {
-	struct lsm330dlc_acceleration_data *data;
+	struct lsm330dlc_acceleration_data *data = NULL;
 
 	ALOGD("%s(%p)", __func__, handlers);
 
@@ -236,7 +234,7 @@ int lsm330dlc_acceleration_deinit(struct exynos_sensors_handlers *handlers)
 	return 0;
 }
 
-int lsm330dlc_acceleration_activate(struct exynos_sensors_handlers *handlers)
+int lsm330dlc_acceleration_activate(struct smdk4x12_sensors_handlers *handlers)
 {
 	struct lsm330dlc_acceleration_data *data;
 	int device_fd;
@@ -252,22 +250,22 @@ int lsm330dlc_acceleration_activate(struct exynos_sensors_handlers *handlers)
 
 	device_fd = data->device_fd;
 	if (device_fd < 0)
-		return -EINVAL;
+		return -1;
 
 	enable = 1;
 	rc = ioctl(device_fd, LSM330DLC_ACCEL_IOCTL_SET_ENABLE, &enable);
 	if (rc < 0) {
-		ALOGE("%s: Unable to set enable", __func__);
+		ALOGE("%s: Unable to set lsm330dlc acceleration enable", __func__);
 		return -1;
 	}
-
+	
 	handlers->activated = 1;
 	pthread_mutex_unlock(&data->mutex);
 
 	return 0;
 }
 
-int lsm330dlc_acceleration_deactivate(struct exynos_sensors_handlers *handlers)
+int lsm330dlc_acceleration_deactivate(struct smdk4x12_sensors_handlers *handlers)
 {
 	struct lsm330dlc_acceleration_data *data;
 	int device_fd;
@@ -283,12 +281,12 @@ int lsm330dlc_acceleration_deactivate(struct exynos_sensors_handlers *handlers)
 
 	device_fd = data->device_fd;
 	if (device_fd < 0)
-		return -EINVAL;
+		return -1;
 
 	enable = 0;
 	rc = ioctl(device_fd, LSM330DLC_ACCEL_IOCTL_SET_ENABLE, &enable);
 	if (rc < 0) {
-		ALOGE("%s: Unable to set enable", __func__);
+		ALOGE("%s: Unable to set lsm330dlc acceleration enable", __func__);
 		return -1;
 	}
 
@@ -297,10 +295,10 @@ int lsm330dlc_acceleration_deactivate(struct exynos_sensors_handlers *handlers)
 	return 0;
 }
 
-int lsm330dlc_acceleration_set_delay(struct exynos_sensors_handlers *handlers, long int delay)
+int lsm330dlc_acceleration_set_delay(struct smdk4x12_sensors_handlers *handlers, long int delay)
 {
 	struct lsm330dlc_acceleration_data *data;
-	unsigned long long d;
+	int64_t d;
 	int device_fd;
 	int rc;
 
@@ -313,12 +311,12 @@ int lsm330dlc_acceleration_set_delay(struct exynos_sensors_handlers *handlers, l
 
 	device_fd = data->device_fd;
 	if (device_fd < 0)
-		return -EINVAL;
+		return -1;
 
-	d = (unsigned long long) delay;
+	d = (int64_t) delay;
 	rc = ioctl(device_fd, LSM330DLC_ACCEL_IOCTL_SET_DELAY, &d);
 	if (rc < 0) {
-		ALOGE("%s: Unable to set delay", __func__);
+		ALOGE("%s: Unable to set lsm330dlc acceleration delay", __func__);
 		return -1;
 	}
 
@@ -329,10 +327,10 @@ int lsm330dlc_acceleration_set_delay(struct exynos_sensors_handlers *handlers, l
 
 float lsm330dlc_acceleration_convert(int value)
 {
-	return (float) (value * GRAVITY_EARTH) / 1024.0f;
+	return (float) (value / 1000.f) * (GRAVITY_EARTH / 1024.0f);
 }
 
-int lsm330dlc_acceleration_get_data(struct exynos_sensors_handlers *handlers,
+int lsm330dlc_acceleration_get_data(struct smdk4x12_sensors_handlers *handlers,
 	struct sensors_event_t *event)
 {
 	struct lsm330dlc_acceleration_data *data;
@@ -349,13 +347,14 @@ int lsm330dlc_acceleration_get_data(struct exynos_sensors_handlers *handlers,
 
 	input_fd = handlers->poll_fd;
 	if (input_fd < 0)
-		return -EINVAL;
+		return -1;
 
+	memset(event, 0, sizeof(struct sensors_event_t));
 	event->version = sizeof(struct sensors_event_t);
 	event->sensor = handlers->handle;
 	event->type = handlers->handle;
 
-	event->acceleration.status = SENSOR_STATUS_ACCURACY_MEDIUM;
+	event->magnetic.status = SENSOR_STATUS_ACCURACY_MEDIUM;
 
 	do {
 		rc = read(input_fd, &input_event, sizeof(input_event));
@@ -388,7 +387,7 @@ int lsm330dlc_acceleration_get_data(struct exynos_sensors_handlers *handlers,
 	return 0;
 }
 
-struct exynos_sensors_handlers lsm330dlc_acceleration = {
+struct smdk4x12_sensors_handlers lsm330dlc_acceleration = {
 	.name = "LSM330DLC Acceleration",
 	.handle = SENSOR_TYPE_ACCELEROMETER,
 	.init = lsm330dlc_acceleration_init,
