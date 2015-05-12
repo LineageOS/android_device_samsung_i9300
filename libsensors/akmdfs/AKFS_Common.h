@@ -40,7 +40,7 @@
 #include <string.h>    /* memset */
 #include <unistd.h>
 #include <stdarg.h>    /* va_list */
-#include <utils/Log.h> /* LOGV */
+#include <utils/Log.h> /* ALOGV */
 #include <errno.h>     /* errno */
 
 #endif
@@ -118,7 +118,7 @@
 
 /***** Log output ********************************************/
 #ifdef AKM_LOG_ENABLE
-#define AKM_LOG(format, ...)	LOGD((format), ##__VA_ARGS__)
+#define AKM_LOG(format, ...)	ALOGD((format), ##__VA_ARGS__)
 #else
 #define AKM_LOG(format, ...)
 #endif
