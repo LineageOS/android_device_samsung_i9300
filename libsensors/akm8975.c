@@ -56,7 +56,8 @@ struct akm8975_data {
 int akfs_get_magnetic_field(struct akm8975_data *akm8975_data, short *magnetic_data)
 {
 	AK8975PRMS *params;
-	int rc;
+	int rc, aocret;
+	float radius;
 
 	if (akm8975_data == NULL || magnetic_data == NULL)
 		return -EINVAL;
@@ -80,7 +81,7 @@ int akfs_get_magnetic_field(struct akm8975_data *akm8975_data, short *magnetic_d
 
 	// AOC for magnetometer
 	// Offset estimation is done in this function
-	AKFS_AOC(&params->m_aocv, params->mfv_hdata, &params->mfv_ho);
+	aocret = AKFS_AOC(&params->m_aocv, params->mfv_hdata, &params->mfv_ho);
 
 	// Subtract offset
 	// Then, a magnetic vector, the unit is uT, is stored in mfv_hvbuf.
@@ -99,9 +100,25 @@ int akfs_get_magnetic_field(struct akm8975_data *akm8975_data, short *magnetic_d
 		return -1;
 	}
 
+	// Check the size of magnetic vector
+	radius = sqrtf(
+			(params->mfv_hvec.u.x * params->mfv_hvec.u.x) +
+			(params->mfv_hvec.u.y * params->mfv_hvec.u.y) +
+			(params->mfv_hvec.u.z * params->mfv_hvec.u.z));
+
+	// Sanity check result and set accuracy
+	if ((radius > MAGNETIC_FIELD_EARTH_MAX + 10) || (radius < MAGNETIC_FIELD_EARTH_MIN - 10)) {
+		params->mi_hstatus = SENSOR_STATUS_UNRELIABLE;
+	} else if(params->mi_hstatus == SENSOR_STATUS_UNRELIABLE) {
+		params->mi_hstatus = SENSOR_STATUS_ACCURACY_MEDIUM;
+	} else if (aocret == AKFS_SUCCESS) {
+		params->mi_hstatus = SENSOR_STATUS_ACCURACY_HIGH;
+	}
+
 	akm8975_data->magnetic.x = params->mfv_hvec.u.x;
 	akm8975_data->magnetic.y = params->mfv_hvec.u.y;
 	akm8975_data->magnetic.z = params->mfv_hvec.u.z;
+	akm8975_data->magnetic.status = params->mi_hstatus;
 
 	return 0;
 }
@@ -222,6 +239,8 @@ void *akm8975_thread(void *thread_data)
 			input_event_set(&event, EV_REL, REL_Y, (int) (data->magnetic.y * 1000));
 			write(uinput_fd, &event, sizeof(event));
 			input_event_set(&event, EV_REL, REL_Z, (int) (data->magnetic.z * 1000));
+			write(uinput_fd, &event, sizeof(event));
+			input_event_set(&event, EV_REL, REL_MISC, (int) data->magnetic.status);
 			write(uinput_fd, &event, sizeof(event));
 			input_event_set(&event, EV_SYN, 0, 0);
 			write(uinput_fd, &event, sizeof(event));
@@ -446,7 +465,7 @@ int akm8975_activate(struct smdk4x12_sensors_handlers *handlers)
 	// Initialize for AOC
 	AKFS_InitAOC(&akfs_params->m_aocv);
 	// Initialize magnetic status
-	akfs_params->mi_hstatus = 0;
+	akfs_params->mi_hstatus = SENSOR_STATUS_UNRELIABLE;
 
 	handlers->activated = 1;
 	pthread_mutex_unlock(&data->mutex);
@@ -547,8 +566,6 @@ int akm8975_get_data(struct smdk4x12_sensors_handlers *handlers,
 	event->sensor = handlers->handle;
 	event->type = handlers->handle;
 
-	event->magnetic.status = SENSOR_STATUS_ACCURACY_MEDIUM;
-
 	do {
 		rc = read(input_fd, &input_event, sizeof(input_event));
 		if (rc < (int) sizeof(input_event))
@@ -564,6 +581,9 @@ int akm8975_get_data(struct smdk4x12_sensors_handlers *handlers,
 					break;
 				case REL_Z:
 					event->magnetic.z = akm8975_convert(input_event.value);
+					break;
+				case REL_MISC:
+					event->magnetic.status = input_event.value;
 					break;
 				default:
 					continue;

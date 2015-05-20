@@ -88,6 +88,7 @@ int uinput_rel_create(const char *name)
 	rc |= ioctl(uinput_fd, UI_SET_RELBIT, REL_X);
 	rc |= ioctl(uinput_fd, UI_SET_RELBIT, REL_Y);
 	rc |= ioctl(uinput_fd, UI_SET_RELBIT, REL_Z);
+	rc |= ioctl(uinput_fd, UI_SET_RELBIT, REL_MISC);
 	rc |= ioctl(uinput_fd, UI_SET_EVBIT, EV_SYN);
 
 	if (rc < 0) {
