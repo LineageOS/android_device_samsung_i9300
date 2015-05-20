@@ -354,7 +354,7 @@ int lsm330dlc_acceleration_get_data(struct smdk4x12_sensors_handlers *handlers,
 	event->sensor = handlers->handle;
 	event->type = handlers->handle;
 
-	event->magnetic.status = SENSOR_STATUS_ACCURACY_MEDIUM;
+	event->acceleration.status = SENSOR_STATUS_ACCURACY_MEDIUM;
 
 	do {
 		rc = read(input_fd, &input_event, sizeof(input_event));
