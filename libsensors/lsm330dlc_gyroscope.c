@@ -206,6 +206,8 @@ int lsm330dlc_gyroscope_get_data(struct smdk4x12_sensors_handlers *handlers,
 	event->gyro.y = data->gyro.y;
 	event->gyro.z = data->gyro.z;
 
+	event->gyro.status = SENSOR_STATUS_ACCURACY_MEDIUM;
+
 	do {
 		rc = read(input_fd, &input_event, sizeof(input_event));
 		if (rc < (int) sizeof(input_event))
