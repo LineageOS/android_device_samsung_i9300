@@ -327,7 +327,7 @@ int akm8975_init(struct smdk4x12_sensors_handlers *handlers,
 	i2c_data[1] = AK8975_REG_WIA;
 	rc = ioctl(device_fd, ECS_IOCTL_READ, &i2c_data);
 	if (rc < 0) {
-		ALOGE("%s: Unable to read akm8975 FUSE data", __func__);
+		ALOGE("%s: Unable to read akm8975 WIA data", __func__);
 		goto error;
 	}
 
@@ -453,8 +453,15 @@ int akm8975_activate(struct smdk4x12_sensors_handlers *handlers)
 
 	// Read settings from a file
 	rc = AKFS_LoadParameters(akfs_params, AKFS_CONFIG_PATH);
-	if (rc != AKM_SUCCESS)
-		ALOGE("%s: Unable to read AKFS parameters", __func__);
+	if (rc != AKM_SUCCESS) {
+		ALOGE("%s: Unable to read AKFS HO parameters", __func__);
+		akfs_params->mfv_ho.u.x = 0.0f;
+		akfs_params->mfv_ho.u.y = 0.0f;
+		akfs_params->mfv_ho.u.z = 0.0f;
+	} else {
+		ALOGD("AKM8975 HO (Offset Adjustment) parameters read are: (%f, %f, %f)",
+			akfs_params->mfv_ho.u.x, akfs_params->mfv_ho.u.y, akfs_params->mfv_ho.u.z);
+	}
 
 	// Initialize buffer
 	AKFS_InitBuffer(AKFS_HDATA_SIZE, akfs_params->mfv_hdata);
@@ -497,18 +504,20 @@ int akm8975_deactivate(struct smdk4x12_sensors_handlers *handlers)
 
 	empty = 1;
 
-	for (i = 0; i < 3; i++) {
-		if (akfs_params->mfv_ho.v[i] != 0) {
-			empty = 0;
-			break;
-		}
+	if ((akfs_params->mfv_ho.u.x != 0.0f) || (akfs_params->mfv_ho.u.y != 0.0f) ||
+			(akfs_params->mfv_ho.u.z != 0.0f)) {
+		empty = 0;
 	}
 
 	if (!empty) {
 		// Write settings to a file
 		rc = AKFS_SaveParameters(akfs_params, AKFS_CONFIG_PATH);
-		if (rc != AKM_SUCCESS)
-			ALOGE("%s: Unable to write AKFS parameters", __func__);
+		if (rc != AKM_SUCCESS) {
+			ALOGE("%s: Unable to write AKFS HO parameters", __func__);
+		} else {
+			ALOGD("AKM8975 HO (Offset Adjustment) parameters written are: (%f, %f, %f)",
+				akfs_params->mfv_ho.u.x, akfs_params->mfv_ho.u.y, akfs_params->mfv_ho.u.z);
+		}
 	}
 
 	mode = AK8975_MODE_POWER_DOWN;
