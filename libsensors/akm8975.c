@@ -39,8 +39,6 @@
 #define AKFS_PAT		PAT3
 
 struct akm8975_data {
-	struct smdk4x12_sensors_handlers *orientation_sensor;
-
 	AK8975PRMS akfs_params;
 	sensors_vec_t magnetic;
 
@@ -277,14 +275,6 @@ int akm8975_init(struct smdk4x12_sensors_handlers *handlers,
 		return -EINVAL;
 
 	data = (struct akm8975_data *) calloc(1, sizeof(struct akm8975_data));
-
-	for (i = 0; i < device->handlers_count; i++) {
-		if (device->handlers[i] == NULL)
-			continue;
-
-		if (device->handlers[i]->handle == SENSOR_TYPE_ORIENTATION)
-			data->orientation_sensor = device->handlers[i];
-	}
 
 	device_fd = open("/dev/akm8975", O_RDONLY);
 	if (device_fd < 0) {
@@ -602,9 +592,6 @@ int akm8975_get_data(struct smdk4x12_sensors_handlers *handlers,
 				event->timestamp = input_timestamp(&input_event);
 		}
 	} while (input_event.type != EV_SYN);
-
-	if (data->orientation_sensor != NULL)
-		orientation_fill(data->orientation_sensor, NULL, &event->magnetic);
 
 	return 0;
 }

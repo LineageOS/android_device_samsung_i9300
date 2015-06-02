@@ -31,8 +31,6 @@
 #include "lsm330dlc_accel.h"
 
 struct lsm330dlc_acceleration_data {
-	struct smdk4x12_sensors_handlers *orientation_sensor;
-
 	long int delay;
 	int device_fd;
 	int uinput_fd;
@@ -129,14 +127,6 @@ int lsm330dlc_acceleration_init(struct smdk4x12_sensors_handlers *handlers,
 		return -EINVAL;
 
 	data = (struct lsm330dlc_acceleration_data *) calloc(1, sizeof(struct lsm330dlc_acceleration_data));
-
-	for (i = 0; i < device->handlers_count; i++) {
-		if (device->handlers[i] == NULL)
-			continue;
-
-		if (device->handlers[i]->handle == SENSOR_TYPE_ORIENTATION)
-			data->orientation_sensor = device->handlers[i];
-	}
 
 	device_fd = open("/dev/accelerometer", O_RDONLY);
 	if (device_fd < 0) {
@@ -380,9 +370,6 @@ int lsm330dlc_acceleration_get_data(struct smdk4x12_sensors_handlers *handlers,
 				event->timestamp = input_timestamp(&input_event);
 		}
 	} while (input_event.type != EV_SYN);
-
-	if (data->orientation_sensor != NULL)
-		orientation_fill(data->orientation_sensor, &event->acceleration, NULL);
 
 	return 0;
 }

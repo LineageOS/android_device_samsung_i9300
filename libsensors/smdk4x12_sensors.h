@@ -26,7 +26,6 @@
 #define _SMDK4x12_SENSORS_H_
 
 #define SMDK4x12_SENSORS_NEEDED_API		(1 << 0)
-#define SMDK4x12_SENSORS_NEEDED_ORIENTATION	(1 << 1)
 
 struct smdk4x12_sensors_device;
 
@@ -91,12 +90,8 @@ int sysfs_string_write(char *path, char *buffer, size_t length);
  * Sensors
  */
 
-int orientation_fill(struct smdk4x12_sensors_handlers *handlers,
-	sensors_vec_t *acceleration, sensors_vec_t *magnetic);
-
 extern struct smdk4x12_sensors_handlers lsm330dlc_acceleration;
 extern struct smdk4x12_sensors_handlers akm8975;
-extern struct smdk4x12_sensors_handlers orientation;
 extern struct smdk4x12_sensors_handlers cm36651_proximity;
 extern struct smdk4x12_sensors_handlers cm36651_light;
 extern struct smdk4x12_sensors_handlers lsm330dlc_gyroscope;
