@@ -49,7 +49,7 @@ void *lsm330dlc_acceleration_thread(void *thread_data)
 	struct input_event event;
 	struct timeval time;
 	struct lsm330dlc_acc acceleration_data;
-	long int before, after;
+	long long int before, after;
 	int diff;
 	int device_fd;
 	int uinput_fd;

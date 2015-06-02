@@ -168,7 +168,7 @@ void *akm8975_thread(void *thread_data)
 	char i2c_data[SENSOR_DATA_SIZE] = { 0 };
 	short magnetic_data[3];
 	short mode;
-	long int before, after;
+	long long int before, after;
 	int diff;
 	int device_fd;
 	int uinput_fd;

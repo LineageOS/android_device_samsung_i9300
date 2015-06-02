@@ -76,8 +76,8 @@ int smdk4x12_sensors_poll(struct sensors_poll_device_t *dev,
  */
 
 void input_event_set(struct input_event *event, int type, int code, int value);
-long int timestamp(struct timeval *time);
-long int input_timestamp(struct input_event *event);
+long long int timestamp(struct timeval *time);
+long long int input_timestamp(struct input_event *event);
 int uinput_rel_create(const char *name);
 void uinput_destroy(int uinput_fd);
 int input_open(char *name);
