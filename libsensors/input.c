@@ -44,7 +44,7 @@ void input_event_set(struct input_event *event, int type, int code, int value)
 	gettimeofday(&event->time, NULL);
 }
 
-long long int timestamp(struct timeval *time)
+int64_t timestamp(struct timeval *time)
 {
 	if (time == NULL)
 		return -1;
@@ -52,7 +52,7 @@ long long int timestamp(struct timeval *time)
 	return time->tv_sec * 1000000000LL + time->tv_usec * 1000;
 }
 
-long long int input_timestamp(struct input_event *event)
+int64_t input_timestamp(struct input_event *event)
 {
 	if (event == NULL)
 		return -1;

@@ -147,9 +147,9 @@ int cm36651_proximity_deactivate(struct smdk4x12_sensors_handlers *handlers)
 	return 0;
 }
 
-int cm36651_proximity_set_delay(struct smdk4x12_sensors_handlers *handlers, long int delay)
+int cm36651_proximity_set_delay(struct smdk4x12_sensors_handlers *handlers, int64_t delay)
 {
-	ALOGD("%s(%p, %ld)", __func__, handlers, delay);
+	ALOGD("%s(%p, %" PRId64 ")", __func__, handlers, delay);
 
 	return 0;
 }

@@ -119,7 +119,7 @@ int smdk4x12_sensors_set_delay(struct sensors_poll_device_t *dev, int handle,
 	struct smdk4x12_sensors_device *device;
 	int i;
 
-	ALOGD("%s(%p, %d, %ld)", __func__, dev, handle, (long int) ns);
+	ALOGD("%s(%p, %d, %" PRId64 ")", __func__, dev, handle, ns);
 
 	if (dev == NULL)
 		return -EINVAL;
@@ -134,7 +134,7 @@ int smdk4x12_sensors_set_delay(struct sensors_poll_device_t *dev, int handle,
 			continue;
 
 		if (device->handlers[i]->handle == handle && device->handlers[i]->set_delay != NULL)
-			return device->handlers[i]->set_delay(device->handlers[i], (long int) ns);
+			return device->handlers[i]->set_delay(device->handlers[i], ns);
 	}
 
 	return 0;
