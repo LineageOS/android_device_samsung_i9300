@@ -35,12 +35,12 @@
  */
 
 struct sensor_t smdk4x12_sensors[] = {
-       { "LSM330DLC Acceleration Sensor", "STMicroelectronics", 1, SENSOR_TYPE_ACCELEROMETER,
+       { "LSM330DLC 3-Axis Accelerometer", "STMicroelectronics", 1, SENSOR_TYPE_ACCELEROMETER,
                SENSOR_TYPE_ACCELEROMETER, 2 * GRAVITY_EARTH, 0.0096f, 0.23f, 10000, 0, 0, SENSOR_STRING_TYPE_ACCELEROMETER, 0, 0,
-               SENSOR_FLAG_ON_CHANGE_MODE, {}, },
-       { "AKM8975 Magnetic Sensor", "Asahi Kasei", 1, SENSOR_TYPE_MAGNETIC_FIELD,
+               SENSOR_FLAG_CONTINUOUS_MODE, {}, },
+       { "AKM8975C 3-Axis Magnetic Sensor", "Asahi Kasei", 1, SENSOR_TYPE_MAGNETIC_FIELD,
                SENSOR_TYPE_MAGNETIC_FIELD, 2000.0f, 1.0f / 16, 6.8f, 10000, 0, 0, SENSOR_STRING_TYPE_MAGNETIC_FIELD, 0, 0,
-               SENSOR_FLAG_ON_CHANGE_MODE, {}, },
+               SENSOR_FLAG_CONTINUOUS_MODE, {}, },
        { "CM36651 Light Sensor", "Capella", 1, SENSOR_TYPE_LIGHT,
                SENSOR_TYPE_LIGHT, 121240.0f, 1.0f, 0.2f, 0, 0, 0, SENSOR_STRING_TYPE_LIGHT, 0, 0,
                SENSOR_FLAG_ON_CHANGE_MODE, {}, },
@@ -49,7 +49,7 @@ struct sensor_t smdk4x12_sensors[] = {
                SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_ON_CHANGE_MODE, {}, },
        { "LSM330DLC Gyroscope Sensor", "STMicroelectronics", 1, SENSOR_TYPE_GYROSCOPE,
                SENSOR_TYPE_GYROSCOPE, 500.0f * (3.1415926535f / 180.0f), (70.0f / 4000.0f) * (3.1415926535f / 180.0f), 6.1f, 5000, 0, 0, SENSOR_STRING_TYPE_GYROSCOPE, 0, 0,
-               SENSOR_FLAG_ON_CHANGE_MODE, {}, },
+               SENSOR_FLAG_CONTINUOUS_MODE, {}, },
        { "LPS331AP Pressure Sensor", "STMicroelectronics", 1, SENSOR_TYPE_PRESSURE,
                SENSOR_TYPE_PRESSURE, 1260.0f, 1.0f / 4096, 0.045f, 40000, 0, 0, SENSOR_STRING_TYPE_PRESSURE, 0, 20000,
                SENSOR_FLAG_CONTINUOUS_MODE, {}, },
