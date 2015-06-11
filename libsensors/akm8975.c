@@ -42,7 +42,7 @@ struct akm8975_data {
 	AK8975PRMS akfs_params;
 	sensors_vec_t magnetic;
 
-	long int delay;
+	int64_t delay;
 	int device_fd;
 	int uinput_fd;
 
@@ -166,7 +166,7 @@ void *akm8975_thread(void *thread_data)
 	char i2c_data[SENSOR_DATA_SIZE] = { 0 };
 	short magnetic_data[3];
 	short mode;
-	long long int before, after;
+	int64_t before, after;
 	int diff;
 	int device_fd;
 	int uinput_fd;
@@ -520,11 +520,11 @@ int akm8975_deactivate(struct smdk4x12_sensors_handlers *handlers)
 	return 0;
 }
 
-int akm8975_set_delay(struct smdk4x12_sensors_handlers *handlers, long int delay)
+int akm8975_set_delay(struct smdk4x12_sensors_handlers *handlers, int64_t delay)
 {
 	struct akm8975_data *data;
 
-	ALOGD("%s(%p, %ld)", __func__, handlers, delay);
+	ALOGD("%s(%p, %" PRId64 ")", __func__, handlers, delay);
 
 	if (handlers == NULL || handlers->data == NULL)
 		return -EINVAL;

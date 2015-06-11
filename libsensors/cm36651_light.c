@@ -150,19 +150,19 @@ int cm36651_light_deactivate(struct smdk4x12_sensors_handlers *handlers)
 	return 0;
 }
 
-int cm36651_light_set_delay(struct smdk4x12_sensors_handlers *handlers, long int delay)
+int cm36651_light_set_delay(struct smdk4x12_sensors_handlers *handlers, int64_t delay)
 {
 	struct cm36651_light_data *data;
 	int rc;
 
-	ALOGD("%s(%p, %ld)", __func__, handlers, delay);
+	ALOGD("%s(%p, %" PRId64 ")", __func__, handlers, delay);
 
 	if (handlers == NULL || handlers->data == NULL)
 		return -EINVAL;
 
 	data = (struct cm36651_light_data *) handlers->data;
 
-	rc = sysfs_value_write(data->path_delay, (int) delay);
+	rc = sysfs_value_write(data->path_delay, delay);
 	if (rc < 0) {
 		ALOGE("%s: Unable to write sysfs value", __func__);
 		return -1;
