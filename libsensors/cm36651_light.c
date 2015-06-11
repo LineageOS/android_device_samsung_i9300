@@ -171,9 +171,37 @@ int cm36651_light_set_delay(struct smdk4x12_sensors_handlers *handlers, long int
 	return 0;
 }
 
-float cm36651_light_convert(int value)
+float cm36651_light_convert(int white, int green)
 {
-	return (float) value * 1.7f - 0.5f;
+	float gwrel = 1.0f;
+	float aux;
+	float r1, r2, r3, r4;
+
+	if (green <= 4)
+		return 0.0f;
+	else {
+		if (white > 0)
+			gwrel = (float) green / (float) white;
+
+		r1 = floorf( (float) (pow((double) green, 1.3341) * 0.0258) );
+
+		aux = floorf( ((float) green * 0.18f * 9.44f) / gwrel);
+		r2 = aux;
+		r3 = aux * 0.77f;
+
+		r4 = floorf( (float) green * ( (gwrel * 1.546) - 0.46) );
+
+		if (gwrel <= 0.5f) {
+			return r1;
+		} else if (gwrel >= 0.9f) {
+			if (white <= 5999)
+				return r2;
+			else
+				return r3;
+		} else {
+			return r4;
+		}
+	}
 }
 
 int cm36651_light_get_data(struct smdk4x12_sensors_handlers *handlers,
@@ -181,6 +209,8 @@ int cm36651_light_get_data(struct smdk4x12_sensors_handlers *handlers,
 {
 	struct input_event input_event;
 	int input_fd;
+	int green = 0;
+	int white = 0;
 	int rc;
 
 //	ALOGD("%s(%p, %p)", __func__, handlers, event);
@@ -203,13 +233,17 @@ int cm36651_light_get_data(struct smdk4x12_sensors_handlers *handlers,
 			break;
 
 		if (input_event.type == EV_REL) {
+			if (input_event.code == REL_Y)
+				green = input_event.value;
 			if (input_event.code == REL_MISC)
-				event->light = cm36651_light_convert(input_event.value);
+				white = input_event.value;
 		} else if (input_event.type == EV_SYN) {
 			if (input_event.code == SYN_REPORT)
 				event->timestamp = input_timestamp(&input_event);
 		}
 	} while (input_event.type != EV_SYN);
+
+	event->light = cm36651_light_convert(white, green);
 
 	return 0;
 }
