@@ -214,10 +214,10 @@ int sysfs_path_prefix(char *name, char *path_prefix)
 	return -1;
 }
 
-int sysfs_value_read(char *path)
+int64_t sysfs_value_read(char *path)
 {
 	char buffer[100];
-	int value;
+	int64_t value;
 	int fd = -1;
 	int rc;
 
@@ -232,7 +232,7 @@ int sysfs_value_read(char *path)
 	if (rc <= 0)
 		goto error;
 
-	value = atoi(buffer);
+	value = (int64_t)strtoimax(buffer, NULL, 10);
 	goto complete;
 
 error:
@@ -245,7 +245,7 @@ complete:
 	return value;
 }
 
-int sysfs_value_write(char *path, int value)
+int sysfs_value_write(char *path, int64_t value)
 {
 	char buffer[100];
 	int fd = -1;
@@ -258,7 +258,7 @@ int sysfs_value_write(char *path, int value)
 	if (fd < 0)
 		goto error;
 
-	snprintf((char *) &buffer, sizeof(buffer), "%d\n", value);
+	snprintf((char *) &buffer, sizeof(buffer), "%" PRId64 "\n", value);
 
 	rc = write(fd, buffer, strlen(buffer));
 	if (rc < (int) strlen(buffer))

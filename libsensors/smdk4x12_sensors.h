@@ -83,8 +83,8 @@ int uinput_rel_create(const char *name);
 void uinput_destroy(int uinput_fd);
 int input_open(char *name);
 int sysfs_path_prefix(char *name, char *path_prefix);
-int sysfs_value_read(char *path);
-int sysfs_value_write(char *path, int value);
+int64_t sysfs_value_read(char *path);
+int sysfs_value_write(char *path, int64_t value);
 int sysfs_string_read(char *path, char *buffer, size_t length);
 int sysfs_string_write(char *path, char *buffer, size_t length);
 
