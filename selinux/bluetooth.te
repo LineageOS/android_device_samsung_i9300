@@ -1,3 +1,4 @@
+allow bluetooth bluetooth_efs_file:dir search;
 allow bluetooth bluetooth_efs_file:file read;
 allow bluetooth sysfs:file write;
 allow bluetooth efs_device_file:dir search;
