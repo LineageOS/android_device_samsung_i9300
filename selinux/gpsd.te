@@ -1,3 +1,4 @@
+allow gpsd self:process execmem;
 allow gpsd rild:unix_stream_socket connectto;
 allow gpsd system_data_file:fifo_file { create read write setattr open };
 allow gpsd servicemanager:binder call;
