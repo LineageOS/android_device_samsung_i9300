@@ -39,28 +39,6 @@ RECOVERY_FSTAB_VERSION := 2
 BOARD_SEPOLICY_DIRS += \
     device/samsung/i9300/selinux
 
-BOARD_SEPOLICY_UNION += \
-    bluetooth.te \
-    device.te \
-    domain.te \
-    file.te \
-    file_contexts \
-    gpsd.te \
-    init.te \
-    mediaserver.te \
-    netd.te \
-    nfc.te \
-    rild.te \
-    servicemanager.te \
-    service_contexts \
-    surfaceflinger.te \
-    sysinit.te \
-    system_app.te \
-    system_server.te \
-    ueventd.te \
-    vold.te \
-    wpa_supplicant.te
-
 # assert
 TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
 
