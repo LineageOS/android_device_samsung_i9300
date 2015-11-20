@@ -53,6 +53,10 @@ PRODUCT_PACKAGES += \
     SamsungServiceMode \
     tinyplay
 
+# Samsung symbols
+PRODUCT_PACKAGES += \
+	libsamsung_symbols
+
 # NFC
 PRODUCT_PACKAGES += \
 	nfc.exynos4 \
