@@ -1,4 +1,5 @@
 on init
+	export LD_SHIM_LIBS /system/lib/libsec-ril.so|libsamsung_symbols.so
 # ko files for FM Radio
     insmod /system/lib/modules/Si4709_driver.ko
 
