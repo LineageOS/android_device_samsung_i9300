@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f4e5783_8be2f12e",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-11-21T05:59:17Z",
+      "side": 1,
+      "message": "This is invalid now",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 21
+      },
+      "revId": "15f92bfbb8bb9cc64a03cb370b90ce020bae53ae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
