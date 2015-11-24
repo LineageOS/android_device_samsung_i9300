@@ -54,3 +54,12 @@ service gps-daemon /system/bin/glgps -c /system/etc/gps.xml
     user gps
     group system inet sdcard_rw
     seclabel u:r:gpsd:s0
+
+service ril-daemon-debug /system/xbin/strace -ff -o /data/strace.rild -y -s 70 -tt /system/bin/rild
+    class main
+    socket rild stream 660 root radio
+    socket sap_uim_socket1 stream 660 bluetooth bluetooth
+    socket rild-debug stream 660 radio system
+    user root
+    group radio cache inet misc audio log qcom_diag
+    disabled
