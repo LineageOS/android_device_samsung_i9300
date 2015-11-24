@@ -1,1 +1,1 @@
-allow nfc firmware_camera:dir search;
+allow nfc firmware_exynos:dir search;
