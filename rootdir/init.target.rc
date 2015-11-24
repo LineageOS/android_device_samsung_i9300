@@ -24,6 +24,10 @@ on post-fs-data
 # Restorecon
     restorecon_recursive /efs
 
+on fs
+    # zram
+    swapon_all /fstab.smdk4x12
+
 on boot
 # cbd
 service cpboot-daemon /sbin/cbd -d
