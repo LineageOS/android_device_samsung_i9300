@@ -1,5 +1,5 @@
-allow mediaserver { firmware_camera }:file r_file_perms;
-allow mediaserver firmware_camera:dir r_dir_perms;
+allow mediaserver { firmware_exynos }:file r_file_perms;
+allow mediaserver firmware_exynos:dir r_dir_perms;
 allow mediaserver camera_data_file:file rw_file_perms;
 allow mediaserver mfc_device:chr_file rw_file_perms;
 
