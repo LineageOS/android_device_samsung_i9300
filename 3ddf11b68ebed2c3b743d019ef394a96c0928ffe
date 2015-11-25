@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff82abbf_57e10efe",
+        "filename": "camera/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2015-11-25T07:05:09Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 6
+      },
+      "revId": "3ddf11b68ebed2c3b743d019ef394a96c0928ffe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
