@@ -1,0 +1,1 @@
+dontaudit { keystore bootanim init ueventd fsck logd tzdatacheck sysinit healthd lmkd servicemanager surfaceflinger shell debuggerd drmserver installd macloader gatekeeperd perfprofd tinyplay adbd shell dex2oat debuggerd toolbox sgdisk vold sdcardd zygote netd untrusted_app } kernel:system module_request;
