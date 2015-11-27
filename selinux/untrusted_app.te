@@ -1,0 +1,3 @@
+allow untrusted_app storage_stub_file:dir getattr;
+allow untrusted_app log_device:chr_file write;
+allow untrusted_app self:udp_socket ioctl;

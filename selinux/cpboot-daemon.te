@@ -1,0 +1,24 @@
+allow vold cgroup:dir { create add_name };
+allow vold device:dir { write remove_name add_name };
+allow vold efs_block_device:blk_file { read open };
+allow vold efs_device_file:dir search;
+allow vold efs_file:file { read write open };
+allow vold init:unix_stream_socket connectto;
+allow vold log_device:chr_file { write open };
+allow vold log_device:dir search;
+allow vold property_socket:sock_file write;
+allow vold radio_device:chr_file { read write ioctl open };
+allow vold radio_prop:property_service set;
+allow vold self:capability { setuid };
+allow vold sysfs_radio:file { read write open };
+allow vold usbfs:dir search;
+allow vold self:capability dac_override;
+
+# /dev/__cbd_msg_
+#allow vold device:chr_file create_file_perms;
+
+# these two things are neverallow'd by external/sepolicy for most things
+# so we have to run cbd in vold's context.
+allow vold usbfs:filesystem mount;
+allow vold self:capability { mknod };
+
