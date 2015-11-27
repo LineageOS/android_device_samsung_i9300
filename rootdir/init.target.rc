@@ -34,6 +34,7 @@ service cpboot-daemon /sbin/cbd -d
     class main
     user root
     group radio cache inet misc audio sdcard_rw log
+    seclabel u:r:cpboot-daemon:s0
 
 # GPS init
     write /sys/class/sec/gps/GPS_PWR_EN/export 162

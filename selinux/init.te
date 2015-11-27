@@ -1,3 +1,12 @@
 allow init wpa_socket:unix_dgram_socket { bind create };
 allow init init:process { execmem };
 allow init init:tcp_socket { create };
+
+allow init sysfs_display:lnk_file { read setattr };
+
+allow init zram_device:blk_file write;
+allow init kernel:system module_request;
+allow init tmpfs:lnk_file create;
+allow init sysfs:lnk_file setattr;
+domain_trans(init, rootfs, cpboot-daemon)
+

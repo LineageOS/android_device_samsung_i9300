@@ -1,0 +1,3 @@
+# for mkswap
+allow toolbox kernel:system module_request;
+allow toolbox zram_device:blk_file { open read write setattr getattr };

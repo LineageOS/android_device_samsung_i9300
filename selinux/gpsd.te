@@ -7,3 +7,7 @@ allow gpsd system_data_file:file { read open };
 allow gpsd system_data_file:dir { read write setattr open add_name };
 allow gpsd system_server:binder call;
 allow gpsd system_server:unix_stream_socket { read write };
+
+allow gpsd log_device:dir search;
+allow gpsd log_device:chr_file { open write };
+allow gpsd kernel:system module_request;
