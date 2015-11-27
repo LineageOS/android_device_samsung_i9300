@@ -1,17 +1,26 @@
 # GFX
-/dev/mali                               u:object_r:mali_device:s0
-/dev/ump                                u:object_r:mali_device:s0
-/dev/fimg2d                             u:object_r:mali_device:s0
+/dev/mali                               u:object_r:gpu_device:s0
+/dev/ump                                u:object_r:gpu_device:s0
+/dev/fimg2d                             u:object_r:gpu_device:s0
 
 # RIL
+/dev/link_pm                            u:object_r:radio_device:s0
 /dev/umts_boot0                         u:object_r:radio_device:s0
 /dev/umts_boot1                         u:object_r:radio_device:s0
 /dev/umts_ipc0                          u:object_r:radio_device:s0
 /dev/umts_ramdump0                      u:object_r:radio_device:s0
 /dev/umts_rfs0                          u:object_r:radio_device:s0
+/dev/__cbd_msg_                         u:object_r:cbd_device:s0
 
-/dev/block/mmcblk0p7                    u:object_r:efs_block_device:s0
 /efs                                    u:object_r:efs_device_file:s0
+/data/misc/radio(/.*)?                  u:object_r:radio_data:s0
+/sys/devices/platform/s5p-ohci/ohci_power   u:object_r:sysfs_radio:s0
+/sys/devices/platform/s5p-ehci/ehci_power   u:object_r:sysfs_radio:s0
+
+# Partitions
+/dev/block/mmcblk0p7                    u:object_r:efs_block_device:s0
+/dev/block/mmcblk0p9                    u:object_r:system_block_device:s0
+/dev/block/mmcblk0p12                   u:object_r:userdata_block_device:s0
 
 # Camera
 /data/ISP_CV                            u:object_r:camera_data_file:s0
@@ -23,19 +32,21 @@
 /efs/bluetooth(/.*)?                    u:object_r:bluetooth_efs_file:s0
 
 # Display
-/sys/class/mdnie/mdnie/scenario         u:object_r:sysfs_display:s0
-/sys/class/mdnie/mdnie/mode             u:object_r:sysfs_display:s0
+/sys/class/mdnie/mdnie(/.*)?            u:object_r:sysfs_display:s0
+/sys/devices/platform/samsung-pd.2/mdnie/mdnie(/.*)? u:object_r:sysfs_display:s0
 
 # GPS
 /dev/ttySAC1                            u:object_r:gps_device:s0
-/system/bin/glgps                       u:object_r:gpsd_exec:s0
+/system/bin/gps_daemon.sh               u:object_r:glgps_exec:s0
 
 # Sensors
 /dev/akm8975                            u:object_r:sensors_device:s0
 /efs/gyro_cal_data                      u:object_r:sensors_data_file:s0
+/sys/class/sensors/accelerometer_sensor u:object_r:sysfs_sensor:s0
 
 # Wifi
 /dev/rfkill                             u:object_r:rfkill_device:s0
+/data/.cid.info                         u:object_r:wifi_data_file:s0
 /efs/wifi/.mac.info                     u:object_r:wifi_data_file:s0
 
 # Firmwares
@@ -46,5 +57,10 @@
 # Vibrator
 /dev/tspdrv                             u:object_r:input_device:s0
 
+# Swap
+/dev/block/zram(.*)                     u:object_r:swap_block_device:s0
+
 # Misc
 /dev/HPD                                u:object_r:hpd_device:s0
+/system/bin/macloader                   u:object_r:macloader_exec:s0
+/system/bin/tinyplay                    u:object_r:tinyplay_exec:s0
