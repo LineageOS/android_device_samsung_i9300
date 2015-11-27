@@ -1,0 +1,5 @@
+define(`log_contexts', `{ macloader cpboot-daemon logd tzdatacheck vold lmkd debuggerd installd system_server dex2oat wpa sdcardd untrusted_app system_app surfaceflinger netd mediaserver keystore zygote gatekeeperd perfprofd bootanim platform_app shared_relro}')
+
+
+allow log_contexts log_device:chr_file { open write };
+allow log_contexts log_device:dir { search };
