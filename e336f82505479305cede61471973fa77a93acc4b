@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df87a7cf_240e9ce5",
+        "filename": "selinux/dontaudit.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 12082
+      },
+      "writtenOn": "2015-11-29T23:04:50Z",
+      "side": 1,
+      "message": "dontaudit domain kernel:system module_request;",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 113
+      },
+      "revId": "e336f82505479305cede61471973fa77a93acc4b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df87a7cf_4413a00e",
+        "filename": "selinux/file_contexts",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 12082
+      },
+      "writtenOn": "2015-11-29T23:04:50Z",
+      "side": 1,
+      "message": "u:object_r:swap_block_device:s0",
+      "range": {
+        "startLine": 59,
+        "startChar": 40,
+        "endLine": 59,
+        "endChar": 65
+      },
+      "revId": "e336f82505479305cede61471973fa77a93acc4b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df87a7cf_04f598cb",
+        "filename": "selinux/gpsd.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 12082
+      },
+      "writtenOn": "2015-11-29T23:04:50Z",
+      "side": 1,
+      "message": "Such things can be labeled properly I guess",
+      "range": {
+        "startLine": 14,
+        "startChar": 12,
+        "endLine": 14,
+        "endChar": 22
+      },
+      "revId": "e336f82505479305cede61471973fa77a93acc4b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df87a7cf_c4fed0ad",
+        "filename": "selinux/init.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 12082
+      },
+      "writtenOn": "2015-11-29T23:04:50Z",
+      "side": 1,
+      "message": "This can be labelled too",
+      "range": {
+        "startLine": 8,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 15
+      },
+      "revId": "e336f82505479305cede61471973fa77a93acc4b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
