@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf8cb3f7_60d1f257",
+        "filename": "selinux/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 11604
+      },
+      "writtenOn": "2015-11-30T17:52:34Z",
+      "side": 1,
+      "message": "setting the context on this has no effect on errors from cbd:\n\navc: denied { create } for  comm\u003d\"cbd\" name\u003d\"__cbd_msg_\" scontext\u003du:r:cpboot-daemon:s0 tcontext\u003du:object_r:device:s0 tclass\u003dchr_file permissive\u003d1\n\nit seems that cbd creates (and deletes) this file during runtime, so i\u0027m not sure how to address this properly",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "fcbe359f09388cbfcefef5e72537d8229a8677e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf8cb3f7_c0e23e30",
+        "filename": "selinux/init.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 11604
+      },
+      "writtenOn": "2015-11-30T17:52:34Z",
+      "side": 1,
+      "message": "Removing this causes denials like this: \n\navc: denied  { create } for   comm\u003d\"init\" name\u003d\"sdcard\" scontext\u003du:r:init:s0 tcontext\u003du:object_r:tmpfs:s0 tclass\u003dlnk_file permissive\u003d1\n\nI tried to make a rule for the file it\u0027s creating (/mnt/sdcard), but with no luck.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "fcbe359f09388cbfcefef5e72537d8229a8677e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
