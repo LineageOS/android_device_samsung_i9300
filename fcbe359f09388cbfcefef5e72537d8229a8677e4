@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bf8cb3f7_6036d2b7",
+        "filename": "selinux/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 12082
+      },
+      "writtenOn": "2015-11-30T23:22:11Z",
+      "side": 1,
+      "message": "I tried a restorecon but it is also useless",
+      "parentUuid": "bf8cb3f7_60d1f257",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "fcbe359f09388cbfcefef5e72537d8229a8677e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf8cb3f7_c0e23e30",
         "filename": "selinux/init.te",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-30T17:52:34Z",
       "side": 1,
       "message": "Removing this causes denials like this: \n\navc: denied  { create } for   comm\u003d\"init\" name\u003d\"sdcard\" scontext\u003du:r:init:s0 tcontext\u003du:object_r:tmpfs:s0 tclass\u003dlnk_file permissive\u003d1\n\nI tried to make a rule for the file it\u0027s creating (/mnt/sdcard), but with no luck.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "fcbe359f09388cbfcefef5e72537d8229a8677e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf8cb3f7_4004ee7b",
+        "filename": "selinux/init.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 12082
+      },
+      "writtenOn": "2015-11-30T23:22:11Z",
+      "side": 1,
+      "message": "Indeed, I had to do the same",
+      "parentUuid": "bf8cb3f7_c0e23e30",
       "range": {
         "startLine": 7,
         "startChar": 0,
