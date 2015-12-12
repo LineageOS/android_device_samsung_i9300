@@ -17,5 +17,7 @@ allow glgps node:udp_socket { node_bind name_bind };
 allow glgps sysfs:file { setattr write };
 allow glgps gps_device:chr_file { ioctl open read write };
 allow glgps glgps:udp_socket { create bind };
+allow glgps glgps:tcp_socket { create connect };
+allow glgps fwmarkd_socket:sock_file write;
 allow glgps dnsproxyd_socket:sock_file write;
 allow glgps netd:unix_stream_socket connectto;

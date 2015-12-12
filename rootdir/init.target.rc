@@ -34,6 +34,10 @@ on post-fs-data
     restorecon /sys/class/sec/gps/GPS_PWR_EN/value
     restorecon /sys/class/sec/gps/GPS_PWR_EN/direction
 
+    write /data/.cid.info 0
+    restorecon /data/.cid.info
+    restorecon /data/ISP_CV
+
 on fs
     # zram
     swapon_all /fstab.smdk4x12
@@ -54,3 +58,5 @@ service gps-daemon /system/bin/sh /system/bin/gps_daemon.sh
     user gps
     group system inet sdcard_rw gps
     seclabel u:r:glgps:s0
+
+

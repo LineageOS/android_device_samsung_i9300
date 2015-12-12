@@ -7,6 +7,8 @@ allow init sysfs_display:lnk_file { read setattr };
 allow init tmpfs:lnk_file create;
 allow init sysfs_sensor:lnk_file { setattr read };
 
+allow init rild:process noatsecure;
+
 domain_trans(init, rootfs, glgps)
 domain_trans(init, rootfs, cpboot-daemon)
 domain_trans(init, rootfs, tinyplay)
