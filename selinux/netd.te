@@ -1,1 +1,3 @@
 allow netd init:tcp_socket { read write getopt };
+allow netd glgps:fd use;
+allow netd glgps:tcp_socket { read write getopt setopt };
