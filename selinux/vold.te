@@ -2,7 +2,8 @@ allow vold kernel:process setsched;
 allow vold sdcardd_exec:file { read open execute execute_no_trans };
 
 allow vold log_device:dir search;
-allow vold storage_stub_file:dir { read open };
+allow vold storage_stub_file:dir { read open search write add_name };
+allow vold mnt_media_rw_stub_file:dir { read open };
 allow vold blkid_exec:file { getattr execute read open execute_no_trans };
 
 allow vold log_device:chr_file { write open };
