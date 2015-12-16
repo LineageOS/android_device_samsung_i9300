@@ -60,6 +60,9 @@
 # Swap
 /dev/block/zram(.*)                     u:object_r:swap_block_device:s0
 
+# fsck
+/system/bin/fsck\.exfat     --          u:object_r:fsck_exec:s0
+
 # Misc
 /dev/HPD                                u:object_r:hpd_device:s0
 /system/bin/macloader                   u:object_r:macloader_exec:s0
