@@ -120,14 +120,6 @@ We are able to have most of our routing static so do that
     <ctl name="Headset Mic Switch" val="0"/>
     <ctl name="FM In Switch" val="0"/>
 
-    <!-- EQ Switches -->
-    <ctl name="AIF1DAC1 EQ Switch" val="1"/>
-    <ctl name="AIF1DAC1 EQ1 Volume" val="9"/>
-    <ctl name="AIF1DAC1 EQ2 Volume" val="7"/>
-    <ctl name="AIF1DAC1 EQ3 Volume" val="10"/>
-    <ctl name="AIF1DAC1 EQ4 Volume" val="13"/>
-    <ctl name="AIF1DAC1 EQ5 Volume" val="12"/>
-
 </path>
 <device name="speaker">
     <path name="on">
@@ -142,6 +134,12 @@ We are able to have most of our routing static so do that
         <ctl name="Speaker Mixer Volume" val="3"/>
         <ctl name="Speaker Boost Volume" val="4"/>
         <ctl name="Speaker Volume" val="57"/>
+        <ctl name="AIF1DAC1 EQ Switch" val="1"/>
+        <ctl name="AIF1DAC1 EQ1 Volume" val="9"/>
+        <ctl name="AIF1DAC1 EQ2 Volume" val="7"/>
+        <ctl name="AIF1DAC1 EQ3 Volume" val="10"/>
+        <ctl name="AIF1DAC1 EQ4 Volume" val="13"/>
+        <ctl name="AIF1DAC1 EQ5 Volume" val="12"/>
     </path>
     <path name="off">
         <ctl name="SPK Switch" val="0"/>
@@ -160,7 +158,7 @@ We are able to have most of our routing static so do that
         <ctl name="AIF2DAC Volume" val="96"/>
         <ctl name="AIF1 Boost Volume" val="0"/>
         <ctl name="AIF2 Boost Volume" val="0"/>
-        <ctl name="DAC1 Volume" val="104"/>
+        <ctl name="DAC1 Volume" val="96"/>
         <ctl name="Left Output Mixer DAC Volume" val="7"/>
         <ctl name="Right Output Mixer DAC Volume" val="7"/>
         <ctl name="Output Volume" val="57"/>
@@ -173,13 +171,19 @@ We are able to have most of our routing static so do that
 <device name="headphone">
     <path name="on">
         <ctl name="HP Switch" val="1"/>
-        <ctl name="Headphone Volume" val="50"/>
+        <ctl name="Headphone Volume" val="57"/>
         <ctl name="Headphone ZC Switch" val="0"/>
         <ctl name="AIF1DAC1 Volume" val="96"/>
         <ctl name="AIF1 Boost Volume" val="0"/>
         <ctl name="DAC1 Volume" val="96"/>
         <ctl name="Left Output Mixer DAC Volume" val="7"/>
         <ctl name="Right Output Mixer DAC Volume" val="7"/>
+        <ctl name="AIF1DAC1 EQ Switch" val="1"/>
+        <ctl name="AIF1DAC1 EQ1 Volume" val="16"/>
+        <ctl name="AIF1DAC1 EQ2 Volume" val="14"/>
+        <ctl name="AIF1DAC1 EQ3 Volume" val="12"/>
+        <ctl name="AIF1DAC1 EQ4 Volume" val="14"/>
+        <ctl name="AIF1DAC1 EQ5 Volume" val="16"/>
     </path>
     <path name="off">
         <ctl name="HP Switch" val="0"/>
