@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_1f563c2b",
+        "filename": "configs/tiny_hw.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 11604
+      },
+      "writtenOn": "2016-01-20T05:56:10Z",
+      "side": 1,
+      "message": "spaces, not tabs",
+      "revId": "409b5e72f580e4cd4f99eaf9af84994f910a4bbb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_bf304809",
+        "filename": "configs/tiny_hw.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 11604
+      },
+      "writtenOn": "2016-01-20T05:56:10Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "409b5e72f580e4cd4f99eaf9af84994f910a4bbb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
