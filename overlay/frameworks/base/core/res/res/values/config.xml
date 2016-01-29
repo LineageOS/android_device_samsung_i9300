@@ -313,4 +313,13 @@
          format is UMTS|LTE|...
     -->
     <string translatable="false" name="config_radio_access_family">GPRS|EDGE|WCDMA</string>
+
+    <!-- Device configuration setting the minfree tunable in the lowmemorykiller in the kernel.
+         A high value will cause the lowmemorykiller to fire earlier, keeping more memory
+         in the file cache and preventing I/O thrashing, but allowing fewer processes to
+         stay in memory.  A low value will keep more processes in memory but may cause
+         thrashing if set too low.  Overrides the default value chosen by ActivityManager
+         based on screen size and total memory for the largest lowmemorykiller bucket, and
+         scaled proportionally to the smaller buckets.  -1 keeps the default. >-->
+    <integer name="config_lowMemoryKillerMinFreeKbytesAbsolute">122880</integer>
 </resources>
