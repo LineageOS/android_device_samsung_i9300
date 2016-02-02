@@ -2,6 +2,11 @@ on init
     export LD_SHIM_LIBS /system/lib/libsec-ril.so|libsamsung_symbols.so
 # ko files for FM Radio
     insmod /system/lib/modules/Si4709_driver.ko
+# cpu defaults
+	write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 800000
+	write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_low 90
+	write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
+	write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 50000
 
 on post-fs-data
 # icd
