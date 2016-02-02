@@ -3,6 +3,7 @@ on init
 # ko files for FM Radio
     insmod /system/lib/modules/Si4709_driver.ko
 
+
 on post-fs-data
 # icd
     exec icd_check
@@ -59,4 +60,21 @@ service gps-daemon /system/bin/sh /system/bin/gps_daemon.sh
     group system inet sdcard_rw gps
     seclabel u:r:glgps:s0
 
-
+on property:dev.bootcomplete=1
+# boot on default pegasusq settings (for better performance)
+# switch to more conservative settings after bootup is complete
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_1_1 500000
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_2_0 500000
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_2_1 700000
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_3_0 700000
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_3_1 900000
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_4_0 900000
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_1_1 150
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_2_0 150
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_2_1 250
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_3_0 250
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_3_1 350
+    write /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_4_0 450
+    write /sys/devices/system/cpu/cpufreq/pegasusq/up_threshold 90
+    write /sys/devices/system/cpu/cpufreq/pegasusq/cpu_down_rate 10
+    write /sys/devices/system/cpu/cpufreq/pegasusq/down_differential 3
