@@ -1,2 +1,0 @@
-allow system_app sysfs_display:{ file lnk_file } { getattr open read write };
-allow system_app sysfs_display:dir { search };

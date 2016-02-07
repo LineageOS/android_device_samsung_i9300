@@ -9,3 +9,5 @@ type radio_data, file_type;
 type sysfs_radio, fs_type, sysfs_type;
 type sysfs_sensor, fs_type, sysfs_type;
 type cbd_device, dev_type;
+
+type recovery_exec, file_type;
