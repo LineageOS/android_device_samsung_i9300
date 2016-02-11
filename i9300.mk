@@ -39,6 +39,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     sensors.smdk4x12
 
+# Power
+PRODUCT_PACKAGES += \
+    power.smdk4x12
+
 # Gps
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml \
