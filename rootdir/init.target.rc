@@ -2,6 +2,36 @@ on init
     export LD_SHIM_LIBS /system/lib/libsec-ril.so|libsamsung_symbols.so
 # ko files for FM Radio
     insmod /system/lib/modules/Si4709_driver.ko
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/cpu_down_freq
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/cpu_down_rate
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/cpu_up_freq
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/cpu_up_rate
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/cpucore_table
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/down_differential
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/dvfs_debug
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/freq_step
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_1_1
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_2_0
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_2_1
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_3_0
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_3_1
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_4_0
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_lock
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_1_1
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_2_0
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_2_1
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_3_0
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_3_1
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_4_0
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/ignore_nice_load
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/io_is_busy
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/up_threshold
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/min_cpu_lock
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/max_cpu_lock
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/sampling_rate
+
+
 
 
 on post-fs-data
