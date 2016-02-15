@@ -46,6 +46,7 @@ BOARD_RIL_CLASS := ../../../device/samsung/i9300/ril
 TARGET_RECOVERY_FSTAB := device/samsung/i9300/rootdir/fstab.smdk4x12
 TARGET_USERIMAGES_USE_F2FS := true
 RECOVERY_FSTAB_VERSION := 2
+TARGET_RECOVERY_DEVICE_DIRS += device/samsung/i9300
 
 # PowerHAL
 TARGET_POWERHAL_VARIANT := pegasusq
