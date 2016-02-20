@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,16 +26,21 @@ adb wait-for-device
 
 echo "Pulling proprietary files..."
 for FILE in `cat proprietary-files.txt | grep -v ^# | grep -v ^$`; do
-    DIR=`dirname $FILE`
+    DEST=$FILE
+    if echo $FILE | grep ':' 2>&1 >/dev/null; then
+        DEST=`echo $FILE | sed 's/.*://'`
+        FILE=`echo $FILE | sed 's/:.*//'`
+    fi
+    DIR=`dirname $DEST`
     if [ ! -d ../../../vendor/$VENDOR/$DEVICE/proprietary/$DIR ]; then
         mkdir -p ../../../vendor/$VENDOR/$DEVICE/proprietary/$DIR
     fi
-    adb pull /$FILE ../../../vendor/$VENDOR/$DEVICE/proprietary/$FILE
+    adb pull /$FILE ../../../vendor/$VENDOR/$DEVICE/proprietary/$DEST
 done
 
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__VENDOR__/$VENDOR/g > ../../../vendor/$VENDOR/$DEVICE/$DEVICE-vendor-blobs.mk
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -61,11 +66,16 @@ for FILE in `cat proprietary-files.txt | grep -v ^# | grep -v ^$`; do
     if [ $COUNT = "0" ]; then
         LINEEND=""
     fi
-    echo "    \$(LOCAL_PATH)/proprietary/$FILE:$FILE$LINEEND" >> ../../../vendor/$VENDOR/$DEVICE/$DEVICE-vendor-blobs.mk
+    DEST=$FILE
+    if echo $FILE | grep ':' 2>&1 >/dev/null; then
+        DEST=`echo $FILE | sed 's/.*://'`
+        FILE=`echo $FILE | sed 's/:.*//'`
+    fi
+    echo "    \$(LOCAL_PATH)/proprietary/$DEST:$FILE$LINEEND" >> ../../../vendor/$VENDOR/$DEVICE/$DEVICE-vendor-blobs.mk
 done
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__VENDOR__/$VENDOR/g > ../../../vendor/$VENDOR/$DEVICE/$DEVICE-vendor.mk
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -86,7 +96,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/__VENDOR__/__DEVICE__/overlay
 EOF
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__VENDOR__/$VENDOR/g > ../../../vendor/$VENDOR/$DEVICE/BoardConfigVendor.mk
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
