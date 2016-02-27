@@ -3,6 +3,9 @@ on init
 # ko files for FM Radio
     insmod /system/lib/modules/Si4709_driver.ko
     chown system system /sys/devices/system/cpu/cpufreq/pegasusq
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/boost_freq
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/boost_lock_time
+    chown system system /sys/devices/system/cpu/cpufreq/pegasusq/boost_mincpus
     chown system system /sys/devices/system/cpu/cpufreq/pegasusq/cpu_down_freq
     chown system system /sys/devices/system/cpu/cpufreq/pegasusq/cpu_down_rate
     chown system system /sys/devices/system/cpu/cpufreq/pegasusq/cpu_up_freq
