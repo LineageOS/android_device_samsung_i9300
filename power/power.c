@@ -35,10 +35,13 @@
 #define PEGASUSQ_PATH "/sys/devices/system/cpu/cpufreq/pegasusq/"
 #define MINMAX_CPU_PATH "/sys/power/"
 
+#define US_TO_NS (1000L)
+
 static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 static int current_power_profile = -1;
 static bool is_low_power = false;
+static bool is_vsync_active = false;
 
 static int sysfs_write_str(char *path, char *s) {
     char buf[80];
@@ -70,6 +73,13 @@ static int sysfs_write_int(char *path, int value) {
     snprintf(buf, 80, "%d", value);
     return sysfs_write_str(path, buf);
 }
+
+static int sysfs_write_long(char *path, long value) {
+    char buf[80];
+    snprintf(buf, 80, "%ld", value);
+    return sysfs_write_str(path, buf);
+}
+
 #ifdef LOG_NDEBUG
 #define WRITE_PEGASUSQ_PARAM(profile, param) do { \
     ALOGV("%s: WRITE_PEGASUSQ_PARAM(profile=%d, param=%s): new val => %d", __func__, profile, #param, profiles[profile].param); \
@@ -136,11 +146,31 @@ static void set_power_profile(int profile) {
     WRITE_PEGASUSQ_PARAM(profile, cpu_down_rate);
     WRITE_PEGASUSQ_PARAM(profile, sampling_rate);
     WRITE_PEGASUSQ_PARAM(profile, io_is_busy);
+    WRITE_PEGASUSQ_PARAM(profile, boost_freq);
+    WRITE_PEGASUSQ_PARAM(profile, boost_mincpus);
 
     current_power_profile = profile;
 
     ALOGV("%s: %d", __func__, profile);
 
+}
+
+static void boost(long boost_time) {
+#ifdef USE_PEGASUSQ_BOOSTING
+    if (is_vsync_active) return;
+    if (boost_time == -1) {
+        sysfs_write_int(PEGASUSQ_PATH "boost_lock_time", -1);
+    } else {
+        sysfs_write_long(PEGASUSQ_PATH "boost_lock_time", boost_time);
+    }
+#endif
+}
+
+static void end_boost() {
+#ifdef USE_PEGASUSQ_BOOSTING
+    if (is_vsync_active) return;
+    sysfs_write_int(PEGASUSQ_PATH "boost_lock_time", 0);
+#endif
 }
 
 static void set_low_power(bool low_power) {
@@ -154,6 +184,8 @@ static void set_low_power(bool low_power) {
     if (is_low_power == low_power) return;
 
     if (low_power) {
+        end_boost();
+
         WRITE_LOW_POWER_PARAM(current_power_profile, hotplug_freq_1_1);
         WRITE_LOW_POWER_PARAM(current_power_profile, hotplug_freq_2_0);
         WRITE_LOW_POWER_PARAM(current_power_profile, hotplug_freq_2_1);
@@ -198,6 +230,9 @@ static void set_low_power(bool low_power) {
         WRITE_PEGASUSQ_PARAM(current_power_profile, cpu_down_rate);
         WRITE_PEGASUSQ_PARAM(current_power_profile, sampling_rate);
         WRITE_PEGASUSQ_PARAM(current_power_profile, io_is_busy);
+        WRITE_PEGASUSQ_PARAM(current_power_profile, boost_freq);
+        WRITE_PEGASUSQ_PARAM(current_power_profile, boost_mincpus);
+
         is_low_power = false;
     }
 }
@@ -288,21 +323,44 @@ static void power_set_interactive(__attribute__((unused)) struct power_module *m
  *     integer value of the boost duration in microseconds.
  */
 static void power_hint(__attribute__((unused)) struct power_module *module, power_hint_t hint, void *data) {
-    switch (hint) {
-        case POWER_HINT_SET_PROFILE:
-            ALOGV("%s: set profile %d", __func__, *(int32_t *)data);
-            pthread_mutex_lock(&lock);
-            set_power_profile(*(int32_t *)data);
-            pthread_mutex_unlock(&lock);
-            break;
-        case POWER_HINT_INTERACTION:
-        case POWER_HINT_VSYNC:
-            break;
-        case POWER_HINT_LOW_POWER:
-             break;
-        default:
-             break;
+    if (hint == POWER_HINT_SET_PROFILE) {
+        ALOGV("%s: set profile %d", __func__, *(int32_t *)data);
+        pthread_mutex_lock(&lock);
+        if (is_vsync_active) {
+            is_vsync_active = false;
+            end_boost();
+        }
+        set_power_profile(*(int32_t *)data);
+        pthread_mutex_unlock(&lock);
     }
+
+    if (current_power_profile == PROFILE_POWER_SAVE) return;
+
+    pthread_mutex_lock(&lock);
+
+    switch (hint) {
+        case POWER_HINT_INTERACTION:
+        case POWER_HINT_LAUNCH_BOOST:
+            ALOGV("%s: interaction/launch", __func__);
+            boost(profiles[current_power_profile].interaction_boost_time);
+            break;
+/*       case POWER_HINT_VSYNC:
+            if (*(int32_t *)data) {
+                ALOGV("%s: vsync", __func__);
+                boost(-1);
+                is_vsync_active = true;
+            } else {
+                is_vsync_active = false;
+                end_boost();
+            }
+            break;*/
+        case POWER_HINT_CPU_BOOST:
+            ALOGV("%s: cpu_boost", __func__);
+            boost((*(int32_t *)data) * US_TO_NS);
+            break;
+    }
+
+    pthread_mutex_unlock(&lock);
 }
 
 /*
