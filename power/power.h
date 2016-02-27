@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#define MS_TO_NS (1000000L)
+
 enum {
     PROFILE_POWER_SAVE = 0,
     PROFILE_BALANCED,
@@ -50,6 +52,10 @@ typedef struct governor_settings {
     int cpu_down_rate;
     int sampling_rate; // in microseconds
     int io_is_busy;
+    // boosting
+    int boost_freq;
+    int boost_mincpus;
+    long interaction_boost_time;
 } power_profile;
 
 static power_profile profiles[PROFILE_MAX] = {
@@ -75,6 +81,10 @@ static power_profile profiles[PROFILE_MAX] = {
         .cpu_down_rate = 5,
         .sampling_rate = 200000,
         .io_is_busy = 0,
+        // nb: boosting power hints are ignored for PROFILE_POWER_SAVE
+        .boost_freq = 0,
+        .boost_mincpus = 0,
+        .interaction_boost_time = 0,
     },
     [PROFILE_BALANCED] = {
         .hotplug_freq_1_1 = 500000,
@@ -98,6 +108,9 @@ static power_profile profiles[PROFILE_MAX] = {
         .cpu_down_rate = 10,
         .sampling_rate = 200000,
         .io_is_busy = 0,
+        .boost_freq = 700000,
+        .boost_mincpus = 0,
+        .interaction_boost_time = 60 * (MS_TO_NS),
     },
     [PROFILE_PERFORMANCE] = {
         .hotplug_freq_1_1 = 500000,
@@ -121,9 +134,14 @@ static power_profile profiles[PROFILE_MAX] = {
         .cpu_down_rate = 20,
         .sampling_rate = 200000,
         .io_is_busy = 1,
+        .boost_freq = 900000,
+        .boost_mincpus = 2,
+        .interaction_boost_time = 90 * (MS_TO_NS),
     },
 };
 
+// for non-interactive profiles we don't need to worry about
+// boosting as it (should) only occur while the screen is on
 static power_profile profiles_low_power[PROFILE_MAX] = {
     [PROFILE_POWER_SAVE] = {
         .hotplug_freq_1_1 = 800000,
@@ -147,6 +165,9 @@ static power_profile profiles_low_power[PROFILE_MAX] = {
         .cpu_down_rate = 5,
         .sampling_rate = 200000,
         .io_is_busy = 0,
+        .boost_freq = 0,
+        .boost_mincpus = 0,
+        .interaction_boost_time = 0,
     },
     [PROFILE_BALANCED] = {
         .hotplug_freq_1_1 = 700000,
@@ -170,6 +191,9 @@ static power_profile profiles_low_power[PROFILE_MAX] = {
         .cpu_down_rate = 8,
         .sampling_rate = 200000,
         .io_is_busy = 0,
+        .boost_freq = 0,
+        .boost_mincpus = 0,
+        .interaction_boost_time = 0,
     },
     [PROFILE_PERFORMANCE] = {
         .hotplug_freq_1_1 = 800000,
@@ -193,6 +217,9 @@ static power_profile profiles_low_power[PROFILE_MAX] = {
         .cpu_down_rate = 15,
         .sampling_rate = 200000,
         .io_is_busy = 1,
+        .boost_freq = 0,
+        .boost_mincpus = 0,
+        .interaction_boost_time = 0,
     },
 };
 
