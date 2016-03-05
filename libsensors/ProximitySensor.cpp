@@ -73,18 +73,8 @@ int ProximitySensor::setInitialState() {
 
 int ProximitySensor::setDelay(int32_t handle, int64_t ns)
 {
-    int fd;
-
-    strcpy(&input_sysfs_path[input_sysfs_path_len], "prox_poll_delay");
-    fd = open(input_sysfs_path, O_RDWR);
-    if (fd >= 0) {
-        char buf[80];
-        sprintf(buf, "%lld", ns);
-        write(fd, buf, strlen(buf)+1);
-        close(fd);
-        return 0;
-    }
-    return -1;
+    // unsupported
+    return 0;
 }
 
 int ProximitySensor::enable(int32_t handle, int en) {
