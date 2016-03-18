@@ -20,4 +20,4 @@
 /dev/block/mmcblk0p7		/modem				emmc		defaults		recoveryonly
 
 # zram
-/dev/block/zram0			none				swap		defaults		zramsize=268435456
+/dev/block/zram0			none				swap		defaults		zramsize=419430400
