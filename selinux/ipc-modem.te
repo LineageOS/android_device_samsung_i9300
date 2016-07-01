@@ -1,0 +1,14 @@
+type ipc-modem, domain;
+type ipc-modem_exec, exec_type, file_type;
+
+permissive ipc-modem;
+
+allow ipc-modem sysfs_radio:file rw_file_perms;
+allow ipc-modem radio_device:chr_file ioctl;
+allow ipc-modem efs_block_device:blk_file r_file_perms;
+allow ipc-modem efs_file:file r_file_perms;
+allow ipc-modem self:capability dac_override;
+
+# TODO
+# allow ipc-modem usbfs:filesystem mount;
+# allow ipc-modem usbfs:dir search;
