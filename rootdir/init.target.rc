@@ -94,12 +94,12 @@ on fs
     swapon_all /fstab.smdk4x12
 
 on boot
-# cbd
-service cpboot-daemon /sbin/cbd -d
+# modem boot
+service ipc-modem /system/bin/ipc-modem boot --debug
     class main
     user root
     group radio cache inet misc audio sdcard_rw log
-    seclabel u:r:cpboot-daemon:s0
+    seclabel u:r:ipc-modem:s0
 
 
 # Start GPS daemon
