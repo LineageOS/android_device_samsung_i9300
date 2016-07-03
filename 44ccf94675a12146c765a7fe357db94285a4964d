@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_753687b7",
+        "filename": "cm.dependencies",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2016-07-03T17:17:55Z",
+      "side": 1,
+      "message": "android_external_libsamsung-ipc",
+      "range": {
+        "startLine": 19,
+        "startChar": 23,
+        "endLine": 19,
+        "endChar": 46
+      },
+      "revId": "44ccf94675a12146c765a7fe357db94285a4964d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
