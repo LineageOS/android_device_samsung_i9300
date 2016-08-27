@@ -13,11 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-# This variable is set first, so it can be overridden
-# by BoardConfigVendor.mk
-
--include device/samsung/smdk4412-common/BoardCommonConfig.mk
+include device/samsung/smdk4412-common/BoardCommonConfig.mk
 
 # Bionic
 MALLOC_SVELTE := true
@@ -53,6 +49,3 @@ BOARD_SEPOLICY_DIRS += \
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
-
-# inherit from the proprietary version
--include vendor/samsung/i9300/BoardConfigVendor.mk

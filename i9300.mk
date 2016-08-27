@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-# Include common makefile
-$(call inherit-product, device/samsung/smdk4412-common/common.mk)
-
 LOCAL_PATH := device/samsung/i9300
 
 # Overlay
