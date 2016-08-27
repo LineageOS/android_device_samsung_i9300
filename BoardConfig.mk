@@ -39,6 +39,7 @@ TARGET_KERNEL_CONFIG := cyanogenmod_i9300_defconfig
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/samsung/i9300/rootdir/fstab.smdk4x12
+TARGET_RECOVERY_DENSITY := mdpi
 TARGET_USERIMAGES_USE_F2FS := true
 RECOVERY_FSTAB_VERSION := 2
 
