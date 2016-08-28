@@ -17,6 +17,7 @@ include device/samsung/smdk4412-common/BoardCommonConfig.mk
 
 # Bionic
 MALLOC_SVELTE := true
+TARGET_NEEDS_TEXT_RELOCATIONS := true
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
