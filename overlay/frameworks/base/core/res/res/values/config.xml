@@ -228,15 +228,15 @@
     <bool name="config_intrusiveNotificationLed">true</bool>
 
     <!-- Does the notification LED support multiple colors?
-         Used to decide if the user can change the colors -->
-    <bool name="config_multiColorNotificationLed">true</bool>
+         Used to decide if the user can change the colors
+	<bool name="config_multiColorNotificationLed">true</bool>-->
 
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
+    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option 
+	<bool name="config_intrusiveBatteryLed">true</bool>-->
 
     <!-- Does the battery LED support multiple colors?
-         Used to decide if the user can change the colors -->
-    <bool name="config_multiColorBatteryLed">true</bool>
+         Used to decide if the user can change the colors
+	<bool name="config_multiColorBatteryLed">true</bool>-->
 
     <!-- Default color for notification LED is white. -->
     <color name="config_defaultNotificationColor">#ffffffff</color>
@@ -286,8 +286,8 @@
             32 - Camera
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
-    <integer name="config_deviceHardwareKeys">83</integer>
+         config to 7.
+	<integer name="config_deviceHardwareKeys">83</integer>-->
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -300,8 +300,8 @@
             32 - Camera
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
-    <integer name="config_deviceHardwareWakeKeys">65</integer>
+         config to 7.
+	<integer name="config_deviceHardwareWakeKeys">65</integer>-->
 
     <!-- Control the behavior when the user long presses the app switch button.
              0 - Nothing
@@ -312,11 +312,11 @@
              5 - In-app Search
           This needs to match the constants in
           policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
-     -->
-    <integer name="config_longPressOnAppSwitchBehavior">1</integer>
 
-    <!-- Boolean to enable stk functionality on Samsung phones -->
-    <bool name="config_samsung_stk">true</bool>
+	<integer name="config_longPressOnAppSwitchBehavior">1</integer>-->
+
+    <!-- Boolean to enable stk functionality on Samsung phones
+	<bool name="config_samsung_stk">true</bool>-->
 
     <!-- Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>
