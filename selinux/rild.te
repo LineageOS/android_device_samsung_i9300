@@ -2,6 +2,7 @@ allow rild self:netlink_socket { create bind read write };
 allow rild self:netlink_route_socket { write };
 allow rild self:netlink_kobject_uevent_socket { create bind read write setopt };
 allow rild rild:process { execmem };
+allow rild toolbox_exec:file rx_file_perms;
 
 allow rild radio_data_file:dir setattr;
 allow rild unlabeled:dir search;

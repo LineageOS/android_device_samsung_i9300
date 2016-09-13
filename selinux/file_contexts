@@ -1,8 +1,3 @@
-# GFX
-/dev/mali                               u:object_r:gpu_device:s0
-/dev/ump                                u:object_r:gpu_device:s0
-/dev/fimg2d                             u:object_r:gpu_device:s0
-
 # RIL
 /dev/link_pm                            u:object_r:radio_device:s0
 /dev/umts_boot0                         u:object_r:radio_device:s0
@@ -22,11 +17,6 @@
 /dev/block/mmcblk0p9                    u:object_r:system_block_device:s0
 /dev/block/mmcblk0p12                   u:object_r:userdata_block_device:s0
 
-# Camera
-/data/ISP_CV                            u:object_r:camera_data_file:s0
-/dev/exynos-mem                         u:object_r:video_device:s0
-/dev/s3c-mfc                            u:object_r:mfc_device:s0
-
 # Bluetooth
 /dev/ttySAC0                            u:object_r:hci_attach_dev:s0
 /efs/bluetooth(/.*)?                    u:object_r:bluetooth_efs_file:s0
@@ -38,21 +28,18 @@
 # GPS
 /dev/ttySAC1                            u:object_r:gps_device:s0
 /system/bin/gps_daemon.sh               u:object_r:glgps_exec:s0
+/sys/devices/virtual/gpio/gpio128/value u:object_r:sysfs_gps:s0
 
 # Sensors
 /dev/akm8975                            u:object_r:sensors_device:s0
 /efs/gyro_cal_data                      u:object_r:sensors_data_file:s0
+/efs/FactoryApp/baro_delta              u:object_r:sensors_data_file:s0
 /sys/class/sensors/accelerometer_sensor u:object_r:sysfs_sensor:s0
 
 # Wifi
 /dev/rfkill                             u:object_r:rfkill_device:s0
 /data/.cid.info                         u:object_r:wifi_data_file:s0
 /efs/wifi/.mac.info                     u:object_r:wifi_data_file:s0
-
-# Firmwares
-/system/vendor/firmware(/.*)?           u:object_r:firmware_exynos:s0
-/system/vendor/firmware/mfc_fw.bin      u:object_r:firmware_mfc:s0
-/data/cfw(/.*)?                         u:object_r:firmware_exynos:s0
 
 # Vibrator
 /dev/tspdrv                             u:object_r:input_device:s0
