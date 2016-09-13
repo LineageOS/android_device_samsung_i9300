@@ -1,0 +1,4 @@
+allow mediacodec mfc_device:chr_file rw_file_perms;
+
+# this should be more specific - /system/lib/omx
+allow mediacodec system_file:dir r_dir_perms;

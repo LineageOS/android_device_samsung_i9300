@@ -8,7 +8,7 @@ allow rild unlabeled:dir search;
 
 allow radio log_device:chr_file w_file_perms;
 allow rild log_device:chr_file w_file_perms;
-allow rild system_file:file execmod;
+#allow rild system_file:file execmod;
 allow rild radio_data:file create_file_perms;
 allow rild radio_data:dir create_dir_perms;
 
