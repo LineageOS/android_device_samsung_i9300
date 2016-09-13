@@ -16,7 +16,7 @@ allow system_server uhid_device:chr_file { read ioctl write open };
 allow system_server storage_stub_file:dir getattr;
 
 
-# for sensors
+# for sensors, GPS
 allow system_server system_file:file execmod;
 
 # /efs/wifi/.mac.info
