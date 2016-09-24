@@ -15,6 +15,9 @@
 #
 include device/samsung/smdk4412-common/BoardCommonConfig.mk
 
+# Wifi
+WIFI_DRIVER_MODULE_PATH :=
+
 # Bionic
 MALLOC_SVELTE := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
