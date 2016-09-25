@@ -1,0 +1,17 @@
+# hardware/samsung
+158577
+
+# frameworks/av
+158926
+
+# frameworks/base
+163602
+
+# bionic
+158551
+
+# vendor/cm
+162622
+
+# `repopick $(cat device/samsung/i9300/PICKS | grep -v '#')`
+
