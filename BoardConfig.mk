@@ -17,6 +17,7 @@ include device/samsung/smdk4412-common/BoardCommonConfig.mk
 
 # Bionic
 MALLOC_SVELTE := true
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 LIBART_IMG_BASE := 0x30000000
 
 # RIL
