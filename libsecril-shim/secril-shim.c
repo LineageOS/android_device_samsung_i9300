@@ -1,15 +1,6 @@
 #define LOG_TAG "secril-shim"
 #define RIL_SHLIB
-#include <telephony/ril_cdma_sms.h>
-#include <sys/system_properties.h>
-#include <telephony/librilutils.h>
-#include <cutils/sockets.h>
-#include <telephony/ril.h>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <sys/cdefs.h>
-#include <utils/Log.h>
-#include <sys/stat.h>
+
 #include <pthread.h>
 #include <termios.h>
 #include <alloca.h>
@@ -21,7 +12,21 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <inttypes.h>
 
+#include <telephony/ril_cdma_sms.h>
+#include <sys/system_properties.h>
+#include <telephony/librilutils.h>
+#include <cutils/sockets.h>
+#include <cutils/compiler.h>
+#include <telephony/ril.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <sys/cdefs.h>
+#include <utils/Log.h>
+#include <sys/stat.h>
 #define REAL_RIL_NAME				"/system/lib/libsec-ril.so"
 
 
@@ -38,6 +43,35 @@ static void rilOnRequest(int request, void *data, size_t datalen, RIL_Token t)
         default:
             mRealRadioFuncs->onRequest(request, data, datalen, t);
     }
+}
+
+static void patchMem(void *libHandle) {
+	/*
+	 * MAX_TIMEOUT is used for a call to pthread_cond_timedwait_relative_np.
+	 * The issue is bionic has switched to using absolute timeouts instead of
+	 * relative timeouts, and a maximum time value can cause an overflow in
+	 * the function converting relative to absolute timespecs if unpatched.
+	 *
+	 * By patching this to 0x01FFFFFF from 0x7FFFFFFF, the timeout should
+	 * expire in about a year rather than 68 years, and the RIL should be good
+	 * up until the year 2036 or so.
+	 */
+	uint32_t *MAX_TIMEOUT;
+
+	MAX_TIMEOUT = (uint32_t *)dlsym(libHandle, "MAX_TIMEOUT");
+	if (CC_UNLIKELY(!MAX_TIMEOUT)) {
+		RLOGE("%s: MAX_TIMEOUT could not be found!", __FUNCTION__);
+		return;
+	}
+	RLOGD("%s: MAX_TIMEOUT found at %p!", __FUNCTION__, MAX_TIMEOUT);
+	RLOGD("%s: MAX_TIMEOUT is currently 0x%" PRIX32, __FUNCTION__, *MAX_TIMEOUT);
+	if (CC_LIKELY(*MAX_TIMEOUT == 0x7FFFFFFF)) {
+		*MAX_TIMEOUT = 0x01FFFFFF;
+		RLOGI("%s: MAX_TIMEOUT was changed to 0x0%" PRIX32, __FUNCTION__, *MAX_TIMEOUT);
+	} else {
+		RLOGW("%s: MAX_TIMEOUT was not 0x7FFFFFFF; leaving alone", __FUNCTION__);
+	}
+
 }
 
 const RIL_RadioFunctions* RIL_Init(const struct RIL_Env *env, int argc, char **argv)
@@ -76,6 +110,9 @@ const RIL_RadioFunctions* RIL_Init(const struct RIL_Env *env, int argc, char **a
 	RLOGD("Calling the real RIL's entry point with %u args\n", argc);
 	for (i = 0; i < argc; i++)
 		RLOGD("  argv[%2d] = '%s'\n", i, argv[i]);
+
+	// Fix RIL issues by patching memory
+	patchMem(realRilLibHandle);
 
 	//try to init the real ril
 	mRealRadioFuncs = fRealRilInit(env, argc, argv);
