@@ -40,6 +40,10 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/i9300/bluetooth
 TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
 TARGET_KERNEL_CONFIG := cyanogenmod_i9300_defconfig
 
+# Cache
+BOARD_CACHEIMAGE_PARTITION_SIZE := 1048576
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := f2fs
+
 # Recovery
 TARGET_RECOVERY_FSTAB := device/samsung/i9300/rootdir/fstab.smdk4x12
 TARGET_RECOVERY_DENSITY := mdpi
