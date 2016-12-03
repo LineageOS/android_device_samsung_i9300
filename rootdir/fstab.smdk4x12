@@ -9,6 +9,7 @@
 /dev/block/mmcblk0p10		/preload		ext4		noatime,nosuid,nodev,journal_async_commit		wait
 /dev/block/mmcblk0p12		/data			f2fs		noatime,discard,inline_xattr,inline_data,nosuid,nodev		wait,check,encryptable=footer
 /dev/block/mmcblk0p12		/data			ext4		noatime,nosuid,nodev,noauto_da_alloc,journal_async_commit,errors=panic		wait,check,encryptable=footer
+/dev/block/platform/dw_mmc/by-name/OTA /misc emmc		defaults										defaults 
 
 # vold-managed volumes ("block device" is actually a sysfs devpath)
 /devices/platform/s3c-sdhci.2/mmc_host/mmc1*		/storage/sdcard1		auto		defaults		voldmanaged=sdcard1:auto,encryptable=userdata
