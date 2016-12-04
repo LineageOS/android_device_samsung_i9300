@@ -1,4 +1,4 @@
-system/bin/glgps
-system/lib/hw/gps.exynos4.vendor.so:system/lib/hw/gps.tegra3.so
-system/lib/libakm.so
-system/lib/libsec-ril.so
+bin/glgps
+lib/hw/gps.exynos4.vendor.so
+lib/libakm.so
+lib/libsec-ril.so
