@@ -260,13 +260,6 @@
          bucket, and scaled proportionally to the smaller buckets. 0 keeps the default. -->
     <integer name="config_lowMemoryKillerMinFreeKbytesAdjust">0</integer>
 
-
-    <!-- Disable the home key unlock setting -->
-    <!--bool name="config_disableHomeUnlockSetting">false</bool-->
-
-    <!-- Workaround for devices with broken keyboards -->
-    <!--bool name="config_forceDisableHardwareKeyboard">true</bool-->
-
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
          of the following keys present:
@@ -336,13 +329,4 @@
          format is UMTS|LTE|...
     -->
     <string translatable="false" name="config_radio_access_family">GPRS|EDGE|WCDMA</string>
-
-    <!-- Set this to true to enable the platform's auto-power-save modes like doze and
-         app standby.  These are not enabled by default because they require a standard
-         cloud-to-device messaging service for apps to interact correctly with the modes
-         (such as to be able to deliver an instant message to the device even when it is
-         dozing).  This should be enabled if you have such services and expect apps to
-         correctly use them when installed on your device.  Otherwise, keep this disabled
-         so that applications can still use their own mechanisms. -->
-    <bool name="config_enableAutoPowerModes">true</bool>
 </resources>
