@@ -157,7 +157,7 @@ static void set_power_profile(int profile) {
 
 static void boost(long boost_time) {
 #ifdef USE_PEGASUSQ_BOOSTING
-    if (is_vsync_active) return;
+    if (is_vsync_active || !check_governor()) return;
     if (boost_time == -1) {
         sysfs_write_int(PEGASUSQ_PATH "boost_lock_time", -1);
     } else {
@@ -168,7 +168,7 @@ static void boost(long boost_time) {
 
 static void end_boost() {
 #ifdef USE_PEGASUSQ_BOOSTING
-    if (is_vsync_active) return;
+    if (is_vsync_active || !check_governor()) return;
     sysfs_write_int(PEGASUSQ_PATH "boost_lock_time", 0);
 #endif
 }
