@@ -95,7 +95,7 @@ on fs
 
 on boot
 # cbd
-service cpboot-daemon /sbin/cbd -d
+service cpboot-daemon /system/bin/cbd -d
     class main
     user root
     group radio cache inet misc audio sdcard_rw log
