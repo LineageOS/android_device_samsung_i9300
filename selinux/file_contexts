@@ -6,6 +6,7 @@
 /dev/umts_ramdump0                      u:object_r:radio_device:s0
 /dev/umts_rfs0                          u:object_r:radio_device:s0
 /dev/__cbd_msg_                         u:object_r:cbd_device:s0
+/system/bin/cbd                         u:object_r:cpboot-daemon_exec:s0
 
 /efs                                    u:object_r:efs_device_file:s0
 /data/misc/radio(/.*)?                  u:object_r:radio_data:s0
