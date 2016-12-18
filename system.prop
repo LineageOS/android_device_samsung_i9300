@@ -2,6 +2,7 @@
 # system.prop for i9300
 #
 
+audio.force_wideband=true
 dalvik.vm.dexopt-data-only=1
 dalvik.vm.dex2oat-Xmx=256m
 rild.libpath=/system/lib/libsecril-shim.so
@@ -11,3 +12,4 @@ ro.lcd_min_brightness=20
 
 # EGL blobs crash on screen off
 ro.egl.destroy_after_detach=true
+
