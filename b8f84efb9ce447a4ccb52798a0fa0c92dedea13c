@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_0aa5abb5",
+        "filename": "system.prop",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 15154
+      },
+      "writtenOn": "2016-12-19T03:23:03Z",
+      "side": 1,
+      "message": "fix this white space",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 0
+      },
+      "revId": "b8f84efb9ce447a4ccb52798a0fa0c92dedea13c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
