@@ -6,6 +6,7 @@ allow init sysfs_display:lnk_file { read setattr };
 
 allow init tmpfs:lnk_file create;
 allow init sysfs_sensor:lnk_file { setattr read };
+allow init sysfs_gps:file rw_file_perms;
 
 allow init rild:process noatsecure;
 
