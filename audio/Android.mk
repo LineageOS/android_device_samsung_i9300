@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+ifeq ($(TARGET_AUDIOHAL_VARIANT),legacy)
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -31,3 +31,4 @@ LOCAL_C_INCLUDES += \
 LOCAL_SHARED_LIBRARIES := liblog libcutils libtinyalsa libaudioutils libdl libexpat
 
 include $(BUILD_SHARED_LIBRARY)
+endif
