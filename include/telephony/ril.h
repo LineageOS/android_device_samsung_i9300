@@ -803,6 +803,7 @@ typedef enum {
 typedef struct {
   RIL_LastCallFailCause cause_code;
   char *                vendor_cause;
+  int                   reserved;
 } RIL_LastCallFailCauseInfo;
 
 /* See RIL_REQUEST_LAST_DATA_CALL_FAIL_CAUSE */
