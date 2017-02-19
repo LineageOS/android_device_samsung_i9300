@@ -340,7 +340,7 @@ static void power_hint(__attribute__((unused)) struct power_module *module, powe
 
     switch (hint) {
         case POWER_HINT_INTERACTION:
-        case POWER_HINT_LAUNCH_BOOST:
+        case POWER_HINT_LAUNCH:
             ALOGV("%s: interaction/launch", __func__);
             boost(profiles[current_power_profile].interaction_boost_time);
             break;
