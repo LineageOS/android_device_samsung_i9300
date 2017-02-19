@@ -56,6 +56,7 @@ typedef struct governor_settings {
     int boost_freq;
     int boost_mincpus;
     long interaction_boost_time;
+    long launch_boost_time;
 } power_profile;
 
 static power_profile profiles[PROFILE_MAX] = {
@@ -85,6 +86,7 @@ static power_profile profiles[PROFILE_MAX] = {
         .boost_freq = 0,
         .boost_mincpus = 0,
         .interaction_boost_time = 0,
+        .launch_boost_time = 0,
     },
     [PROFILE_BALANCED] = {
         .hotplug_freq_1_1 = 500000,
@@ -111,6 +113,7 @@ static power_profile profiles[PROFILE_MAX] = {
         .boost_freq = 700000,
         .boost_mincpus = 0,
         .interaction_boost_time = 60 * (MS_TO_NS),
+        .launch_boost_time = 2000 * (MS_TO_NS),
     },
     [PROFILE_PERFORMANCE] = {
         .hotplug_freq_1_1 = 500000,
@@ -137,6 +140,7 @@ static power_profile profiles[PROFILE_MAX] = {
         .boost_freq = 900000,
         .boost_mincpus = 2,
         .interaction_boost_time = 90 * (MS_TO_NS),
+        .launch_boost_time = 3000 * (MS_TO_NS),
     },
 };
 
@@ -168,6 +172,7 @@ static power_profile profiles_low_power[PROFILE_MAX] = {
         .boost_freq = 0,
         .boost_mincpus = 0,
         .interaction_boost_time = 0,
+        .launch_boost_time = 0,
     },
     [PROFILE_BALANCED] = {
         .hotplug_freq_1_1 = 700000,
@@ -194,6 +199,7 @@ static power_profile profiles_low_power[PROFILE_MAX] = {
         .boost_freq = 0,
         .boost_mincpus = 0,
         .interaction_boost_time = 0,
+        .launch_boost_time = 0,
     },
     [PROFILE_PERFORMANCE] = {
         .hotplug_freq_1_1 = 800000,
@@ -220,6 +226,7 @@ static power_profile profiles_low_power[PROFILE_MAX] = {
         .boost_freq = 0,
         .boost_mincpus = 0,
         .interaction_boost_time = 0,
+        .launch_boost_time = 0,
     },
 };
 
