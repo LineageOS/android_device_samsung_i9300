@@ -1,4 +1,4 @@
 bin/glgps
 lib/hw/gps.exynos4.vendor.so
 lib/libakm.so
-lib/libsec-ril.so
+lib/libsec-ril.so|34d3ae97a58588be093a34febd6b4a79e9f31fab
