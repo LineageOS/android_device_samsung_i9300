@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a51691d_ed229600",
+        "filename": "power/power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 11604
+      },
+      "writtenOn": "2017-04-10T13:00:03Z",
+      "side": 1,
+      "message": "should handle the else {} case here eventually (although i\u0027m not sure if val \u003d\u003d 0 is ever true)",
+      "revId": "fb1947cc9f3e2eef6e9f9e05c73e913ab8e93830",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
