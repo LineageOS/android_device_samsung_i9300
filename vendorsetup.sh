@@ -1,0 +1,3 @@
+add_lunch_combo hexagon_i9300-user
+add_lunch_combo hexagon_i9300-userdebug
+add_lunch_combo hexagon_i9300-eng
