@@ -13,3 +13,5 @@ ro.lcd_min_brightness=20
 
 # EGL blobs crash on screen off
 ro.egl.destroy_after_detach=true
+#OTA
+hex.updater.uri=https://raw.githubusercontent.com/HexagonRom/HexUpdate_API/hex-7.1/i9300.json
