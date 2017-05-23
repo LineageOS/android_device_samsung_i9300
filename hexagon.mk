@@ -1,23 +1,27 @@
 # Release name
 PRODUCT_RELEASE_NAME := i9300
 
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
+# Specify phone tech before including full_phone
+$(call inherit-product, vendor/hexagon/configs/telephony.mk)
+
+# Inherit some common Hexagon stuff.
+$(call inherit-product, vendor/hexagon/configs/common.mk)
+
 # Inherit device configuration
 $(call inherit-product, device/samsung/smdk4412-common/common.mk)
 $(call inherit-product, device/samsung/i9300/i9300.mk)
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
-
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
-
-# Inherit some common stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+-include vendor/hexagon/configs/bootanimation.mk
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := i9300
-PRODUCT_NAME := lineage_i9300
+PRODUCT_NAME := hexagon_i9300
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := GT-I9300
 PRODUCT_MANUFACTURER := samsung
