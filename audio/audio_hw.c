@@ -361,8 +361,8 @@ static int start_call(struct m0_audio_device *adev)
     bt_on = adev->out_device & AUDIO_DEVICE_OUT_ALL_SCO;
 
     if (bt_on) {
-       /* use amr-nb for bluetooth */
-       pcm_config_vx.rate = VX_NB_SAMPLING_RATE;
+       /* use amr-wb for bluetooth */
+       pcm_config_vx.rate = VX_WB_SAMPLING_RATE;
     } else {
        pcm_config_vx.rate = adev->wb_amr ? VX_WB_SAMPLING_RATE : VX_NB_SAMPLING_RATE;
     }
