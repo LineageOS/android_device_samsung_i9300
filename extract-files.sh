@@ -21,8 +21,10 @@ DEVICE=i9300
 
 mkdir -p ../../../vendor/$VENDOR/$DEVICE/proprietary
 
-adb root
-adb wait-for-device
+if [ $# -eq 0 ]; then
+    adb root
+    adb wait-for-device
+fi
 
 echo "Pulling proprietary files..."
 for FILE in `cat proprietary-files.txt | grep -v ^# | grep -v ^$`; do
@@ -35,7 +37,11 @@ for FILE in `cat proprietary-files.txt | grep -v ^# | grep -v ^$`; do
     if [ ! -d ../../../vendor/$VENDOR/$DEVICE/proprietary/$DIR ]; then
         mkdir -p ../../../vendor/$VENDOR/$DEVICE/proprietary/$DIR
     fi
-    adb pull /$FILE ../../../vendor/$VENDOR/$DEVICE/proprietary/$DEST
+    if [ $# -eq 0 ]; then
+        adb pull /$FILE ../../../vendor/$VENDOR/$DEVICE/proprietary/$DEST
+    else
+        cp $1/$FILE ../../../vendor/$VENDOR/$DEVICE/proprietary/$DEST
+    fi
 done
 
 
@@ -112,4 +118,4 @@ EOF
 
 EOF
 
-./../../../device/samsung/smdk4412-common/extract-files.sh
+./../../../device/samsung/smdk4412-common/extract-files.sh $@
